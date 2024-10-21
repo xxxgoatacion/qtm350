@@ -1743,7 +1743,7 @@ Danilo Freire
 <li>In Python, we export packages with the <code>import</code> command.</li>
 <li>It is also common to use <a href="https://www.datacamp.com/tutorial/modules-in-python">aliases</a> to make the code shorter and more readable. Numpy’s is <code>np</code></li>
 </ul>
-<div id="e4633dfe" class="cell" data-execution_count="1">
+<div id="88f7c194" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href></a><span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1768,17 +1768,17 @@ Danilo Freire
 <ul>
 <li>A numpy array is sort of like a list, but with more functionality</li>
 </ul>
-<div id="812f3091" class="cell" data-execution_count="2">
+<div id="f50336ec" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb3-2"><a href></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="134">
+<div class="cell-output cell-output-display" data-execution_count="362">
 <pre><code>[1, 2, 3, 4, 5]</code></pre>
 </div>
 </div>
-<div id="9e1b0d9a" class="cell" data-execution_count="3">
+<div id="83d335f9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a>my_array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb5-2"><a href></a>my_array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="135">
+<div class="cell-output cell-output-display" data-execution_count="363">
 <pre><code>array([1, 2, 3, 4, 5])</code></pre>
 </div>
 </div>
@@ -1786,17 +1786,17 @@ Danilo Freire
 <li><p>But it has the type <code>numpy.ndarray</code></p></li>
 <li><p>Unlike a list, arrays can only hold a single type (usually numbers). Check this out</p></li>
 </ul>
-<div id="b55fd01c" class="cell" data-execution_count="4">
+<div id="9b41cbb7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;hi&quot;</span>]</span>
 <span id="cb7-2"><a href></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="136">
+<div class="cell-output cell-output-display" data-execution_count="364">
 <pre><code>[1, &#39;hi&#39;]</code></pre>
 </div>
 </div>
-<div id="c923e6c4" class="cell" data-execution_count="5">
+<div id="7af87bfc" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href></a>my_array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="st">&quot;hi&quot;</span>])</span>
 <span id="cb9-2"><a href></a>my_array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="137">
+<div class="cell-output cell-output-display" data-execution_count="365">
 <pre><code>array([&#39;1&#39;, &#39;hi&#39;], dtype=&#39;&lt;U21&#39;)</code></pre>
 </div>
 </div>
@@ -1812,31 +1812,31 @@ Danilo Freire
 </ul></li>
 <li>Let’s see some examples</li>
 </ul>
-<div id="5ead94ed" class="cell" data-execution_count="6">
+<div id="63f9d07d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb11-2"><a href></a>np.array(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="138">
+<div class="cell-output cell-output-display" data-execution_count="366">
 <pre><code>array([1, 2, 3])</code></pre>
 </div>
 </div>
-<div id="f5b9f919" class="cell" data-execution_count="7">
+<div id="820513d0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href></a>np.arange(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">2</span>)  <span class="co"># from 1 inclusive to 10 exclusive, step 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="139">
+<div class="cell-output cell-output-display" data-execution_count="367">
 <pre><code>array([1, 3, 5, 7, 9])</code></pre>
 </div>
 </div>
-<div id="b7c1a677" class="cell" data-execution_count="8">
+<div id="9e91ff55" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href></a>np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>) <span class="co"># from 0 to 10, 5 numbers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="140">
+<div class="cell-output cell-output-display" data-execution_count="368">
 <pre><code>array([ 0. ,  2.5,  5. ,  7.5, 10. ])</code></pre>
 </div>
 </div>
 <ul>
 <li>You can have multi-dimensional arrays (indicated by double square brackets <code>[[ ]]</code>):</li>
 </ul>
-<div id="79947449" class="cell" data-execution_count="9">
+<div id="afdf8d9f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href></a>np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="141">
+<div class="cell-output cell-output-display" data-execution_count="369">
 <pre><code>array([[1, 2, 3],
        [4, 5, 6]])</code></pre>
 </div>
@@ -1853,32 +1853,32 @@ Danilo Freire
 <li>Arrays can be used in <span class="alert">arithmetic operations</span>, such as addition, subtraction, multiplication, and division</li>
 <li>These operations are performed element-wise, meaning that <span class="alert">the operation is applied to each element in the array</span></li>
 </ul>
-<div id="3fa74223" class="cell" data-execution_count="10">
+<div id="b9774649" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb19-2"><a href></a>b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
 <span id="cb19-3"><a href></a>a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="142">
+<div class="cell-output cell-output-display" data-execution_count="370">
 <pre><code>array([5, 7, 9])</code></pre>
 </div>
 </div>
-<div id="6aea21dd" class="cell" data-execution_count="11">
+<div id="a4034ec9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href></a>a <span class="op">*</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="143">
+<div class="cell-output cell-output-display" data-execution_count="371">
 <pre><code>array([ 4, 10, 18])</code></pre>
 </div>
 </div>
 <ul>
 <li>You can also apply functions to arrays, such as <code>np.sqrt()</code>, <code>np.exp()</code>, <code>np.log()</code>, <code>np.sin()</code>, <code>np.cos()</code>, <code>np.tan()</code>, etc. Please check the <a href="https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods">documentation</a> for more information</li>
 </ul>
-<div id="f2d6ec9a" class="cell" data-execution_count="12">
+<div id="f0733d32" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href></a>np.sqrt(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="144">
+<div class="cell-output cell-output-display" data-execution_count="372">
 <pre><code>array([1.        , 1.41421356, 1.73205081])</code></pre>
 </div>
 </div>
-<div id="784d75de" class="cell" data-execution_count="13">
+<div id="10785ac7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href></a>np.exp(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="145">
+<div class="cell-output cell-output-display" data-execution_count="373">
 <pre><code>array([ 2.71828183,  7.3890561 , 20.08553692])</code></pre>
 </div>
 </div>
@@ -1887,15 +1887,15 @@ Danilo Freire
 <li>You can also apply logical operations to arrays, such as <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, etc.</li>
 <li>These operations return boolean arrays</li>
 </ul>
-<div id="0980baae" class="cell" data-execution_count="14">
+<div id="59d2acd9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href></a>a <span class="op">==</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="146">
+<div class="cell-output cell-output-display" data-execution_count="374">
 <pre><code>array([False, False, False])</code></pre>
 </div>
 </div>
-<div id="64242b60" class="cell" data-execution_count="15">
+<div id="76884d4e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href></a>a <span class="op">&lt;</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="147">
+<div class="cell-output cell-output-display" data-execution_count="375">
 <pre><code>array([ True,  True,  True])</code></pre>
 </div>
 </div>
@@ -1905,21 +1905,21 @@ Danilo Freire
 <li>A dot “.” basically means “in here”</li>
 </ul></li>
 </ul>
-<div id="7d789eef" class="cell" data-execution_count="16">
+<div id="cde80a09" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href></a>a.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="148">
+<div class="cell-output cell-output-display" data-execution_count="376">
 <pre><code>6</code></pre>
 </div>
 </div>
-<div id="bb59ec45" class="cell" data-execution_count="17">
+<div id="d6e04a4e" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href></a>a.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="149">
+<div class="cell-output cell-output-display" data-execution_count="377">
 <pre><code>2.0</code></pre>
 </div>
 </div>
-<div id="c19e1f0d" class="cell" data-execution_count="18">
+<div id="9e477b7f" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href></a>a.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="150">
+<div class="cell-output cell-output-display" data-execution_count="378">
 <pre><code>3</code></pre>
 </div>
 </div>
@@ -1937,7 +1937,7 @@ Danilo Freire
 <li>So it substitues <code>for</code> loops in many cases! 😅</li>
 <li>One example is adding a scalar to an array</li>
 </ul>
-<div id="7aef24c8" class="cell" data-execution_count="19">
+<div id="4ac467ab" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href></a>cost <span class="op">=</span> np.array([<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">25</span>])</span>
 <span id="cb37-2"><a href></a><span class="bu">print</span>(<span class="st">&quot;Pie cost:&quot;</span>)</span>
 <span id="cb37-3"><a href></a><span class="bu">print</span>(cost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1946,7 +1946,7 @@ Danilo Freire
 [20 15 25]</code></pre>
 </div>
 </div>
-<div id="76d35213" class="cell" data-execution_count="20">
+<div id="aba0b7db" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href></a>sales <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>], [<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">3</span>], [<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>]])</span>
 <span id="cb39-2"><a href></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Pie sales (#):&quot;</span>)</span>
 <span id="cb39-3"><a href></a><span class="bu">print</span>(sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1967,10 +1967,10 @@ Pie sales (#):
 <li>We can broadcast the cost array to the sales array</li>
 <li>We will use the <code>np.repeat()</code> function to do this</li>
 </ul>
-<div id="00515aa2" class="cell" data-execution_count="21">
+<div id="94602339" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href></a>cost <span class="op">=</span> np.repeat(cost, <span class="dv">3</span>).reshape((<span class="dv">3</span>, <span class="dv">3</span>))</span>
 <span id="cb41-2"><a href></a>cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="153">
+<div class="cell-output cell-output-display" data-execution_count="381">
 <pre><code>array([[20, 20, 20],
        [15, 15, 15],
        [25, 25, 25]])</code></pre>
@@ -1979,10 +1979,10 @@ Pie sales (#):
 <ul>
 <li>Now we can calculate the total sales</li>
 </ul>
-<div id="0080fd4f" class="cell" data-execution_count="22">
+<div id="5d8979a1" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href></a>total_sales <span class="op">=</span> cost <span class="op">*</span> sales</span>
 <span id="cb43-2"><a href></a>total_sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="154">
+<div class="cell-output cell-output-display" data-execution_count="382">
 <pre><code>array([[ 40,  60,  20],
        [ 90,  45,  45],
        [125,  75, 125]])</code></pre>
@@ -2005,40 +2005,40 @@ Pie sales (#):
 <li>We use square brackets <code>[]</code> to index arrays</li>
 <li>Colons <code>:</code> are used to slice arrays</li>
 </ul>
-<div id="f657e5b5" class="cell" data-execution_count="23">
+<div id="b7f89d83" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href></a>x <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
 <span id="cb45-2"><a href></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="155">
+<div class="cell-output cell-output-display" data-execution_count="383">
 <pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 </div>
 </div>
-<div id="d9b81254" class="cell" data-execution_count="24">
+<div id="302c0c5f" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href></a>x[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="156">
+<div class="cell-output cell-output-display" data-execution_count="384">
 <pre><code>3</code></pre>
 </div>
 </div>
-<div id="685bebd6" class="cell" data-execution_count="25">
+<div id="77ed8cc6" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href></a>x[<span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="157">
+<div class="cell-output cell-output-display" data-execution_count="385">
 <pre><code>array([2, 3, 4])</code></pre>
 </div>
 </div>
-<div id="0a2c7558" class="cell" data-execution_count="26">
+<div id="127db656" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href></a>x[<span class="dv">2</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="158">
+<div class="cell-output cell-output-display" data-execution_count="386">
 <pre><code>array([2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 </div>
 </div>
-<div id="8ba4a397" class="cell" data-execution_count="27">
+<div id="c6f30000" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href></a>x[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="159">
+<div class="cell-output cell-output-display" data-execution_count="387">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="d26806df" class="cell" data-execution_count="28">
+<div id="f763da0e" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href></a>x[<span class="dv">5</span>:<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="co"># reverse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="160">
+<div class="cell-output cell-output-display" data-execution_count="388">
 <pre><code>array([5, 4, 3, 2, 1])</code></pre>
 </div>
 </div>
@@ -2048,39 +2048,39 @@ Pie sales (#):
 <li>For multi-dimensional arrays, we use commas to separate the indices</li>
 <li>The first index refers to the row, the second to the column, and so on</li>
 </ul>
-<div id="497f5b25" class="cell" data-execution_count="29">
+<div id="e76004f3" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href></a>x <span class="op">=</span> np.random.randint(<span class="dv">10</span>, size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span>
 <span id="cb57-2"><a href></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="161">
-<pre><code>array([[2, 2, 2, 8, 4, 0],
-       [6, 6, 5, 8, 4, 5],
-       [6, 2, 7, 3, 6, 6],
-       [6, 8, 1, 0, 2, 7]])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="389">
+<pre><code>array([[8, 3, 2, 4, 0, 4],
+       [0, 2, 0, 4, 7, 9],
+       [9, 4, 7, 2, 6, 3],
+       [3, 8, 2, 5, 3, 6]])</code></pre>
 </div>
 </div>
-<div id="54aa2ad2" class="cell" data-execution_count="30">
+<div id="19b7c7f8" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href></a>x[<span class="dv">3</span>, <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="162">
-<pre><code>2</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="390">
+<pre><code>3</code></pre>
 </div>
 </div>
-<div id="b1de11f6" class="cell" data-execution_count="31">
+<div id="be0971c3" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href></a>x[<span class="dv">2</span>, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="163">
-<pre><code>array([6, 2, 7, 3, 6, 6])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="391">
+<pre><code>array([9, 4, 7, 2, 6, 3])</code></pre>
 </div>
 </div>
-<div id="50ef0a01" class="cell" data-execution_count="32">
+<div id="c135e13b" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href></a>x[:, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="164">
-<pre><code>array([8, 8, 3, 0])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="392">
+<pre><code>array([4, 4, 2, 5])</code></pre>
 </div>
 </div>
-<div id="8b8ca23f" class="cell" data-execution_count="33">
+<div id="9f60cf69" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href></a>x[<span class="dv">2</span>:, :<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="165">
-<pre><code>array([[6, 2, 7],
-       [6, 8, 1]])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="393">
+<pre><code>array([[9, 4, 7],
+       [3, 8, 2]])</code></pre>
 </div>
 </div>
 </div></div>
@@ -2115,11 +2115,11 @@ Pie sales (#):
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img role="img" data-src="data:image/png;base64,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ARIgARIggdggQAU4NqiyTBIgARIgARIgARIgAbclQAXYbbuGFSMBEiABEiABEiABEogNAlSAY4MqyyQBEiABEiABEiABEnBbAlSA3bZrWDESIAESIAESIAESIIHYIEAFODaoskwSIAESIAESIAESIAG3JUAF2G27hhUjARIgARIgARIgARKIDQJUgGODKsskARIgARIgARIgARJwWwJUgN22a1gxEiABEiABEiABEiCB2CBABTg2qLJMEiABEiABEiABEiABtyVABdhtu4YVIwESIAESIAESIAESiA0CVIBjgyrLJAESIAESIAESIAEScFsCVIDdtmtYMRIgARIgARIgARIggdggQAU4NqiyTBIgARIgARIgARIgAbclQAXYbbuGFSMBEiABEiABEiABEogNAj6uFNq7d29XsjGPhQkMGTLElK2nbJuy2+K00pTtOMXNh8UhAcp2HMLmo+KUgCuy7ZICLLVu06ZNnFbenR82efJkDC/R152rGKd167FrcJw+L6YfRtkOJUrZDmUhZ5RtIw8zxyjbxt6jbBt5mDlG2Tb2nquyTRMIIzfGSIAESIAESIAESIAEPJwAFWAP72A2jwRIgARIgARIgARIwEiACrCRB2MkQAIkQAIkQAIkQAIeToAKsId3MJtHAiRAAiRAAiRAAiRgJEAF2MiDMRIgARIgARIgARIgAQ8nQAXYwzuYzSMBEiABEiABEiABEjASoAJs5MEYCZAACZAACZAACZCAhxOgAuzhHczmkQAJkAAJkAAJkAAJGAlQATbyYIwESIAESIAESIAESMDDCVAB9vAOZvNIgARIgARIgARIgASMBKgAG3kwRgIkQAIkQAIkQAIk4OEEqAB7eAezeSRAAiRAAiRAAiRAAkYCPsboi8eOHTuGs2fPInPmzChUqJAqMCgoCIcPH4aXlxfy5cuHVKlSGR60Y8cOPHjwACVLlkTixInVtcDAQJw8edKeL0GCBMiSJYv62RMdTsLmd7iEvHnz4t69ezhy5Ah8fHxQqlQpJEmSxJ7l9OnTOH78OPz8/FC+fHl7ekye2G5cAi4GhBaptQfps8Mr7UuhaRGc2Y5tg+1WIODtA6+8peGVPI0hp+34TuDBPUNa2IhXzleAJCntyVGVac/IEzsByrYdheGEsm3AYcoIZdt5t1G2nXMxUypl23lvUbaBGFeAP//8cxw9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IAESIAEScFMCVIDdtGNYLRIgARIgARIgARIggdghQAU4driyVBIgARIgARIgARIgATclQAXYTTuG1SIBEiABEiABEiABEogdAlSAY4crSyUBEiABEiABEiABEnBTAlSA3bRjWC0SIAESIAESIAESIIHYIeDyTnCDBg2KnRqYtNSLMwebtOasdlgClG0jEcq2kYeZY5RtY+9Rto08zByjbBt7j7Jt5OFKzGUFuH///q6UZ4k88oeXuWnMbW9pdmhm/8OjbIdKIGU7lIWcUbaNPMwco2wbe4+ybeRh5hhl29h7rso2TSCM3BgjARIgARIgARIgARLwcAJUgD28g9k8EiABEiABEiABEiABIwEqwEYejJEACZAACZAACZAACXg4ASrAHt7BbB4JkAAJkAAJkAAJkICRABVgIw/GSIAESIAESIAESIAEPJwAFWAP72A2jwRIgARIgARIgARIwEiACrCRB2MkQAIkQAIkQAIkQAIeToAKsId3MJtHAiRAAiRAAiRAAiRgJEAF2MiDMRIgARIgARIgARIgAQ8nQAXYwzuYzSMBEiABEiABEiABEjASoAJs5MEYCZAACZAACZAACZCAhxOgAuzhHczmkQAJkAAJkAAJPB+Ba9eu4eTJk893M+9yawI+bl27MJXz9/fHkSNHULt2bSRNmjTMVWtE798NwvnDe+2N9UmYCGlfyoVkadLb03hiDgJBQUHYuze0L319fZErVy5kyJDBHA2IhVqKfAdsXYega5eQOlN25CpeDomTpYyFJ7HIuCLAcTuUdODpAASeOoYMOfMhXY68oRd4FuMEwo6v+gMSJUqEMmXK6NEoj++//z7WrFmDU6dOIVWqVFHmjyxDVH8LNpsNW7ZswdGjR1UxxYsXR9GiRSMrMs6vuTpG3wu6gYDt63H72mWkSJ8FeUpWhF+K1HFe38geaAoFODg4GAMGDMDEiRPx+PFjLF++HOXKlYusXR57bfWE4fh38qhw7StWtS6af/M7fJMkC3eNCe5JYNiwYRg5cmS4ytWrVw9jx4613Eve2imjsHL8cNzTlGA9pEqXAS2+/R15S1fRk3g0CQGO2+E7asKnzXD5zAlkzpUPn83eGj4DU2KMQETja4IECXD9+vVoP0eU0+cNrvwtnD17Fu+88w4OHz5seEzdunUxbdo0SL3jO7g6Rq+ZNAL/aLrKg+C79iqn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"></p>
-<div id="f14c4114" class="cell" data-execution_count="34">
+<div id="9ce9a5b4" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb67-2"><a href></a></span>
 <span id="cb67-3"><a href></a>pd.Series(data <span class="op">=</span> [<span class="op">-</span><span class="dv">5</span>, <span class="fl">1.3</span>, <span class="dv">21</span>, <span class="dv">6</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="166">
+<div class="cell-output cell-output-display" data-execution_count="394">
 <pre><code>0    -5.0
 1     1.3
 2    21.0
@@ -2134,10 +2134,10 @@ dtype: float64</code></pre>
 <li>If you don’t specify an index, Pandas will create one for you</li>
 <li>But you can add a custom index:</li>
 </ul>
-<div id="e7088122" class="cell" data-execution_count="35">
+<div id="4659b0a5" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href></a>pd.Series(data <span class="op">=</span> [<span class="op">-</span><span class="dv">5</span>, <span class="fl">1.3</span>, <span class="dv">21</span>, <span class="dv">6</span>, <span class="dv">3</span>],</span>
 <span id="cb69-2"><a href></a>          index <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="167">
+<div class="cell-output cell-output-display" data-execution_count="395">
 <pre><code>a    -5.0
 b     1.3
 c    21.0
@@ -2149,9 +2149,9 @@ dtype: float64</code></pre>
 <ul>
 <li>You can create a Series from a dictionary:</li>
 </ul>
-<div id="006a554b" class="cell" data-execution_count="36">
+<div id="b4c9e7c0" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href></a>pd.Series(data <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">10</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">20</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">30</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="168">
+<div class="cell-output cell-output-display" data-execution_count="396">
 <pre><code>a    10
 b    20
 c    30
@@ -2171,11 +2171,11 @@ dtype: int64</code></pre>
 <li>In fact, series can be passed to most NumPy functions!</li>
 <li>They can be indexed using square brackets <code>[ ]</code> and sliced using colon <code>:</code> notation:</li>
 </ul>
-<div id="3a983910" class="cell" data-execution_count="37">
+<div id="c50012c1" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href></a>s <span class="op">=</span> pd.Series(data <span class="op">=</span> <span class="bu">range</span>(<span class="dv">5</span>),</span>
 <span id="cb73-2"><a href></a>              index <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;E&#39;</span>])</span>
 <span id="cb73-3"><a href></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="169">
+<div class="cell-output cell-output-display" data-execution_count="397">
 <pre><code>A    0
 B    1
 C    2
@@ -2184,21 +2184,21 @@ E    4
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="dbdf12f6" class="cell" data-execution_count="38">
+<div id="05d3ea81" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href></a>s[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="170">
+<div class="cell-output cell-output-display" data-execution_count="398">
 <pre><code>0</code></pre>
 </div>
 </div>
-<div id="5bed64ea" class="cell" data-execution_count="39">
+<div id="018f94b0" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href></a>s[<span class="st">&#39;A&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="171">
+<div class="cell-output cell-output-display" data-execution_count="399">
 <pre><code>0</code></pre>
 </div>
 </div>
-<div id="5d4bce33" class="cell" data-execution_count="40">
+<div id="05c96bbc" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href></a>s[[<span class="st">&quot;B&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;C&quot;</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="172">
+<div class="cell-output cell-output-display" data-execution_count="400">
 <pre><code>B    1
 D    3
 C    2
@@ -2210,9 +2210,9 @@ dtype: int64</code></pre>
 <li>Note above how array-based indexing and slicing also returns the series index</li>
 <li>Finally, we can also do boolean indexing with series</li>
 </ul>
-<div id="67aa9110" class="cell" data-execution_count="41">
+<div id="5207e0c5" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href></a>s[s <span class="op">&gt;=</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="173">
+<div class="cell-output cell-output-display" data-execution_count="401">
 <pre><code>B    1
 C    2
 D    3
@@ -2220,17 +2220,17 @@ E    4
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="481d9e94" class="cell" data-execution_count="42">
+<div id="57664d22" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href></a>s[s <span class="op">&gt;</span> s.mean()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="174">
+<div class="cell-output cell-output-display" data-execution_count="402">
 <pre><code>D    3
 E    4
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="b21d7303" class="cell" data-execution_count="43">
+<div id="20dd9741" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href></a>(s <span class="op">!=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="175">
+<div class="cell-output cell-output-display" data-execution_count="403">
 <pre><code>A     True
 B    False
 C     True
@@ -2252,11 +2252,11 @@ dtype: bool</code></pre>
 <li>Unlike <code>ndarrays</code>, operations between Series <span class="alert">align values based on their LABELS</span> (not their position in the structure)</li>
 <li>The resulting index will be the sorted union of the two indexes</li>
 </ul>
-<div id="c0a0388e" class="cell" data-execution_count="44">
+<div id="90fcca7d" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href></a>s1 <span class="op">=</span> pd.Series(data <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>),</span>
 <span id="cb87-2"><a href></a>               index <span class="op">=</span> [<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>])</span>
 <span id="cb87-3"><a href></a>s1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="176">
+<div class="cell-output cell-output-display" data-execution_count="404">
 <pre><code>A    0
 B    1
 C    2
@@ -2264,11 +2264,11 @@ D    3
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="ad246047" class="cell" data-execution_count="45">
+<div id="e34a0d8f" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href></a>s2 <span class="op">=</span> pd.Series(data <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">14</span>),</span>
 <span id="cb89-2"><a href></a>               index <span class="op">=</span> [<span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>])</span>
 <span id="cb89-3"><a href></a>s2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="177">
+<div class="cell-output cell-output-display" data-execution_count="405">
 <pre><code>B    10
 C    11
 D    12
@@ -2276,9 +2276,9 @@ E    13
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="6cb34d77" class="cell" data-execution_count="46">
+<div id="55b48e69" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href></a>s1 <span class="op">+</span> s2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="178">
+<div class="cell-output cell-output-display" data-execution_count="406">
 <pre><code>A     NaN
 B    11.0
 C    13.0
@@ -2293,9 +2293,9 @@ dtype: float64</code></pre>
 <li>Indices that don’t match will appear in the product but with NaN values</li>
 <li>NumPy also accepts series as an argument to most functions because series are built off numpy arrays</li>
 </ul>
-<div id="687e66e2" class="cell" data-execution_count="47">
+<div id="7717a7c0" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href></a>np.exp(s1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="179">
+<div class="cell-output cell-output-display" data-execution_count="407">
 <pre><code>A     1.000000
 B     2.718282
 C     7.389056
@@ -2326,11 +2326,11 @@ dtype: float64</code></pre>
 <ul>
 <li>Dataframes can be created using <code>pd.DataFrame()</code> (note the capital “D” and “F”)</li>
 </ul>
-<div id="6fbcb7af" class="cell" data-execution_count="48">
+<div id="90486b6d" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href></a>pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb95-2"><a href></a>              [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
 <span id="cb95-3"><a href></a>              [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="180">
+<div class="cell-output cell-output-display" data-execution_count="408">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2381,13 +2381,13 @@ text-align: right;
 <ul>
 <li>We can use the <code>index</code> and <code>columns</code> arguments to give them labels:</li>
 </ul>
-<div id="a351048f" class="cell" data-execution_count="49">
+<div id="dfdc8210" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href></a>pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb96-2"><a href></a>              [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
 <span id="cb96-3"><a href></a>              [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]],</span>
 <span id="cb96-4"><a href></a>             index <span class="op">=</span> [<span class="st">&quot;R1&quot;</span>, <span class="st">&quot;R2&quot;</span>, <span class="st">&quot;R3&quot;</span>],</span>
 <span id="cb96-5"><a href></a>             columns <span class="op">=</span> [<span class="st">&quot;C1&quot;</span>, <span class="st">&quot;C2&quot;</span>, <span class="st">&quot;C3&quot;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="181">
+<div class="cell-output cell-output-display" data-execution_count="409">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2447,11 +2447,11 @@ text-align: right;
 <li>DataFrames can be created from dictionaries, lists, NumPy arrays, and Series</li>
 <li>It is common to create DataFrames from dictionaries, where the keys are the column names and the values are the data</li>
 </ul>
-<div id="3afcd617" class="cell" data-execution_count="50">
+<div id="8a4ea321" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href></a>pd.DataFrame({<span class="st">&quot;C1&quot;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb97-2"><a href></a>              <span class="st">&quot;C2&quot;</span>: [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>]},</span>
 <span id="cb97-3"><a href></a>             index<span class="op">=</span>[<span class="st">&quot;R1&quot;</span>, <span class="st">&quot;R2&quot;</span>, <span class="st">&quot;R3&quot;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="182">
+<div class="cell-output cell-output-display" data-execution_count="410">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2501,10 +2501,10 @@ text-align: right;
 <li>You can also create a <code>DataFrame</code> from an Excel file using <code>pd.read_excel()</code></li>
 <li>Pandas can read from many other sources, such as SQL databases (as we will see in this course), JSON files, and even HTML tables</li>
 </ul>
-<div id="60c6d1c2" class="cell" data-execution_count="51">
+<div id="7712f5f4" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href></a>df <span class="op">=</span> pd.read_csv(<span class="st">&quot;data/iris.csv&quot;</span>)</span>
 <span id="cb98-2"><a href></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="183">
+<div class="cell-output cell-output-display" data-execution_count="411">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2579,6 +2579,46 @@ text-align: right;
 </div></div>
 </div>
 </section>
+<section id="creating-dataframes---cheat-sheet" class="slide level2">
+<h2>Creating DataFrames - Cheat Sheet</h2>
+<div style="margin-top: 30px; font-size: 24px;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="alert">Create DataFrame from</span></th>
+<th><span class="alert">Code</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lists of lists</td>
+<td><code>pd.DataFrame([[&#39;Danilo&#39;, 7], [&#39;Maria&#39;, 15], [&#39;Lucas&#39;, 3]])</code></td>
+</tr>
+<tr class="even">
+<td>ndarray</td>
+<td><code>pd.DataFrame(np.array([[&#39;Danilo&#39;, 7], [&#39;Maria&#39;, 15], [&#39;Lucas&#39;, 3]]))</code></td>
+</tr>
+<tr class="odd">
+<td>Dictionary</td>
+<td><code>pd.DataFrame({&quot;Name&quot;: [&#39;Danilo&#39;, &#39;Maria&#39;, &#39;Lucas&#39;], &quot;Number&quot;: [7, 15, 3]})</code></td>
+</tr>
+<tr class="even">
+<td>List of tuples</td>
+<td><code>pd.DataFrame(zip([&#39;Danilo&#39;, &#39;Maria&#39;, &#39;Lucas&#39;], [7, 15, 3]))</code></td>
+</tr>
+<tr class="odd">
+<td>Series</td>
+<td><code>pd.DataFrame({&quot;Name&quot;: pd.Series([&#39;Danilo&#39;, &#39;Maria&#39;, &#39;Lucas&#39;]), &quot;Number&quot;: pd.Series([7, 15, 3])})</code></td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe">Pandas documentation</a> for more</p>
+</div>
+</section>
 <section id="indexing-and-slicing-dataframes" class="slide level2">
 <h2>Indexing and slicing DataFrames</h2>
 <div style="margin-top: 30px; font-size: 20px;">
@@ -2590,12 +2630,12 @@ text-align: right;
 <li>Using square brackets <code>[ ]</code>, <code>.loc[]</code>, <code>.iloc[]</code>, Boolean indices, and <code>.query()</code></li>
 </ul></li>
 </ul>
-<div id="e8e6648a" class="cell" data-execution_count="52">
+<div id="2dbcf1c2" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;Name&quot;</span>: [<span class="st">&quot;Danilo&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Lucas&quot;</span>],</span>
 <span id="cb99-2"><a href></a>                   <span class="st">&quot;Language&quot;</span>: [<span class="st">&quot;Python&quot;</span>, <span class="st">&quot;Python&quot;</span>, <span class="st">&quot;R&quot;</span>],</span>
 <span id="cb99-3"><a href></a>                   <span class="st">&quot;Courses&quot;</span>: [<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>]})</span>
 <span id="cb99-4"><a href></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="184">
+<div class="cell-output cell-output-display" data-execution_count="412">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2646,18 +2686,18 @@ text-align: right;
 <ul>
 <li>You can select a column using square brackets <code>[ ]</code> or dot notation <code>.</code></li>
 </ul>
-<div id="ca8c931b" class="cell" data-execution_count="53">
+<div id="1cc4d861" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href></a>df[<span class="st">&quot;Name&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="185">
+<div class="cell-output cell-output-display" data-execution_count="413">
 <pre><code>0    Danilo
 1     Maria
 2     Lucas
 Name: Name, dtype: object</code></pre>
 </div>
 </div>
-<div id="99e4c658" class="cell" data-execution_count="54">
+<div id="98e0102c" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href></a>df.Name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="186">
+<div class="cell-output cell-output-display" data-execution_count="414">
 <pre><code>0    Danilo
 1     Maria
 2     Lucas
@@ -2668,9 +2708,9 @@ Name: Name, dtype: object</code></pre>
 <ul>
 <li>You can select multiple columns by passing a list of column names</li>
 </ul>
-<div id="a6354c9b" class="cell" data-execution_count="55">
+<div id="4ba3ec80" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href></a>df[[<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Courses&quot;</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="187">
+<div class="cell-output cell-output-display" data-execution_count="415">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2717,18 +2757,18 @@ text-align: right;
 <ul>
 <li>You can select rows using <code>.iloc[]</code>, which accepts <span class="alert">integers</span> as references to rows/columns</li>
 </ul>
-<div id="3d246737" class="cell" data-execution_count="56">
+<div id="cb2693ea" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href></a>df.iloc[<span class="dv">0</span>]  <span class="co"># returns a series</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="188">
+<div class="cell-output cell-output-display" data-execution_count="416">
 <pre><code>Name        Danilo
 Language    Python
 Courses          5
 Name: 0, dtype: object</code></pre>
 </div>
 </div>
-<div id="648695ed" class="cell" data-execution_count="57">
+<div id="6b056755" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href></a>df.iloc[<span class="dv">0</span>:<span class="dv">2</span>]  <span class="co"># returns a dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="189">
+<div class="cell-output cell-output-display" data-execution_count="417">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2781,18 +2821,18 @@ text-align: right;
 <ul>
 <li>Now let’s look at <code>.loc</code> which accepts <span class="alert">labels</span> as references to rows/columns:</li>
 </ul>
-<div id="b76bcfda" class="cell" data-execution_count="58">
+<div id="3e158d13" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href></a>df.loc[:, <span class="st">&#39;Name&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="190">
+<div class="cell-output cell-output-display" data-execution_count="418">
 <pre><code>0    Danilo
 1     Maria
 2     Lucas
 Name: Name, dtype: object</code></pre>
 </div>
 </div>
-<div id="4a091b8c" class="cell" data-execution_count="59">
+<div id="2bc75fd4" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href></a>df.loc[:, <span class="st">&#39;Name&#39;</span>:<span class="st">&#39;Language&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="191">
+<div class="cell-output cell-output-display" data-execution_count="419">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2836,9 +2876,9 @@ text-align: right;
 </div>
 </div>
 </div>
-<div id="3b74bfe1" class="cell" data-execution_count="60">
+<div id="ba59eecd" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href></a>df.loc[[<span class="dv">0</span>, <span class="dv">2</span>], [<span class="st">&#39;Language&#39;</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="192">
+<div class="cell-output cell-output-display" data-execution_count="420">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2878,9 +2918,9 @@ text-align: right;
 <ul>
 <li>Boolean indexing is also possible</li>
 </ul>
-<div id="2d51b9a7" class="cell" data-execution_count="61">
+<div id="5d9ed72e" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href></a>df[df[<span class="st">&quot;Courses&quot;</span>] <span class="op">&gt;</span> <span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="193">
+<div class="cell-output cell-output-display" data-execution_count="421">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2916,9 +2956,9 @@ text-align: right;
 </div>
 </div>
 </div>
-<div id="97dfa3d0" class="cell" data-execution_count="62">
+<div id="06d7a683" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href></a>df[df[<span class="st">&#39;Name&#39;</span>] <span class="op">==</span> <span class="st">&quot;Danilo&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="194">
+<div class="cell-output cell-output-display" data-execution_count="422">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2967,9 +3007,9 @@ text-align: right;
 <li>It is my favourite method because it is more readable and less error-prone</li>
 <li><code>.query()</code> accepts a string expression to evaluate and it “knows” the names of the columns in your dataframe</li>
 </ul>
-<div id="f6d2083b" class="cell" data-execution_count="63">
+<div id="c46f36d6" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href></a>df.query(<span class="st">&#39;Courses &gt; 5&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="195">
+<div class="cell-output cell-output-display" data-execution_count="423">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3005,9 +3045,9 @@ text-align: right;
 </div>
 </div>
 </div>
-<div id="6f63b91f" class="cell" data-execution_count="64">
+<div id="37d9830a" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href></a>df.query(<span class="st">&#39;Name == &quot;Danilo&quot;&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="196">
+<div class="cell-output cell-output-display" data-execution_count="424">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3044,9 +3084,9 @@ text-align: right;
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="931af45b" class="cell" data-execution_count="65">
+<div id="c945f9df" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href></a>df.query(<span class="st">&quot;Courses &gt; 4 &amp; Language == &#39;Python&#39;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="197">
+<div class="cell-output cell-output-display" data-execution_count="425">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3086,10 +3126,10 @@ text-align: right;
 <li><p>Note the use of single quotes AND double quotes above, lucky we have both in Python!</p></li>
 <li><p>You can also use the <code>@</code> symbol to reference variables in the environment</p></li>
 </ul>
-<div id="e546db1e" class="cell" data-execution_count="66">
+<div id="7a7270a7" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href></a>min_courses <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb117-2"><a href></a>df.query(<span class="st">&quot;Courses &gt; @min_courses&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="198">
+<div class="cell-output cell-output-display" data-execution_count="426">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3127,12 +3167,1445 @@ text-align: right;
 </div>
 </div></div>
 </div>
+</section>
+<section id="indexing-cheatsheet" class="slide level2">
+<h2>Indexing cheatsheet</h2>
+<div style="margin-top: 30px; font-size: 24px;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="alert">Method</span></th>
+<th><span class="alert">Syntax</span></th>
+<th><span class="alert">Output</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Select column</td>
+<td><code>df[col_label]</code></td>
+<td>Series</td>
+</tr>
+<tr class="even">
+<td>Select row slice</td>
+<td><code>df[row_1_int:row_2_int]</code></td>
+<td>DataFrame</td>
+</tr>
+<tr class="odd">
+<td>Select row/column by label</td>
+<td><code>df.loc[row_label(s), col_label(s)]</code></td>
+<td>Object for single selection, Series for one row/column, otherwise DataFrame</td>
+</tr>
+<tr class="even">
+<td>Select row/column by integer</td>
+<td><code>df.iloc[row_int(s), col_int(s)]</code></td>
+<td>Object for single selection, Series for one row/column, otherwise DataFrame</td>
+</tr>
+<tr class="odd">
+<td>Select by row integer &amp; column label</td>
+<td><code>df.loc[df.index[row_int], col_label]</code></td>
+<td>Object for single selection, Series for one row/column, otherwise DataFrame</td>
+</tr>
+<tr class="even">
+<td>Select by row label &amp; column integer</td>
+<td><code>df.loc[row_label, df.columns[col_int]]</code></td>
+<td>Object for single selection, Series for one row/column, otherwise DataFrame</td>
+</tr>
+<tr class="odd">
+<td>Select by boolean</td>
+<td><code>df[bool_vec]</code></td>
+<td>Object for single selection, Series for one row/column, otherwise DataFrame</td>
+</tr>
+<tr class="even">
+<td>Select by boolean expression</td>
+<td><code>df.query(&quot;expression&quot;)</code></td>
+<td>Object for single selection, Series for one row/column, otherwise DataFrame</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section></section>
+<section>
+<section id="readingwriting-data-from-external-sources" class="title-slide slide level1 center" data-background-color="#2d4563">
+<h1>Reading/Writing Data From External Sources 📂</h1>
+
+</section>
+<section id="reading-data-from-external-sources" class="slide level2">
+<h2>Reading data from external sources</h2>
+<div style="margin-top: 30px; font-size: 19px;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="csv-files">.csv files</h4>
+<ul>
+<li>Pandas can read data from many sources, such as CSV, Excel, SQL databases, JSON, HTML, and more</li>
+<li>As mentioned above, <code>.csv</code> files are the most common data format (for good reason!)</li>
+<li>You can use the <code>pd.read_csv()</code> function for this</li>
+<li>There are so many arguments that can be used to help read in your <code>.csv</code> file in an efficient and appropriate manner, feel free to check them out by using <code>shift + tab</code> in Jupyter, or typing <code>help(pd.read_csv)</code></li>
+</ul>
+<div id="9d05b52b" class="cell" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="427">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sepal_length</th>
+<th data-quarto-table-cell-role="th">sepal_width</th>
+<th data-quarto-table-cell-role="th">petal_length</th>
+<th data-quarto-table-cell-role="th">petal_width</th>
+<th data-quarto-table-cell-role="th">species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>You can save a DataFrame to a <code>.csv</code> file using <code>df.to_csv()</code></li>
+</ul>
+<div id="f1ebd981" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href></a>df.to_csv(<span class="st">&quot;data/iris_copy.csv&quot;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<h4 id="urls">URLs</h4>
+<ul>
+<li>You can also read data from a URL using <code>pd.read_csv()</code></li>
+<li>This is useful when you want to read data from a website without downloading it first</li>
+</ul>
+<div id="4227a8e9" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href></a>url <span class="op">=</span> <span class="st">&quot;https://github.com/danilofreire/qtm350/raw/refs/heads/main/lectures/lecture-14/data/iris.csv&quot;</span></span>
+<span id="cb119-2"><a href></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb119-3"><a href></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="428">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sepal_length</th>
+<th data-quarto-table-cell-role="th">sepal_width</th>
+<th data-quarto-table-cell-role="th">petal_length</th>
+<th data-quarto-table-cell-role="th">petal_width</th>
+<th data-quarto-table-cell-role="th">species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>See the <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-tools-text-csv-hdf5">Pandas documentation here</a> for information about reading and writing data</li>
+</ul>
+</div></div>
+</div>
+</section></section>
+<section>
+<section id="common-dataframe-operations" class="title-slide slide level1 center" data-background-color="#2d4563">
+<h1>Common DataFrame Operations 🐼</h1>
+
+</section>
+<section id="common-dataframe-operations-1" class="slide level2">
+<h2>Common DataFrame operations</h2>
+<div style="margin-top: 30px; font-size: 20px;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>DataFrames have built-in functions for performing most common operations, e.g., <code>.min()</code>, <code>idxmin()</code>, <code>sort_values()</code>, etc.</li>
+<li>They’re all documented in the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Pandas documentation here</a> but I’ll demonstrate a few below</li>
+</ul>
+<div id="b1c4f163" class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/cycling_data.csv&#39;</span>)</span>
+<span id="cb120-2"><a href></a>df.head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="429">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>11 Sep 2019, 00:23:50</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1863</td>
+<td>12.52</td>
+<td>Wet road but nice weather</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>11 Sep 2019, 14:06:19</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2192</td>
+<td>12.84</td>
+<td>Stopped for photo of sunrise</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>12 Sep 2019, 00:28:05</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1891</td>
+<td>12.48</td>
+<td>Tired by the end of the week</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>16 Sep 2019, 13:57:48</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2272</td>
+<td>12.45</td>
+<td>Rested after the weekend!</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>17 Sep 2019, 00:15:47</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1973</td>
+<td>12.45</td>
+<td>Legs feeling strong!</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="e67b59ad" class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href></a>df.<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="430">
+<pre><code>Date                         1 Oct 2019, 00:15:07
+Name                               Afternoon Ride
+Type                                         Ride
+Time                                         1712
+Distance                                    11.79
+Comments    A little tired today but good weather
+dtype: object</code></pre>
+</div>
+</div>
+<div id="59ccb373" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href></a>df[<span class="st">&#39;Time&#39;</span>].<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="431">
+<pre><code>1712</code></pre>
+</div>
+</div>
+<div id="315921ef" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href></a>df[<span class="st">&#39;Time&#39;</span>].idxmin() <span class="co"># index of the minimum value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="432">
+<pre><code>20</code></pre>
+</div>
+</div>
+<div id="113ff476" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href></a>df.iloc[<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="433">
+<pre><code>Date               27 Sep 2019, 01:00:18
+Name                      Afternoon Ride
+Type                                Ride
+Time                                1712
+Distance                           12.47
+Comments    Tired by the end of the week
+Name: 20, dtype: object</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="sorting-dataframes" class="slide level2">
+<h2>Sorting DataFrames</h2>
+<div style="margin-top: 30px; font-size: 20px;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>.sort_values()</code> is used to sort a DataFrame by one or more columns</li>
+<li>You can sort by one or more columns, and you can specify the order (ascending or descending)</li>
+<li>The default argument is <code>ascending=True</code></li>
+</ul>
+<div id="cc284eb0" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href></a>df.sort_values(by<span class="op">=</span><span class="st">&#39;Distance&#39;</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="434">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>11 Oct 2019, 00:16:57</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1843</td>
+<td>11.79</td>
+<td>Bike feeling tight, needs an oil and pump</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16</td>
+<td>25 Sep 2019, 00:07:21</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1775</td>
+<td>12.10</td>
+<td>Feeling really tired</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>16 Sep 2019, 13:57:48</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2272</td>
+<td>12.45</td>
+<td>Rested after the weekend!</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>17 Sep 2019, 00:15:47</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1973</td>
+<td>12.45</td>
+<td>Legs feeling strong!</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>27 Sep 2019, 01:00:18</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1712</td>
+<td>12.47</td>
+<td>Tired by the end of the week</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="c6a9ab87" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href></a>df.sort_values(by<span class="op">=</span><span class="st">&#39;Distance&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="435">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>18 Sep 2019, 13:49:53</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2903</td>
+<td>14.57</td>
+<td>Raining today</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>2 Oct 2019, 13:46:06</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2134</td>
+<td>13.06</td>
+<td>Bit tired today but good weather</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>26 Sep 2019, 13:42:43</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2350</td>
+<td>12.91</td>
+<td>Detour around trucks at Jericho</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>You can also combine <code>.query()</code> with <code>.sort_values()</code></li>
+</ul>
+<div id="a9575830" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href></a>df.query(<span class="st">&#39;Distance &gt; 13&#39;</span>).sort_values(by<span class="op">=</span><span class="st">&#39;Time&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="436">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25</td>
+<td>2 Oct 2019, 13:46:06</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2134</td>
+<td>13.06</td>
+<td>Bit tired today but good weather</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>18 Sep 2019, 13:49:53</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2903</td>
+<td>14.57</td>
+<td>Raining today</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section></section>
+<section>
+<section id="dataframe-characteristics" class="title-slide slide level1 center" data-background-color="#2d4563">
+<h1>DataFrame Characteristics 🔎</h1>
+
+</section>
+<section id="dataframe-characteristics-1" class="slide level2">
+<h2>DataFrame characteristics</h2>
+<div style="margin-top: 30px; font-size: 20px;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>DataFrames have many attributes that can be used to understand the data</li>
+<li>For example, you can use <code>.shape</code> to get the dimensions of the DataFrame</li>
+</ul>
+<div id="8a5da336" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="437">
+<pre><code>(33, 6)</code></pre>
+</div>
+</div>
+<ul>
+<li><code>.info()</code> prints a summary of the DataFrame</li>
+</ul>
+<div id="bac51b6f" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 33 entries, 0 to 32
+Data columns (total 6 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   Date      33 non-null     object 
+ 1   Name      33 non-null     object 
+ 2   Type      33 non-null     object 
+ 3   Time      33 non-null     int64  
+ 4   Distance  31 non-null     float64
+ 5   Comments  33 non-null     object 
+dtypes: float64(1), int64(1), object(4)
+memory usage: 1.7+ KB</code></pre>
+</div>
+</div>
+<ul>
+<li><code>.columns</code> returns the column names</li>
+</ul>
+<div id="24bb3cbe" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="439">
+<pre><code>Index([&#39;Date&#39;, &#39;Name&#39;, &#39;Type&#39;, &#39;Time&#39;, &#39;Distance&#39;, &#39;Comments&#39;], dtype=&#39;object&#39;)</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><code>.describe()</code> prints the descriptive stats of the numerical columns</li>
+</ul>
+<div id="d8910ede" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="440">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>33.000000</td>
+<td>31.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>3512.787879</td>
+<td>12.667419</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>8003.309233</td>
+<td>0.428618</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1712.000000</td>
+<td>11.790000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1863.000000</td>
+<td>12.480000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2118.000000</td>
+<td>12.620000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2285.000000</td>
+<td>12.750000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>48062.000000</td>
+<td>14.570000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li><code>.dtypes</code> returns the data types of the columns</li>
+</ul>
+<div id="801cc238" class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a href></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="441">
+<pre><code>Date         object
+Name         object
+Type         object
+Time          int64
+Distance    float64
+Comments     object
+dtype: object</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="rename-columns" class="slide level2">
+<h2>Rename columns</h2>
+<div style="margin-top: 30px; font-size: 20px;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>We can rename columns two ways:</li>
+<li>Using <code>.rename()</code> (to selectively change column names, usually recommended)</li>
+<li>By setting the <code>.columns</code> attribute (to change all column names at once)</li>
+</ul>
+<div id="1dbedc80" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="442">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="c42822b0" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href></a>df.rename(columns<span class="op">=</span>{<span class="st">&quot;Date&quot;</span>: <span class="st">&quot;Datetime&quot;</span>,</span>
+<span id="cb142-2"><a href></a>                   <span class="st">&quot;Comments&quot;</span>: <span class="st">&quot;Notes&quot;</span>})</span>
+<span id="cb142-3"><a href></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="443">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Wait? What happened? Nothing changed? 🤔</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>We did actually rename columns of our dataframe but we didn’t modify the dataframe inplace, we made a copy of it</li>
+<li>There are generally two options for making permanent dataframe changes:
+<ul>
+<li>Use the argument <code>inplace=True</code>, e.g., <code>df.rename(..., inplace=True)</code>, available in most functions/methods</li>
+<li>Re-assign, e.g., <code>df = df.rename(...)</code> (recommended by Pandas)</li>
+</ul></li>
+</ul>
+<div id="b3b41317" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href></a>df <span class="op">=</span> df.rename(columns<span class="op">=</span>{<span class="st">&quot;Date&quot;</span>: <span class="st">&quot;Datetime&quot;</span>,</span>
+<span id="cb143-2"><a href></a>                        <span class="st">&quot;Comments&quot;</span>: <span class="st">&quot;Notes&quot;</span>})</span>
+<span id="cb143-3"><a href></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="444">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Datetime</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Now it works fine! 🥳</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="rename-columns-1" class="slide level2">
+<h2>Rename columns</h2>
+<div style="margin-top: 30px; font-size: 20px;">
+<ul>
+<li>If you wish to change all of the columns of a dataframe, you can do so by setting the <code>.columns</code> attribute:</li>
+</ul>
+<div id="b5d7f4d8" class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href></a>df.columns <span class="op">=</span> [<span class="ss">f&quot;Column </span><span class="sc">{</span>_<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>)]</span>
+<span id="cb144-2"><a href></a>df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="445">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Column 1</th>
+<th data-quarto-table-cell-role="th">Column 2</th>
+<th data-quarto-table-cell-role="th">Column 3</th>
+<th data-quarto-table-cell-role="th">Column 4</th>
+<th data-quarto-table-cell-role="th">Column 5</th>
+<th data-quarto-table-cell-role="th">Column 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>11 Sep 2019, 00:23:50</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1863</td>
+<td>12.52</td>
+<td>Wet road but nice weather</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>11 Sep 2019, 14:06:19</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2192</td>
+<td>12.84</td>
+<td>Stopped for photo of sunrise</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>12 Sep 2019, 00:28:05</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1891</td>
+<td>12.48</td>
+<td>Tired by the end of the week</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>This is a bit more dangerous than using <code>.rename()</code> because <span class="alert">you can easily mess up the order of the columns</span> 😅</li>
+<li>So be careful when using this method</li>
+</ul>
+</div>
+</section>
+<section id="adding-and-removing-columns" class="slide level2">
+<h2>Adding and removing columns</h2>
+<div style="margin-top: 30px; font-size: 18px;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>There are two main ways to add/remove columns of a dataframe:
+<ul>
+<li>Use <code>[]</code> to add columns</li>
+<li>Use <code>.drop()</code> to drop columns</li>
+</ul></li>
+<li>Let’s re-read in a fresh copy of the cycling dataset</li>
+</ul>
+<div id="b3b670cd" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb145-1"><a href></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/cycling_data.csv&#39;</span>)</span>
+<span id="cb145-2"><a href></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="446">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Let’s add new columns to the dataframe</li>
+</ul>
+<div id="50170210" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href></a>df[<span class="st">&#39;Rider&#39;</span>] <span class="op">=</span> <span class="st">&#39;Danilo Freire&#39;</span></span>
+<span id="cb146-2"><a href></a>df[<span class="st">&#39;Avg Speed&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Distance&#39;</span>] <span class="op">*</span> <span class="dv">1000</span> <span class="op">/</span> df[<span class="st">&#39;Time&#39;</span>]  <span class="co"># avg. speed in m/s</span></span>
+<span id="cb146-3"><a href></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="447">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+<th data-quarto-table-cell-role="th">Rider</th>
+<th data-quarto-table-cell-role="th">Avg Speed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+<td>Danilo Freire</td>
+<td>6.055662</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+<td>Danilo Freire</td>
+<td>5.148163</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Now let’s remove the columns we just added</li>
+</ul>
+<div id="20c892b6" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb147-1"><a href></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">&#39;Rider&#39;</span>, <span class="st">&#39;Avg Speed&#39;</span>])</span>
+<span id="cb147-2"><a href></a>df.head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="448">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10 Sep 2019, 00:13:04</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>2084</td>
+<td>12.62</td>
+<td>Rain</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10 Sep 2019, 13:52:18</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2531</td>
+<td>13.03</td>
+<td>rain</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>11 Sep 2019, 00:23:50</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1863</td>
+<td>12.52</td>
+<td>Wet road but nice weather</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>11 Sep 2019, 14:06:19</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2192</td>
+<td>12.84</td>
+<td>Stopped for photo of sunrise</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="adding-and-removing-rows" class="slide level2">
+<h2>Adding and removing rows</h2>
+<div style="margin-top: 30px; font-size: 20px;">
+<ul>
+<li><p>You won’t often be adding rows to a dataframe manually (you’ll usually add rows through joining)</p></li>
+<li><p>You can add/remove rows of a dataframe in two ways: <code>.concat()</code> to add rows and <code>.drop()</code> to drop rows</p></li>
+<li><p>Let’s add a new row to the dataframe</p></li>
+</ul>
+<div id="79c4660e" class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb148-1"><a href></a>another_row <span class="op">=</span> pd.DataFrame([[<span class="st">&quot;12 Oct 2019, 00:10:57&quot;</span>, <span class="st">&quot;Morning Ride&quot;</span>, <span class="st">&quot;Ride&quot;</span>,</span>
+<span id="cb148-2"><a href></a>                             <span class="dv">2331</span>, <span class="fl">12.67</span>, <span class="st">&quot;Washed and oiled bike last night&quot;</span>]],</span>
+<span id="cb148-3"><a href></a>                           columns <span class="op">=</span> df.columns,</span>
+<span id="cb148-4"><a href></a>                           index <span class="op">=</span> [<span class="dv">33</span>])</span>
+<span id="cb148-5"><a href></a>df <span class="op">=</span> pd.concat([df, another_row])</span>
+<span id="cb148-6"><a href></a>df.tail(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="449">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>11 Oct 2019, 00:16:57</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1843</td>
+<td>11.79</td>
+<td>Bike feeling tight, needs an oil and pump</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>12 Oct 2019, 00:10:57</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2331</td>
+<td>12.67</td>
+<td>Washed and oiled bike last night</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Finally, let’s remove the row we just added</li>
+</ul>
+<div id="a8796327" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href></a>df <span class="op">=</span> df.drop(index<span class="op">=</span><span class="dv">33</span>)</span>
+<span id="cb149-2"><a href></a>df.tail(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="450">
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Distance</th>
+<th data-quarto-table-cell-role="th">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">31</td>
+<td>10 Oct 2019, 13:47:14</td>
+<td>Morning Ride</td>
+<td>Ride</td>
+<td>2463</td>
+<td>12.79</td>
+<td>Stopped for photo of sunrise</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">32</td>
+<td>11 Oct 2019, 00:16:57</td>
+<td>Afternoon Ride</td>
+<td>Ride</td>
+<td>1843</td>
+<td>11.79</td>
+<td>Bike feeling tight, needs an oil and pump</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-ndarrays-and-series-and-dataframes" class="slide level2">
+<h2>Why ndarrays and Series and DataFrames?</h2>
+<div style="margin-top: 30px; font-size: 23px;">
+<ul>
+<li><p>At this point, you might be asking why we need all these different data structures</p></li>
+<li><p>Well, they all serve different purposes and are suited to different tasks. For example:</p>
+<ul>
+<li>NumPy is typically faster/uses less memory than Pandas</li>
+<li>not all Python packages are compatible with NumPy &amp; Pandas</li>
+<li>the ability to add labels to data can be useful (e.g., for time series)</li>
+<li>NumPy and Pandas have different built-in functions available</li>
+</ul></li>
+<li><p>My advice: use the simplest data structure that fulfills your needs!</p></li>
+<li><p>Finally, we’ve seen how to go from: <code>ndarray (np.array()) -&gt; series (pd.series()) -&gt; dataframe (pd.DataFrame())</code></p></li>
+<li><p>Remember that we can also go the other way: <code>dataframe/series -&gt; ndarray using df.to_numpy()</code></p></li>
+<li><p>But you will probably use DataFrames most of the time 😉</p></li>
+</ul>
+</div>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<div style="margin-top: 30px; font-size: 24px;">
+<div>
+<ul>
+<li class="fragment">Today we learned about <span class="alert">NumPy and Pandas</span>, two of the most important Python libraries for data manipulation</li>
+<li class="fragment">We saw how to <span class="alert">create arrays and series</span>, and how to <span class="alert">perform operations</span> on them</li>
+<li class="fragment">We also saw how to <span class="alert">create and manipulate DataFrames</span>, and how to read/write data from/to external sources</li>
+<li class="fragment">We learned how to <span class="alert">index and slice arrays and DataFrames</span></li>
+<li class="fragment">We also learned how to <span class="alert">rename columns, add/remove columns/rows, and how to sort DataFrames</span></li>
+<li class="fragment">Finally, we discussed why we need <span class="alert">different data structures</span></li>
+<li class="fragment">Next time, we will learn about <span class="alert">DataFrame reshaping, joining data, applying custom functions, visualising Dataframes with <code>.plot()</code>, and more!</span> 😊</li>
+</ul>
+</div>
+</div>
+</section></section>
+<section id="and-thats-a-wrap" class="title-slide slide level1 center" data-background-color="#2d4563">
+<h1>And that’s a wrap! 🎬</h1>
+
+</section>
+
+<section id="thank-you-very-much-see-you-next-time" class="title-slide slide level1 center" data-background-color="#2d4563">
+<h1>Thank you very much! <br> See you next time! 😊🙏🏽</h1>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-14/14-pandas.html">Pandas</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

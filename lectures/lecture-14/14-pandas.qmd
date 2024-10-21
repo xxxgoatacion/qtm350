@@ -664,6 +664,21 @@ df.head()
 :::
 :::
 
+## Creating DataFrames - Cheat Sheet
+
+:::{style="margin-top: 30px; font-size: 24px;"}
+
+|[Create DataFrame from]{.alert}|[Code]{.alert}|
+|---|---|
+|Lists of lists|`pd.DataFrame([['Danilo', 7], ['Maria', 15], ['Lucas', 3]])`|
+|ndarray|`pd.DataFrame(np.array([['Danilo', 7], ['Maria', 15], ['Lucas', 3]]))`|
+|Dictionary|`pd.DataFrame({"Name": ['Danilo', 'Maria', 'Lucas'], "Number": [7, 15, 3]})`|
+|List of tuples|`pd.DataFrame(zip(['Danilo', 'Maria', 'Lucas'], [7, 15, 3]))`|
+|Series|`pd.DataFrame({"Name": pd.Series(['Danilo', 'Maria', 'Lucas']), "Number": pd.Series([7, 15, 3])})`|
+
+See the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe) for more
+:::
+
 ## Indexing and slicing DataFrames
 
 :::{style="margin-top: 30px; font-size: 20px;"}
@@ -808,3 +823,368 @@ df.query("Courses > @min_courses")
 :::
 :::
 :::
+
+## Indexing cheatsheet
+
+:::{style="margin-top: 30px; font-size: 24px;"}
+
+|[Method]{.alert}|[Syntax]{.alert}|[Output]{.alert}|
+|---|---|---|
+|Select column|`df[col_label]`|Series|
+|Select row slice|`df[row_1_int:row_2_int]`|DataFrame|
+|Select row/column by label|`df.loc[row_label(s), col_label(s)]`|Object for single selection, Series for one row/column, otherwise DataFrame|
+|Select row/column by integer|`df.iloc[row_int(s), col_int(s)]`|Object for single selection, Series for one row/column, otherwise DataFrame|
+|Select by row integer & column label|`df.loc[df.index[row_int], col_label]`|Object for single selection, Series for one row/column, otherwise DataFrame|
+|Select by row label & column integer|`df.loc[row_label, df.columns[col_int]]`|Object for single selection, Series for one row/column, otherwise DataFrame|
+|Select by boolean|`df[bool_vec]`|Object for single selection, Series for one row/column, otherwise DataFrame|
+|Select by boolean expression|`df.query("expression")`|Object for single selection, Series for one row/column, otherwise DataFrame|
+:::
+
+# Reading/Writing Data From External Sources 📂 {background-color="#2d4563"}
+
+## Reading data from external sources
+
+:::{style="margin-top: 30px; font-size: 19px;"}
+:::{.columns}
+:::{.column width="50%"}
+#### .csv files
+
+- Pandas can read data from many sources, such as CSV, Excel, SQL databases, JSON, HTML, and more
+- As mentioned above, `.csv` files are the most common data format (for good reason!)
+- You can use the `pd.read_csv()` function for this
+- There are so many arguments that can be used to help read in your `.csv` file in an efficient and appropriate manner, feel free to check them out by using `shift + tab` in Jupyter, or typing `help(pd.read_csv)`
+
+```{python}
+#| eval: true
+df = pd.read_csv("data/iris.csv")
+df.head()
+```
+
+- You can save a DataFrame to a `.csv` file using `df.to_csv()`
+
+```{python}
+#| echo: true
+#| eval: false
+df.to_csv("data/iris_copy.csv", index=False)
+```
+:::
+
+:::{.column width="50%"}
+#### URLs
+
+- You can also read data from a URL using `pd.read_csv()`
+- This is useful when you want to read data from a website without downloading it first
+
+```{python}
+#| echo: true
+#| eval: true
+url = "https://github.com/danilofreire/qtm350/raw/refs/heads/main/lectures/lecture-14/data/iris.csv"
+df = pd.read_csv(url)
+df.head()
+```
+
+- See the [Pandas documentation here](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-tools-text-csv-hdf5) for information about reading and writing data
+:::
+:::
+:::
+
+# Common DataFrame Operations 🐼 {background-color="#2d4563"}
+
+## Common DataFrame operations
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+- DataFrames have built-in functions for performing most common operations, e.g., `.min()`, `idxmin()`, `sort_values()`, etc. 
+- They're all documented in the [Pandas documentation here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) but I'll demonstrate a few below
+
+```{python}
+#| echo: true
+#| eval: true
+df = pd.read_csv('data/cycling_data.csv')
+df.head(7)
+```
+:::
+
+:::{.column width="50%"}
+```{python}
+#| echo: true
+#| eval: true
+df.min()
+```
+
+```{python}
+#| echo: true
+#| eval: true
+df['Time'].min()
+```
+
+```{python}
+#| echo: true
+#| eval: true
+df['Time'].idxmin() # index of the minimum value
+```
+
+```{python}
+#| echo: true
+#| eval: true
+df.iloc[20]
+```
+:::
+:::
+:::
+
+## Sorting DataFrames
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+- `.sort_values()` is used to sort a DataFrame by one or more columns
+- You can sort by one or more columns, and you can specify the order (ascending or descending)
+- The default argument is `ascending=True`
+
+```{python}
+#| echo: true
+#| eval: true
+df.sort_values(by='Distance').head()
+```
+:::
+
+:::{.column width="50%"}
+```{python}
+#| echo: true
+#| eval: true
+df.sort_values(by='Distance', ascending=False).head(4)
+```
+
+- You can also combine `.query()` with `.sort_values()`
+
+```{python}
+#| echo: true
+#| eval: true
+df.query('Distance > 13').sort_values(by='Time')
+```
+:::
+:::
+:::
+
+# DataFrame Characteristics 🔎 {background-color="#2d4563"}
+
+## DataFrame characteristics
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+- DataFrames have many attributes that can be used to understand the data
+- For example, you can use `.shape` to get the dimensions of the DataFrame
+
+```{python}
+#| echo: true
+#| eval: true
+df.shape
+```
+
+- `.info()` prints a summary of the DataFrame
+
+```{python}
+#| echo: true
+#| eval: true
+df.info()
+```
+
+- `.columns` returns the column names
+
+```{python}
+#| echo: true
+#| eval: true
+df.columns
+```
+:::
+
+:::{.column width="50%"}
+- `.describe()` prints the descriptive stats of the numerical columns
+
+```{python}
+#| echo: true
+#| eval: true
+df.describe()
+```
+
+- `.dtypes` returns the data types of the columns
+
+```{python}
+#| echo: true
+#| eval: true
+df.dtypes
+```
+
+:::
+:::
+:::
+
+## Rename columns
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+- We can rename columns two ways:
+ - Using `.rename()` (to selectively change column names, usually recommended)
+ - By setting the `.columns` attribute (to change all column names at once)
+
+```{python}
+#| echo: true
+#| eval: true
+df.head(2)
+```
+
+```{python}
+#| echo: true
+#| eval: true
+df.rename(columns={"Date": "Datetime",
+                   "Comments": "Notes"})
+df.head(2)
+```
+
+- Wait? What happened? Nothing changed? 🤔
+:::
+
+:::{.column width="50%"}
+- We did actually rename columns of our dataframe but we didn’t modify the dataframe inplace, we made a copy of it 
+- There are generally two options for making permanent dataframe changes:
+  - Use the argument `inplace=True`, e.g., `df.rename(..., inplace=True)`, available in most functions/methods
+  - Re-assign, e.g., `df = df.rename(...)` (recommended by Pandas)
+
+```{python}
+#| echo: true
+#| eval: true
+df = df.rename(columns={"Date": "Datetime",
+                        "Comments": "Notes"})
+df.head(2)
+```
+
+- Now it works fine! 🥳
+:::
+:::
+:::
+
+## Rename columns
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+- If you wish to change all of the columns of a dataframe, you can do so by setting the `.columns` attribute:
+
+```{python}
+#| echo: true
+#| eval: true
+df.columns = [f"Column {_}" for _ in range(1, 7)]
+df.head(5)
+```
+
+- This is a bit more dangerous than using `.rename()` because [you can easily mess up the order of the columns]{.alert} 😅
+- So be careful when using this method
+::: 
+
+## Adding and removing columns
+
+:::{style="margin-top: 30px; font-size: 18px;"}
+:::{.columns}
+:::{.column width="50%"}
+- There are two main ways to add/remove columns of a dataframe: 
+  - Use `[]` to add columns 
+  - Use `.drop()` to drop columns
+
+- Let's re-read in a fresh copy of the cycling dataset
+
+```{python}
+#| echo: true
+#| eval: true
+df = pd.read_csv('data/cycling_data.csv')
+df.head(2)
+```
+
+- Let's add new columns to the dataframe
+
+```{python}
+#| echo: true
+#| eval: true
+df['Rider'] = 'Danilo Freire'
+df['Avg Speed'] = df['Distance'] * 1000 / df['Time']  # avg. speed in m/s
+df.head(2)
+```
+:::
+
+:::{.column width="50%"}
+- Now let's remove the columns we just added
+
+```{python}
+#| echo: true
+#| eval: true
+df = df.drop(columns=['Rider', 'Avg Speed'])
+df.head(4)
+```
+:::
+:::
+:::
+
+## Adding and removing rows
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+- You won’t often be adding rows to a dataframe manually (you’ll usually add rows through joining) 
+- You can add/remove rows of a dataframe in two ways: `.concat()` to add rows and `.drop()` to drop rows
+
+- Let's add a new row to the dataframe
+
+```{python}
+#| echo: true
+#| eval: true
+another_row = pd.DataFrame([["12 Oct 2019, 00:10:57", "Morning Ride", "Ride",
+                             2331, 12.67, "Washed and oiled bike last night"]],
+                           columns = df.columns,
+                           index = [33])
+df = pd.concat([df, another_row])
+df.tail(2)
+```
+
+- Finally, let's remove the row we just added
+
+```{python}
+#| echo: true
+#| eval: true
+df = df.drop(index=33)
+df.tail(2)
+```
+:::
+
+## Why ndarrays and Series and DataFrames?
+
+:::{style="margin-top: 30px; font-size: 23px;"}
+- At this point, you might be asking why we need all these different data structures
+- Well, they all serve different purposes and are suited to different tasks. For example:
+  - NumPy is typically faster/uses less memory than Pandas
+  - not all Python packages are compatible with NumPy & Pandas
+  - the ability to add labels to data can be useful (e.g., for time series)
+  - NumPy and Pandas have different built-in functions available
+
+- My advice: use the simplest data structure that fulfills your needs!
+
+- Finally, we've seen how to go from: `ndarray (np.array()) -> series (pd.series()) -> dataframe (pd.DataFrame())`
+- Remember that we can also go the other way: `dataframe/series -> ndarray using df.to_numpy()`
+- But you will probably use DataFrames most of the time 😉
+:::
+
+## Conclusion 
+
+:::{style="margin-top: 30px; font-size: 24px;"}
+:::{.incremental}
+- Today we learned about [NumPy and Pandas]{.alert}, two of the most important Python libraries for data manipulation
+- We saw how to [create arrays and series]{.alert}, and how to [perform operations]{.alert} on them
+- We also saw how to [create and manipulate DataFrames]{.alert}, and how to read/write data from/to external sources
+- We learned how to [index and slice arrays and DataFrames]{.alert}
+- We also learned how to [rename columns, add/remove columns/rows, and how to sort DataFrames]{.alert}
+- Finally, we discussed why we need [different data structures]{.alert}
+- Next time, we will learn about [DataFrame reshaping, joining data, applying custom functions, visualising Dataframes with `.plot()`, and more!]{.alert} 😊
+:::
+:::
+
+# And that's a wrap! 🎬 {background-color="#2d4563"}
+
+# Thank you very much! <br> See you next time! 😊🙏🏽 {background-color="#2d4563"}
