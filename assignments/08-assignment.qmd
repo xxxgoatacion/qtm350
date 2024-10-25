@@ -56,7 +56,7 @@ In this assignment, you will apply pandas techniques to analyse the `results.csv
 
 - **Functions to Use**: `plot()`, `hist()`
   
-- **Task**: Create a histogram to visualize the distribution of `grid` positions from which drivers started the races. Customize the histogram with appropriate titles and labels.
+- **Task**: Create a histogram to visualise the distribution of `grid` positions from which drivers started the races. Customise the histogram with appropriate titles and labels.
 
 ### 8. Identifying Consistent Finishers
 
