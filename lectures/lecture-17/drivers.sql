@@ -41,6 +41,14 @@ SELECT SUM(victories) AS sum_victories,
        MAX(victories) AS max_victories
 FROM drivers;
 
+SELECT driver_name, nationality, victories
+FROM drivers
+WHERE (nationality = 'German' OR nationality = 'British') AND victories > 50;
+
+SELECT driver_name, victories
+FROM drivers
+WHERE victories > (SELECT AVG(victories) FROM drivers);
+
 SELECT driver_name, victories FROM drivers
 ORDER BY victories ASC;
 
@@ -68,3 +76,11 @@ SELECT nationality,
 FROM drivers
 GROUP BY nationality
 HAVING SUM(victories) > 50;
+
+SELECT driver_name, nationality, victories
+FROM drivers
+WHERE (nationality = 'German' OR nationality = 'British') AND victories > 50;
+
+SELECT driver_name, victories
+FROM drivers
+WHERE victories > (SELECT AVG(victories) FROM drivers);
