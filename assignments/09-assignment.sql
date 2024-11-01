@@ -49,31 +49,18 @@ SELECT * FROM drivers;
 -- 5. Calculate average points for each team, rounded to two decimals.
 -- Hint: You will have to use ROUND() and CAST() to convert the variable to numeric.
 
--- 6. Retrieve the driver with the highest victories in each team.
--- Hint: Here you will have to use the alias "drivers d" to allow referencing the "drivers"
--- table in the subquery when filtering by team in the WHERE clause ("WHERE team = d.team").
+-- 6. List drivers in top 20% by points.
+-- Hint: You will need to use the PERCENTILE_CONT() function.
 
--- 7. List drivers with below-average points for their team.
--- Hint: You will need to use an alias for the table here as well.
+-- 7. Calculate total victories, podiums, and average points for German drivers.
 
--- 8. Calculate total victories, podiums, and average points for German drivers.
-
--- 9. Find teams with combined victories exceeding 50.
-
--- 10. List all drivers whose names contain both 'a' and 'e'.
+-- 8. List all drivers whose names contain both 'a' and 'e'.
 -- Hint: Here you will use a new function, LIKE, to filter the driver_name column.
 -- WHERE driver_name LIKE .... AND driver_name LIKE ....; (use % as wildcard with LIKE)
 
--- 11. Retrieve drivers with victories above nationality's average.
--- Hint: Again, an alias will be needed to reference the table.
+-- 9. Retrieve the driver with the highest victories in each team.
+-- Hint: Here you will have to use the alias "drivers d" to allow referencing the "drivers"
+-- table in the subquery when filtering by team in the WHERE clause ("WHERE team = d.team").
 
--- 12. List driver with most poles for each nationality.
--- Hint: And an alias will be needed here as well.
-
--- 13. List drivers in top 20% by points.
--- Hint: You will need to use the PERCENTILE_CONT() function.
-
--- 14. Show driver with fewest points per team with filter.
--- Hint: ...and an alias will be needed here again (you'll learn to love aliases!) :D
-
--- 15. Find avg victories and total points for each nationality with more than one driver.
+-- 10. List drivers with below-average points for their team.
+-- Hint: You will need to use an alias for the table here as well.
