@@ -135,24 +135,6 @@ connection = engine.connect()
 - `postgres` is the database name
 :::
 
-## Connecting to a PostgreSQL database
-
-:::{style="margin-top: 50px; font-size: 24px;"}
-- If your database name has spaces, you can encode thm with `%20` or `+`
-- The code below _should work_ for most cases
-
-```{python}
-#| echo: true
-#| eval: false
-# Connection parameters if your database is named "PostgreSQL 17"
-engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/PostgreSQL%2017')
-```
-
-- If you have a different database, you can change the connection string accordingly
-- Remember to use your own username and password too
-- If you have any issues, let me know! 🤓
-:::
-
 # SQL commands in Python 🐍 {background-color="#2d4563"}
 
 ## Executing SQL commands in Python
