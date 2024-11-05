@@ -887,7 +887,7 @@ SELECT * FROM drivers WHERE driver_name LIKE 'M%';
 ''')).fetchall()
 ```
 
-- Find drivers whose names contain exactly 7 characters
+- Find drivers whose nationality contains exactly 7 characters
 
 ```{python}
 #| echo: true
