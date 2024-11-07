@@ -1540,29 +1540,40 @@ Danilo Freire
 <h2>Load the libraries and connect to the database</h2>
 <div style="margin-top: 50px; font-size: 20px;">
 <ul>
-<li><p>Let’s load the libraries and connect to the database</p></li>
-<li><p>Then let’s create two tables that we will use to test the <code>JOIN</code> clauses</p></li>
+<li>Let’s load the libraries and connect to the database</li>
 </ul>
-<div id="7d3cf0f4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href></a><span class="co"># Create the tables</span></span>
-<span id="cb1-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb1-3"><a href></a><span class="st">DROP TABLE IF EXISTS players;</span></span>
-<span id="cb1-4"><a href></a><span class="st">CREATE TABLE players (</span></span>
-<span id="cb1-5"><a href></a><span class="st">    player_id SERIAL PRIMARY KEY,</span></span>
-<span id="cb1-6"><a href></a><span class="st">    player_name VARCHAR(50) NOT NULL,</span></span>
-<span id="cb1-7"><a href></a><span class="st">    goals INT NOT NULL,</span></span>
-<span id="cb1-8"><a href></a><span class="st">    victories INT NOT NULL</span></span>
-<span id="cb1-9"><a href></a><span class="st">);</span></span>
-<span id="cb1-10"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb1-11"><a href></a></span>
-<span id="cb1-12"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb1-13"><a href></a><span class="st">DROP TABLE IF EXISTS teams;</span></span>
-<span id="cb1-14"><a href></a><span class="st">CREATE TABLE teams (</span></span>
-<span id="cb1-15"><a href></a><span class="st">    team_id SERIAL PRIMARY KEY,</span></span>
-<span id="cb1-16"><a href></a><span class="st">    team_name VARCHAR(50) NOT NULL</span></span>
-<span id="cb1-17"><a href></a><span class="st">);</span></span>
-<span id="cb1-18"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb1-19"><a href></a>connection.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="91026595" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href></a><span class="im">import</span> psycopg2</span>
+<span id="cb1-3"><a href></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine, text</span>
+<span id="cb1-4"><a href></a></span>
+<span id="cb1-5"><a href></a><span class="co"># Connect to the database</span></span>
+<span id="cb1-6"><a href></a>engine <span class="op">=</span> create_engine(<span class="st">&#39;postgresql+psycopg2://postgres:postgres@localhost:5432/postgres&#39;</span>)</span>
+<span id="cb1-7"><a href></a>connection <span class="op">=</span> engine.<span class="ex">connect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Then let’s create two tables that we will use to test the <code>JOIN</code> clauses</li>
+</ul>
+<div id="c92918e6" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href></a><span class="co"># Create the tables</span></span>
+<span id="cb2-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb2-3"><a href></a><span class="st">DROP TABLE IF EXISTS players;</span></span>
+<span id="cb2-4"><a href></a><span class="st">CREATE TABLE players (</span></span>
+<span id="cb2-5"><a href></a><span class="st">    player_id SERIAL PRIMARY KEY,</span></span>
+<span id="cb2-6"><a href></a><span class="st">    player_name VARCHAR(50) NOT NULL,</span></span>
+<span id="cb2-7"><a href></a><span class="st">    goals INT NOT NULL,</span></span>
+<span id="cb2-8"><a href></a><span class="st">    victories INT NOT NULL</span></span>
+<span id="cb2-9"><a href></a><span class="st">);</span></span>
+<span id="cb2-10"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb2-11"><a href></a></span>
+<span id="cb2-12"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb2-13"><a href></a><span class="st">DROP TABLE IF EXISTS teams;</span></span>
+<span id="cb2-14"><a href></a><span class="st">CREATE TABLE teams (</span></span>
+<span id="cb2-15"><a href></a><span class="st">    team_id SERIAL PRIMARY KEY,</span></span>
+<span id="cb2-16"><a href></a><span class="st">    team_name VARCHAR(50) NOT NULL</span></span>
+<span id="cb2-17"><a href></a><span class="st">);</span></span>
+<span id="cb2-18"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb2-19"><a href></a>connection.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1572,27 +1583,27 @@ Danilo Freire
 <ul>
 <li>Now let’s insert some data into the tables</li>
 </ul>
-<div id="cd30c22c" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href></a><span class="co"># Insert data into the tables</span></span>
-<span id="cb2-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb2-3"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES</span></span>
-<span id="cb2-4"><a href></a><span class="st">(&#39;Messi&#39;, 10, 5),</span></span>
-<span id="cb2-5"><a href></a><span class="st">(&#39;Vini Jr&#39;, 8, 4),</span></span>
-<span id="cb2-6"><a href></a><span class="st">(&#39;Neymar&#39;, 6, 3),</span></span>
-<span id="cb2-7"><a href></a><span class="st">(&#39;Mbappe&#39;, 5, 2),</span></span>
-<span id="cb2-8"><a href></a><span class="st">(&#39;Lewandowski&#39;, 4, 1),</span></span>
-<span id="cb2-9"><a href></a><span class="st">(&#39;Haaland&#39;, 5, 3);</span></span>
-<span id="cb2-10"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb2-11"><a href></a></span>
-<span id="cb2-12"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb2-13"><a href></a><span class="st">INSERT INTO teams (team_name) VALUES</span></span>
-<span id="cb2-14"><a href></a><span class="st">(&#39;Inter Miami&#39;),</span></span>
-<span id="cb2-15"><a href></a><span class="st">(&#39;Real Madrid&#39;),</span></span>
-<span id="cb2-16"><a href></a><span class="st">(&#39;Al Hilal&#39;),</span></span>
-<span id="cb2-17"><a href></a><span class="st">(&#39;Real Madrid&#39;),</span></span>
-<span id="cb2-18"><a href></a><span class="st">(&#39;Bayern&#39;);</span></span>
-<span id="cb2-19"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb2-20"><a href></a>connection.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4938e8af" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href></a><span class="co"># Insert data into the tables</span></span>
+<span id="cb3-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb3-3"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES</span></span>
+<span id="cb3-4"><a href></a><span class="st">(&#39;Messi&#39;, 10, 5),</span></span>
+<span id="cb3-5"><a href></a><span class="st">(&#39;Vini Jr&#39;, 8, 4),</span></span>
+<span id="cb3-6"><a href></a><span class="st">(&#39;Neymar&#39;, 6, 3),</span></span>
+<span id="cb3-7"><a href></a><span class="st">(&#39;Mbappe&#39;, 5, 2),</span></span>
+<span id="cb3-8"><a href></a><span class="st">(&#39;Lewandowski&#39;, 4, 1),</span></span>
+<span id="cb3-9"><a href></a><span class="st">(&#39;Haaland&#39;, 5, 3);</span></span>
+<span id="cb3-10"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb3-11"><a href></a></span>
+<span id="cb3-12"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb3-13"><a href></a><span class="st">INSERT INTO teams (team_name) VALUES</span></span>
+<span id="cb3-14"><a href></a><span class="st">(&#39;Inter Miami&#39;),</span></span>
+<span id="cb3-15"><a href></a><span class="st">(&#39;Real Madrid&#39;),</span></span>
+<span id="cb3-16"><a href></a><span class="st">(&#39;Al Hilal&#39;),</span></span>
+<span id="cb3-17"><a href></a><span class="st">(&#39;Real Madrid&#39;),</span></span>
+<span id="cb3-18"><a href></a><span class="st">(&#39;Bayern&#39;);</span></span>
+<span id="cb3-19"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb3-20"><a href></a>connection.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1600,11 +1611,11 @@ Danilo Freire
 <h2>Visualise the tables</h2>
 <div style="margin-top: 50px; font-size: 20px;">
 <ul>
-<li>Now let’s see the data in the tables</li>
+<li>Let’s see our tables</li>
 </ul>
-<div id="16f2e6e1" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href></a>pd.read_sql(<span class="st">&#39;SELECT * FROM players&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="8896040d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href></a>pd.read_sql(<span class="st">&#39;SELECT * FROM players&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -1677,9 +1688,9 @@ text-align: right;
 </div>
 </div>
 </div>
-<div id="2d9bb94e" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href></a>pd.read_sql(<span class="st">&#39;SELECT * FROM teams&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="7df15f04" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a>pd.read_sql(<span class="st">&#39;SELECT * FROM teams&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -1754,14 +1765,14 @@ text-align: right;
 <li><code>SELECT columns FROM table1 INNER JOIN table2 ON table1.column = table2.column</code></li>
 <li>Note that Haaland is not in the <code>teams</code> table, so he will not appear in the result set</li>
 </ul>
-<div id="664fa8d2" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb5-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals, players.victories</span></span>
-<span id="cb5-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb5-4"><a href></a><span class="st">INNER JOIN teams </span></span>
-<span id="cb5-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
-<span id="cb5-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="4007ed2e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb6-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals, players.victories</span></span>
+<span id="cb6-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb6-4"><a href></a><span class="st">INNER JOIN teams </span></span>
+<span id="cb6-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
+<span id="cb6-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -1840,14 +1851,14 @@ text-align: right;
 <li><code>SELECT columns FROM table1 LEFT JOIN table2 ON table1.column = table2.column</code></li>
 <li>Note that Haaland is here because he is in the <code>players</code> table, even though he is not in the <code>teams</code> table</li>
 </ul>
-<div id="e6b6082f" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb6-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
-<span id="cb6-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb6-4"><a href></a><span class="st">LEFT JOIN teams</span></span>
-<span id="cb6-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
-<span id="cb6-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="4b922aea" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb7-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
+<span id="cb7-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb7-4"><a href></a><span class="st">LEFT JOIN teams</span></span>
+<span id="cb7-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
+<span id="cb7-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -1925,14 +1936,14 @@ text-align: right;
 <li>The syntax is as follows (you have probably guessed it by now 😄):</li>
 <li><code>SELECT columns FROM table1 RIGHT JOIN table2 ON table1.column = table2.column</code></li>
 </ul>
-<div id="da356d23" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb7-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
-<span id="cb7-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb7-4"><a href></a><span class="st">RIGHT JOIN teams</span></span>
-<span id="cb7-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
-<span id="cb7-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="7933c3c7" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb8-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
+<span id="cb8-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb8-4"><a href></a><span class="st">RIGHT JOIN teams</span></span>
+<span id="cb8-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
+<span id="cb8-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2004,14 +2015,14 @@ text-align: right;
 <li>Why? Because it returns all the data from both tables, which can be a lot and not very useful</li>
 <li>It also overloads the database, as it has to compare all the records from both tables</li>
 </ul>
-<div id="cf556cf0" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb8-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
-<span id="cb8-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb8-4"><a href></a><span class="st">FULL OUTER JOIN teams</span></span>
-<span id="cb8-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
-<span id="cb8-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div id="154116a7" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb9-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
+<span id="cb9-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb9-4"><a href></a><span class="st">FULL OUTER JOIN teams</span></span>
+<span id="cb9-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
+<span id="cb9-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2085,41 +2096,41 @@ text-align: right;
 <ul>
 <li>Let’s create two new tables and insert some data into them</li>
 </ul>
-<div id="38c0bec0" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href></a><span class="co"># Create the tables and insert data</span></span>
-<span id="cb9-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb9-3"><a href></a><span class="st">DROP TABLE IF EXISTS products CASCADE;</span></span>
-<span id="cb9-4"><a href></a><span class="st">CREATE TABLE products (</span></span>
-<span id="cb9-5"><a href></a><span class="st">    product_id SERIAL PRIMARY KEY,</span></span>
-<span id="cb9-6"><a href></a><span class="st">    product_name VARCHAR(100) NOT NULL,</span></span>
-<span id="cb9-7"><a href></a><span class="st">    price DECIMAL(10,2) -- 10 digits, 2 decimal places for money</span></span>
-<span id="cb9-8"><a href></a><span class="st">);</span></span>
-<span id="cb9-9"><a href></a></span>
-<span id="cb9-10"><a href></a><span class="st">-- Insert products (notice some won&#39;t have reviews)</span></span>
-<span id="cb9-11"><a href></a><span class="st">INSERT INTO products (product_name, price) VALUES</span></span>
-<span id="cb9-12"><a href></a><span class="st">    (&#39;Coffee Maker&#39;, 99.99),</span></span>
-<span id="cb9-13"><a href></a><span class="st">    (&#39;Toaster&#39;, 29.99),</span></span>
-<span id="cb9-14"><a href></a><span class="st">    (&#39;Blender&#39;, 79.99),</span></span>
-<span id="cb9-15"><a href></a><span class="st">    (&#39;Microwave&#39;, 149.99),</span></span>
-<span id="cb9-16"><a href></a><span class="st">    (&#39;Air Fryer&#39;, 89.99);</span></span>
-<span id="cb9-17"><a href></a></span>
-<span id="cb9-18"><a href></a><span class="st">DROP TABLE IF EXISTS reviews CASCADE;</span></span>
-<span id="cb9-19"><a href></a><span class="st">CREATE TABLE reviews (</span></span>
-<span id="cb9-20"><a href></a><span class="st">    review_id SERIAL PRIMARY KEY,</span></span>
-<span id="cb9-21"><a href></a><span class="st">    product_id INT,</span></span>
-<span id="cb9-22"><a href></a><span class="st">    rating INT CHECK (rating BETWEEN 1 AND 5),</span></span>
-<span id="cb9-23"><a href></a><span class="st">    comment TEXT,</span></span>
-<span id="cb9-24"><a href></a><span class="st">    FOREIGN KEY (product_id) REFERENCES products(product_id)</span></span>
-<span id="cb9-25"><a href></a><span class="st">);</span></span>
-<span id="cb9-26"><a href></a></span>
-<span id="cb9-27"><a href></a><span class="st">-- Insert reviews (only for some products)</span></span>
-<span id="cb9-28"><a href></a><span class="st">INSERT INTO reviews (product_id, rating, comment) VALUES</span></span>
-<span id="cb9-29"><a href></a><span class="st">    (1, 5, &#39;Great coffee maker!&#39;),</span></span>
-<span id="cb9-30"><a href></a><span class="st">    (1, 4, &#39;Good but expensive&#39;),</span></span>
-<span id="cb9-31"><a href></a><span class="st">    (2, 3, &#39;Average toaster&#39;),</span></span>
-<span id="cb9-32"><a href></a><span class="st">    (3, 5, &#39;Best blender ever&#39;);</span></span>
-<span id="cb9-33"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb9-34"><a href></a>connection.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7a4d798e" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href></a><span class="co"># Create the tables and insert data</span></span>
+<span id="cb10-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb10-3"><a href></a><span class="st">DROP TABLE IF EXISTS products CASCADE;</span></span>
+<span id="cb10-4"><a href></a><span class="st">CREATE TABLE products (</span></span>
+<span id="cb10-5"><a href></a><span class="st">    product_id SERIAL PRIMARY KEY,</span></span>
+<span id="cb10-6"><a href></a><span class="st">    product_name VARCHAR(100) NOT NULL,</span></span>
+<span id="cb10-7"><a href></a><span class="st">    price DECIMAL(10,2) -- 10 digits, 2 decimal places for money</span></span>
+<span id="cb10-8"><a href></a><span class="st">);</span></span>
+<span id="cb10-9"><a href></a></span>
+<span id="cb10-10"><a href></a><span class="st">-- Insert products (notice some won&#39;t have reviews)</span></span>
+<span id="cb10-11"><a href></a><span class="st">INSERT INTO products (product_name, price) VALUES</span></span>
+<span id="cb10-12"><a href></a><span class="st">    (&#39;Coffee Maker&#39;, 99.99),</span></span>
+<span id="cb10-13"><a href></a><span class="st">    (&#39;Toaster&#39;, 29.99),</span></span>
+<span id="cb10-14"><a href></a><span class="st">    (&#39;Blender&#39;, 79.99),</span></span>
+<span id="cb10-15"><a href></a><span class="st">    (&#39;Microwave&#39;, 149.99),</span></span>
+<span id="cb10-16"><a href></a><span class="st">    (&#39;Air Fryer&#39;, 89.99);</span></span>
+<span id="cb10-17"><a href></a></span>
+<span id="cb10-18"><a href></a><span class="st">DROP TABLE IF EXISTS reviews CASCADE;</span></span>
+<span id="cb10-19"><a href></a><span class="st">CREATE TABLE reviews (</span></span>
+<span id="cb10-20"><a href></a><span class="st">    review_id SERIAL PRIMARY KEY,</span></span>
+<span id="cb10-21"><a href></a><span class="st">    product_id INT,</span></span>
+<span id="cb10-22"><a href></a><span class="st">    rating INT CHECK (rating BETWEEN 1 AND 5),</span></span>
+<span id="cb10-23"><a href></a><span class="st">    comment TEXT,</span></span>
+<span id="cb10-24"><a href></a><span class="st">    FOREIGN KEY (product_id) REFERENCES products(product_id)</span></span>
+<span id="cb10-25"><a href></a><span class="st">);</span></span>
+<span id="cb10-26"><a href></a></span>
+<span id="cb10-27"><a href></a><span class="st">-- Insert reviews (only for some products)</span></span>
+<span id="cb10-28"><a href></a><span class="st">INSERT INTO reviews (product_id, rating, comment) VALUES</span></span>
+<span id="cb10-29"><a href></a><span class="st">    (1, 5, &#39;Great coffee maker!&#39;),</span></span>
+<span id="cb10-30"><a href></a><span class="st">    (1, 4, &#39;Good but expensive&#39;),</span></span>
+<span id="cb10-31"><a href></a><span class="st">    (2, 3, &#39;Average toaster&#39;),</span></span>
+<span id="cb10-32"><a href></a><span class="st">    (3, 5, &#39;Best blender ever&#39;);</span></span>
+<span id="cb10-33"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb10-34"><a href></a>connection.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -2149,14 +2160,14 @@ text-align: right;
 <li>Can be resource-intensive with large tables since result grows exponentially</li>
 <li>Sometimes written as simple comma-separated tables in <code>FROM</code> clause: <code>SELECT * FROM table1, table2</code></li>
 </ul>
-<div id="9e733538" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb10-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name</span></span>
-<span id="cb10-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb10-4"><a href></a><span class="st">CROSS JOIN teams</span></span>
-<span id="cb10-5"><a href></a><span class="st">ORDER BY players.player_id;</span></span>
-<span id="cb10-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="e29df93f" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb11-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name</span></span>
+<span id="cb11-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb11-4"><a href></a><span class="st">CROSS JOIN teams</span></span>
+<span id="cb11-5"><a href></a><span class="st">ORDER BY players.player_id;</span></span>
+<span id="cb11-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2343,27 +2354,27 @@ text-align: right;
 <ul>
 <li>Sometimes it is useful to generate all possible combinations of two tables</li>
 </ul>
-<div id="cb3db3af" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href></a><span class="co"># Drop and recreate tables</span></span>
-<span id="cb11-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb11-3"><a href></a><span class="st">DROP TABLE IF EXISTS colors CASCADE;</span></span>
-<span id="cb11-4"><a href></a><span class="st">CREATE TABLE colors (color_name VARCHAR(20));</span></span>
-<span id="cb11-5"><a href></a><span class="st">DROP TABLE IF EXISTS sizes CASCADE;</span></span>
-<span id="cb11-6"><a href></a><span class="st">CREATE TABLE sizes (size_code VARCHAR(5));</span></span>
-<span id="cb11-7"><a href></a><span class="st">INSERT INTO colors VALUES (&#39;Black&#39;), (&#39;Red&#39;);</span></span>
-<span id="cb11-8"><a href></a><span class="st">INSERT INTO sizes VALUES (&#39;S&#39;), (&#39;M&#39;);</span></span>
-<span id="cb11-9"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb11-10"><a href></a></span>
-<span id="cb11-11"><a href></a>pd.read_sql(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb11-12"><a href></a><span class="st">SELECT </span></span>
-<span id="cb11-13"><a href></a><span class="st">    colors.color_name, </span></span>
-<span id="cb11-14"><a href></a><span class="st">    sizes.size_code,</span></span>
-<span id="cb11-15"><a href></a><span class="st">    CONCAT(colors.color_name, &#39; - &#39;, sizes.size_code) as t_shirt</span></span>
-<span id="cb11-16"><a href></a><span class="st">FROM colors</span></span>
-<span id="cb11-17"><a href></a><span class="st">CROSS JOIN sizes</span></span>
-<span id="cb11-18"><a href></a><span class="st">ORDER BY colors.color_name, sizes.size_code DESC;</span></span>
-<span id="cb11-19"><a href></a><span class="st">&#39;&#39;&#39;</span>), connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="36324d29" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href></a><span class="co"># Drop and recreate tables</span></span>
+<span id="cb12-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb12-3"><a href></a><span class="st">DROP TABLE IF EXISTS colors CASCADE;</span></span>
+<span id="cb12-4"><a href></a><span class="st">CREATE TABLE colors (color_name VARCHAR(20));</span></span>
+<span id="cb12-5"><a href></a><span class="st">DROP TABLE IF EXISTS sizes CASCADE;</span></span>
+<span id="cb12-6"><a href></a><span class="st">CREATE TABLE sizes (size_code VARCHAR(5));</span></span>
+<span id="cb12-7"><a href></a><span class="st">INSERT INTO colors VALUES (&#39;Black&#39;), (&#39;Red&#39;);</span></span>
+<span id="cb12-8"><a href></a><span class="st">INSERT INTO sizes VALUES (&#39;S&#39;), (&#39;M&#39;);</span></span>
+<span id="cb12-9"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb12-10"><a href></a></span>
+<span id="cb12-11"><a href></a>pd.read_sql(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb12-12"><a href></a><span class="st">SELECT </span></span>
+<span id="cb12-13"><a href></a><span class="st">    colors.color_name, </span></span>
+<span id="cb12-14"><a href></a><span class="st">    sizes.size_code,</span></span>
+<span id="cb12-15"><a href></a><span class="st">    CONCAT(colors.color_name, &#39; - &#39;, sizes.size_code) as t_shirt</span></span>
+<span id="cb12-16"><a href></a><span class="st">FROM colors</span></span>
+<span id="cb12-17"><a href></a><span class="st">CROSS JOIN sizes</span></span>
+<span id="cb12-18"><a href></a><span class="st">ORDER BY colors.color_name, sizes.size_code DESC;</span></span>
+<span id="cb12-19"><a href></a><span class="st">&#39;&#39;&#39;</span>), connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2423,18 +2434,15 @@ text-align: right;
 <h2>Self join</h2>
 <div style="margin-top: 50px; font-size: 20px;">
 <ul>
-<li>A self join is a regular join, but <span class="alert">the table is joined with itself</span> (!) 🤯</li>
-<li>It may not be immediately apparent how this could be useful, but it actually has many applications</li>
-<li>Often, tables describe entities that can fulfill multiple roles in relationship to one another</li>
-<li>For instance, if you have a table of <code>people</code>, each row could contain a <code>mother</code> column that reference other people in the table with the same <code>person_id</code></li>
-<li>A self join would allow you to stitch these different rows together by joining a second instance of the table to the first where these values match</li>
-</ul>
-<p><br></p>
-<ul>
-<li>Since self joins reference the same table twice, <span class="alert">table aliases are required</span> to disambiguate the references</li>
-<li>You could join the two instances of the <code>people</code> table using the aliases <code>people AS children</code> and <code>people AS mothers</code></li>
-<li>That way, you can specify which instance of the table you are referring to when defining join conditions</li>
-<li>The syntax is as follows: <code>SELECT columns FROM table1 AS alias1 JOIN table1 AS alias2 ON alias1.column = alias2.column</code></li>
+<li><p>A self join is a regular join, but <span class="alert">the table is joined with itself</span> (!) 🤯</p></li>
+<li><p>It may not be immediately apparent how this could be useful, but it actually has many applications</p></li>
+<li><p>Often, tables describe entities that can fulfill multiple roles in relationship to one another</p></li>
+<li><p>For instance, if you have a table of <code>people</code>, each row could contain a <code>mother</code> column that reference other people in the table with the same <code>person_id</code></p></li>
+<li><p>A self join would allow you to stitch these different rows together by joining a second instance of the table to the first where these values match</p></li>
+<li><p>Since self joins reference the same table twice, <span class="alert">table aliases are required</span> to disambiguate the references</p></li>
+<li><p>You could join the two instances of the <code>people</code> table using the aliases <code>people AS children</code> and <code>people AS mothers</code></p></li>
+<li><p>That way, you can specify which instance of the table you are referring to when defining join conditions</p></li>
+<li><p>The syntax is as follows: <code>SELECT columns FROM table1 AS alias1 JOIN table1 AS alias2 ON alias1.column = alias2.column</code></p></li>
 </ul>
 </div>
 </section>
@@ -2444,32 +2452,32 @@ text-align: right;
 <ul>
 <li>Let see an example</li>
 </ul>
-<div id="3a9c92fa" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb12-2"><a href></a><span class="st">DROP TABLE IF EXISTS family CASCADE;</span></span>
-<span id="cb12-3"><a href></a><span class="st">CREATE TABLE family (</span></span>
-<span id="cb12-4"><a href></a><span class="st">    person_id SERIAL PRIMARY KEY,</span></span>
-<span id="cb12-5"><a href></a><span class="st">    name VARCHAR(50),</span></span>
-<span id="cb12-6"><a href></a><span class="st">    mother_id INT</span></span>
-<span id="cb12-7"><a href></a><span class="st">);</span></span>
-<span id="cb12-8"><a href></a></span>
-<span id="cb12-9"><a href></a><span class="st">INSERT INTO family (name, mother_id) VALUES</span></span>
-<span id="cb12-10"><a href></a><span class="st">    (&#39;Emma&#39;, NULL), -- grandmother</span></span>
-<span id="cb12-11"><a href></a><span class="st">    (&#39;Sarah&#39;, 1),   -- Emma&#39;s daughter</span></span>
-<span id="cb12-12"><a href></a><span class="st">    (&#39;Lisa&#39;, 1),    -- Emma&#39;s daughter</span></span>
-<span id="cb12-13"><a href></a><span class="st">    (&#39;Tom&#39;, 2),     -- Sarah&#39;s son</span></span>
-<span id="cb12-14"><a href></a><span class="st">    (&#39;Alice&#39;, 2);   -- Sarah&#39;s daughter</span></span>
-<span id="cb12-15"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb12-16"><a href></a></span>
-<span id="cb12-17"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb12-18"><a href></a><span class="st">SELECT </span></span>
-<span id="cb12-19"><a href></a><span class="st">    children.name as child,</span></span>
-<span id="cb12-20"><a href></a><span class="st">    mothers.name as mother</span></span>
-<span id="cb12-21"><a href></a><span class="st">FROM family children</span></span>
-<span id="cb12-22"><a href></a><span class="st">JOIN family mothers ON children.mother_id = mothers.person_id</span></span>
-<span id="cb12-23"><a href></a><span class="st">ORDER BY mothers.name;</span></span>
-<span id="cb12-24"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="96ed058d" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb13-2"><a href></a><span class="st">DROP TABLE IF EXISTS family CASCADE;</span></span>
+<span id="cb13-3"><a href></a><span class="st">CREATE TABLE family (</span></span>
+<span id="cb13-4"><a href></a><span class="st">    person_id SERIAL PRIMARY KEY,</span></span>
+<span id="cb13-5"><a href></a><span class="st">    name VARCHAR(50),</span></span>
+<span id="cb13-6"><a href></a><span class="st">    mother_id INT</span></span>
+<span id="cb13-7"><a href></a><span class="st">);</span></span>
+<span id="cb13-8"><a href></a></span>
+<span id="cb13-9"><a href></a><span class="st">INSERT INTO family (name, mother_id) VALUES</span></span>
+<span id="cb13-10"><a href></a><span class="st">    (&#39;Emma&#39;, NULL), -- grandmother</span></span>
+<span id="cb13-11"><a href></a><span class="st">    (&#39;Sarah&#39;, 1),   -- Emma&#39;s daughter</span></span>
+<span id="cb13-12"><a href></a><span class="st">    (&#39;Lisa&#39;, 1),    -- Emma&#39;s daughter</span></span>
+<span id="cb13-13"><a href></a><span class="st">    (&#39;Tom&#39;, 2),     -- Sarah&#39;s son</span></span>
+<span id="cb13-14"><a href></a><span class="st">    (&#39;Alice&#39;, 2);   -- Sarah&#39;s daughter</span></span>
+<span id="cb13-15"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb13-16"><a href></a></span>
+<span id="cb13-17"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb13-18"><a href></a><span class="st">SELECT </span></span>
+<span id="cb13-19"><a href></a><span class="st">    children.name as child,</span></span>
+<span id="cb13-20"><a href></a><span class="st">    mothers.name as mother</span></span>
+<span id="cb13-21"><a href></a><span class="st">FROM family children</span></span>
+<span id="cb13-22"><a href></a><span class="st">JOIN family mothers ON children.mother_id = mothers.person_id</span></span>
+<span id="cb13-23"><a href></a><span class="st">ORDER BY mothers.name;</span></span>
+<span id="cb13-24"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2527,20 +2535,20 @@ text-align: right;
 <li>Let see another example</li>
 <li>Here we want to calculate the difference in goals between players in the <code>players</code> table</li>
 </ul>
-<div id="60c7dce9" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb13-2"><a href></a><span class="st">SELECT </span></span>
-<span id="cb13-3"><a href></a><span class="st">    p1.player_name,</span></span>
-<span id="cb13-4"><a href></a><span class="st">    p1.goals,</span></span>
-<span id="cb13-5"><a href></a><span class="st">    p2.player_name as compared_to,</span></span>
-<span id="cb13-6"><a href></a><span class="st">    p2.goals as their_goals,</span></span>
-<span id="cb13-7"><a href></a><span class="st">    p1.goals - p2.goals as difference</span></span>
-<span id="cb13-8"><a href></a><span class="st">FROM players p1</span></span>
-<span id="cb13-9"><a href></a><span class="st">JOIN players p2 </span></span>
-<span id="cb13-10"><a href></a><span class="st">ON p1.player_id &lt; p2.player_id</span></span>
-<span id="cb13-11"><a href></a><span class="st">ORDER BY difference DESC;</span></span>
-<span id="cb13-12"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="9c85d7ae" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb14-2"><a href></a><span class="st">SELECT </span></span>
+<span id="cb14-3"><a href></a><span class="st">    p1.player_name,</span></span>
+<span id="cb14-4"><a href></a><span class="st">    p1.goals,</span></span>
+<span id="cb14-5"><a href></a><span class="st">    p2.player_name as compared_to,</span></span>
+<span id="cb14-6"><a href></a><span class="st">    p2.goals as their_goals,</span></span>
+<span id="cb14-7"><a href></a><span class="st">    p1.goals - p2.goals as difference</span></span>
+<span id="cb14-8"><a href></a><span class="st">FROM players p1</span></span>
+<span id="cb14-9"><a href></a><span class="st">JOIN players p2 </span></span>
+<span id="cb14-10"><a href></a><span class="st">ON p1.player_id &lt; p2.player_id</span></span>
+<span id="cb14-11"><a href></a><span class="st">ORDER BY difference DESC;</span></span>
+<span id="cb14-12"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2696,7 +2704,7 @@ text-align: right;
 </section>
 <section id="sec:exercise02" class="slide level2">
 <h2>Try it yourself! 🧠</h2>
-<div style="margin-top: 50px; font-size: 28px;">
+<div style="margin-top: 50px; font-size: 24px;">
 <ul>
 <li>Write a SQL query that:
 <ul>
@@ -2733,14 +2741,14 @@ text-align: right;
 <li>PostgreSQL uses the provided columns to stitch together the rows from each table</li>
 <li><code>ON</code> is verbose, but also very flexible, as it allows you to specify any condition you want</li>
 </ul>
-<div id="f68e5b20" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb14-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
-<span id="cb14-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb14-4"><a href></a><span class="st">JOIN teams</span></span>
-<span id="cb14-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
-<span id="cb14-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="9ed767ed" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb15-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
+<span id="cb15-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb15-4"><a href></a><span class="st">JOIN teams</span></span>
+<span id="cb15-5"><a href></a><span class="st">ON players.player_id = teams.team_id;</span></span>
+<span id="cb15-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2806,19 +2814,19 @@ text-align: right;
 <li><code>USING</code> is a bit more concise than <code>ON</code>, as it only requires the column names</li>
 <li>Let’s create a new column <code>player_id</code> in the <code>teams</code> table to demonstrate how <code>USING</code> works</li>
 </ul>
-<div id="53be940b" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href></a><span class="co"># First add team_id to players if not exists</span></span>
-<span id="cb15-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb15-3"><a href></a><span class="st">ALTER TABLE teams ADD COLUMN IF NOT EXISTS player_id SERIAL;</span></span>
-<span id="cb15-4"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb15-5"><a href></a></span>
-<span id="cb15-6"><a href></a><span class="co"># Show joined data using USING clause</span></span>
-<span id="cb15-7"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb15-8"><a href></a><span class="st">SELECT player_name, team_name, goals</span></span>
-<span id="cb15-9"><a href></a><span class="st">FROM players</span></span>
-<span id="cb15-10"><a href></a><span class="st">JOIN teams USING (player_id);</span></span>
-<span id="cb15-11"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div id="7a14af1b" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href></a><span class="co"># First add team_id to players if not exists</span></span>
+<span id="cb16-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb16-3"><a href></a><span class="st">ALTER TABLE teams ADD COLUMN IF NOT EXISTS player_id SERIAL;</span></span>
+<span id="cb16-4"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb16-5"><a href></a></span>
+<span id="cb16-6"><a href></a><span class="co"># Show joined data using USING clause</span></span>
+<span id="cb16-7"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb16-8"><a href></a><span class="st">SELECT player_name, team_name, goals</span></span>
+<span id="cb16-9"><a href></a><span class="st">FROM players</span></span>
+<span id="cb16-10"><a href></a><span class="st">JOIN teams USING (player_id);</span></span>
+<span id="cb16-11"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2889,13 +2897,13 @@ text-align: right;
 <li>A <code>NATURAL JOIN</code> does not specify <span class="alert">any columns</span> to be matched</li>
 <li>Instead, PostgreSQL will automatically join the tables based on all columns that have matching columns in each database</li>
 </ul>
-<div id="d8430d68" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb16-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
-<span id="cb16-3"><a href></a><span class="st">FROM players</span></span>
-<span id="cb16-4"><a href></a><span class="st">NATURAL JOIN teams;</span></span>
-<span id="cb16-5"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div id="705adc26" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb17-2"><a href></a><span class="st">SELECT players.player_name, teams.team_name, players.goals</span></span>
+<span id="cb17-3"><a href></a><span class="st">FROM players</span></span>
+<span id="cb17-4"><a href></a><span class="st">NATURAL JOIN teams;</span></span>
+<span id="cb17-5"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2970,14 +2978,14 @@ text-align: right;
 <li>It removes duplicate rows between the various <code>SELECT</code> statements</li>
 <li>The columns in each <code>SELECT</code> statement must be in the same order, with the same data types</li>
 </ul>
-<div id="790af014" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb17-2"><a href></a><span class="st">SELECT player_name, goals FROM players</span></span>
-<span id="cb17-3"><a href></a><span class="st">UNION</span></span>
-<span id="cb17-4"><a href></a><span class="st">SELECT team_name, NULL FROM teams</span></span>
-<span id="cb17-5"><a href></a><span class="st">ORDER BY player_name;</span></span>
-<span id="cb17-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div id="05d7f1ac" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb18-2"><a href></a><span class="st">SELECT player_name, goals FROM players</span></span>
+<span id="cb18-3"><a href></a><span class="st">UNION</span></span>
+<span id="cb18-4"><a href></a><span class="st">SELECT team_name, NULL FROM teams</span></span>
+<span id="cb18-5"><a href></a><span class="st">ORDER BY player_name;</span></span>
+<span id="cb18-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3067,14 +3075,14 @@ text-align: right;
 <li>Similar to <code>UNION</code>, <code>UNION ALL</code> also merges tables by rows</li>
 <li>Unlike <code>UNION</code>, <code>UNION ALL</code> retains the duplicate records of both the tables</li>
 </ul>
-<div id="65562d20" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb18-2"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES (&#39;Real Madrid&#39;, 0, 0); </span></span>
-<span id="cb18-3"><a href></a><span class="st">SELECT player_name FROM players</span></span>
-<span id="cb18-4"><a href></a><span class="st">UNION ALL</span></span>
-<span id="cb18-5"><a href></a><span class="st">SELECT team_name FROM teams;</span></span>
-<span id="cb18-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div id="4a9b4688" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb19-2"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES (&#39;Real Madrid&#39;, 0, 0); </span></span>
+<span id="cb19-3"><a href></a><span class="st">SELECT player_name FROM players</span></span>
+<span id="cb19-4"><a href></a><span class="st">UNION ALL</span></span>
+<span id="cb19-5"><a href></a><span class="st">SELECT team_name FROM teams;</span></span>
+<span id="cb19-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3154,14 +3162,14 @@ text-align: right;
 <ul>
 <li>The <code>INTERSECT</code> operator is used to return the common rows between two queries</li>
 </ul>
-<div id="27b9cf61" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb19-2"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES (&#39;Real Madrid&#39;, 0, 0); </span></span>
-<span id="cb19-3"><a href></a><span class="st">SELECT player_name FROM players</span></span>
-<span id="cb19-4"><a href></a><span class="st">INTERSECT</span></span>
-<span id="cb19-5"><a href></a><span class="st">SELECT team_name FROM teams;</span></span>
-<span id="cb19-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div id="598e24e6" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb20-2"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES (&#39;Real Madrid&#39;, 0, 0); </span></span>
+<span id="cb20-3"><a href></a><span class="st">SELECT player_name FROM players</span></span>
+<span id="cb20-4"><a href></a><span class="st">INTERSECT</span></span>
+<span id="cb20-5"><a href></a><span class="st">SELECT team_name FROM teams;</span></span>
+<span id="cb20-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="70">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3202,14 +3210,14 @@ text-align: right;
 <ul>
 <li><code>EXCEPT</code> returns the records from the first table (left table) which are not present in the second table (right table)</li>
 </ul>
-<div id="471c81cf" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb20-2"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES (&#39;Real Madrid&#39;, 0, 0); </span></span>
-<span id="cb20-3"><a href></a><span class="st">SELECT player_name FROM players</span></span>
-<span id="cb20-4"><a href></a><span class="st">EXCEPT</span></span>
-<span id="cb20-5"><a href></a><span class="st">SELECT team_name FROM teams;</span></span>
-<span id="cb20-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div id="8c3b62c9" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb21-2"><a href></a><span class="st">INSERT INTO players (player_name, goals, victories) VALUES (&#39;Real Madrid&#39;, 0, 0); </span></span>
+<span id="cb21-3"><a href></a><span class="st">SELECT player_name FROM players</span></span>
+<span id="cb21-4"><a href></a><span class="st">EXCEPT</span></span>
+<span id="cb21-5"><a href></a><span class="st">SELECT team_name FROM teams;</span></span>
+<span id="cb21-6"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="71">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3276,22 +3284,22 @@ text-align: right;
 <li>It is extremely flexible, easy to read, and efficient. More info <a href="https://www.postgresql.org/docs/current/sql-merge.html">here</a></li>
 <li>It is better to see it with an example</li>
 </ul>
-<div id="0edb6b6b" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb21-2"><a href></a><span class="st">ALTER TABLE teams ADD COLUMN IF NOT EXISTS player_id SERIAL;</span></span>
-<span id="cb21-3"><a href></a><span class="st">ALTER TABLE teams ADD COLUMN IF NOT EXISTS team_player VARCHAR(100);</span></span>
-<span id="cb21-4"><a href></a></span>
-<span id="cb21-5"><a href></a><span class="st">MERGE INTO teams AS t</span></span>
-<span id="cb21-6"><a href></a><span class="st">USING players AS p</span></span>
-<span id="cb21-7"><a href></a><span class="st">ON t.player_id = p.player_id</span></span>
-<span id="cb21-8"><a href></a><span class="st">WHEN MATCHED THEN</span></span>
-<span id="cb21-9"><a href></a><span class="st">    UPDATE SET team_player = (p.player_name || &#39; - &#39; || t.team_name)</span></span>
-<span id="cb21-10"><a href></a><span class="st">WHEN NOT MATCHED THEN</span></span>
-<span id="cb21-11"><a href></a><span class="st">    INSERT (team_name) VALUES (p.player_name);</span></span>
-<span id="cb21-12"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
-<span id="cb21-13"><a href></a></span>
-<span id="cb21-14"><a href></a>pd.read_sql(<span class="st">&#39;SELECT * FROM teams&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div id="05fd1cc1" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb22-2"><a href></a><span class="st">ALTER TABLE teams ADD COLUMN IF NOT EXISTS player_id SERIAL;</span></span>
+<span id="cb22-3"><a href></a><span class="st">ALTER TABLE teams ADD COLUMN IF NOT EXISTS team_player VARCHAR(100);</span></span>
+<span id="cb22-4"><a href></a></span>
+<span id="cb22-5"><a href></a><span class="st">MERGE INTO teams AS t</span></span>
+<span id="cb22-6"><a href></a><span class="st">USING players AS p</span></span>
+<span id="cb22-7"><a href></a><span class="st">ON t.player_id = p.player_id</span></span>
+<span id="cb22-8"><a href></a><span class="st">WHEN MATCHED THEN</span></span>
+<span id="cb22-9"><a href></a><span class="st">    UPDATE SET team_player = (p.player_name || &#39; - &#39; || t.team_name)</span></span>
+<span id="cb22-10"><a href></a><span class="st">WHEN NOT MATCHED THEN</span></span>
+<span id="cb22-11"><a href></a><span class="st">    INSERT (team_name) VALUES (p.player_name);</span></span>
+<span id="cb22-12"><a href></a><span class="st">&#39;&#39;&#39;</span>))</span>
+<span id="cb22-13"><a href></a></span>
+<span id="cb22-14"><a href></a>pd.read_sql(<span class="st">&#39;SELECT * FROM teams&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3397,6 +3405,10 @@ text-align: right;
 <div style="margin-top: 50px; font-size: 20px;">
 <ul>
 <li>Today we learned about different types of joins in SQL</li>
+<li>We also learned about special joins, such as <code>CROSS JOIN</code> and <code>SELF JOIN</code></li>
+<li>We saw how to merge tables by row with <code>UNION</code>, <code>INTERSECT</code>, and <code>EXCEPT</code></li>
+<li>We also learned about join conditions with <code>ON</code>, <code>USING</code>, and <code>NATURAL JOIN</code></li>
+<li>And we saw the new <code>MERGE</code> operator in PostgreSQL 15+ 🚀</li>
 </ul>
 </div>
 </section></section>
@@ -3416,14 +3428,14 @@ text-align: right;
 <ul>
 <li>Here is the solution to the exercise</li>
 </ul>
-<div id="34a6f546" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href></a><span class="bu">print</span>(<span class="st">&quot;INNER JOIN Results:&quot;</span>)</span>
-<span id="cb22-2"><a href></a><span class="bu">print</span>(pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb22-3"><a href></a><span class="st">    SELECT p.product_name, r.rating, r.comment</span></span>
-<span id="cb22-4"><a href></a><span class="st">    FROM products p</span></span>
-<span id="cb22-5"><a href></a><span class="st">    INNER JOIN reviews r ON p.product_id = r.product_id</span></span>
-<span id="cb22-6"><a href></a><span class="st">    ORDER BY p.product_id;</span></span>
-<span id="cb22-7"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2fc4c0cb" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href></a><span class="bu">print</span>(<span class="st">&quot;INNER JOIN Results:&quot;</span>)</span>
+<span id="cb23-2"><a href></a><span class="bu">print</span>(pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb23-3"><a href></a><span class="st">    SELECT p.product_name, r.rating, r.comment</span></span>
+<span id="cb23-4"><a href></a><span class="st">    FROM products p</span></span>
+<span id="cb23-5"><a href></a><span class="st">    INNER JOIN reviews r ON p.product_id = r.product_id</span></span>
+<span id="cb23-6"><a href></a><span class="st">    ORDER BY p.product_id;</span></span>
+<span id="cb23-7"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>INNER JOIN Results:
    product_name  rating              comment
@@ -3433,14 +3445,14 @@ text-align: right;
 3       Blender       5    Best blender ever</code></pre>
 </div>
 </div>
-<div id="0e90f5eb" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">LEFT JOIN Results:&quot;</span>)</span>
-<span id="cb24-2"><a href></a><span class="bu">print</span>(pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb24-3"><a href></a><span class="st">    SELECT p.product_name, r.rating, r.comment</span></span>
-<span id="cb24-4"><a href></a><span class="st">    FROM products p</span></span>
-<span id="cb24-5"><a href></a><span class="st">    LEFT JOIN reviews r ON p.product_id = r.product_id</span></span>
-<span id="cb24-6"><a href></a><span class="st">    ORDER BY p.product_id;</span></span>
-<span id="cb24-7"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1da2f551" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">LEFT JOIN Results:&quot;</span>)</span>
+<span id="cb25-2"><a href></a><span class="bu">print</span>(pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb25-3"><a href></a><span class="st">    SELECT p.product_name, r.rating, r.comment</span></span>
+<span id="cb25-4"><a href></a><span class="st">    FROM products p</span></span>
+<span id="cb25-5"><a href></a><span class="st">    LEFT JOIN reviews r ON p.product_id = r.product_id</span></span>
+<span id="cb25-6"><a href></a><span class="st">    ORDER BY p.product_id;</span></span>
+<span id="cb25-7"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 LEFT JOIN Results:
@@ -3459,17 +3471,17 @@ LEFT JOIN Results:
 <section id="sec:appendix02" class="slide level2">
 <h2>Appendix 02</h2>
 <div style="margin-top: 50px; font-size: 20px;">
-<div id="dd1ea252" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb26-2"><a href></a><span class="st">SELECT p1.player_name, p1.victories, p2.player_name, p2.victories,</span></span>
-<span id="cb26-3"><a href></a><span class="st">    ROUND(CAST(p1.victories AS NUMERIC) / CAST(p2.victories AS NUMERIC), 2) AS victories_ratio</span></span>
-<span id="cb26-4"><a href></a><span class="st">FROM players p1</span></span>
-<span id="cb26-5"><a href></a><span class="st">JOIN players p2</span></span>
-<span id="cb26-6"><a href></a><span class="st">ON p1.player_id &lt; p2.player_id</span></span>
-<span id="cb26-7"><a href></a><span class="st">WHERE p2.victories &gt; 0</span></span>
-<span id="cb26-8"><a href></a><span class="st">ORDER BY p1.player_id;</span></span>
-<span id="cb26-9"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="76d3cfff" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href></a>pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb27-2"><a href></a><span class="st">SELECT p1.player_name, p1.victories, p2.player_name, p2.victories,</span></span>
+<span id="cb27-3"><a href></a><span class="st">    ROUND(CAST(p1.victories AS NUMERIC) / CAST(p2.victories AS NUMERIC), 2) AS victories_ratio</span></span>
+<span id="cb27-4"><a href></a><span class="st">FROM players p1</span></span>
+<span id="cb27-5"><a href></a><span class="st">JOIN players p2</span></span>
+<span id="cb27-6"><a href></a><span class="st">ON p1.player_id &lt; p2.player_id</span></span>
+<span id="cb27-7"><a href></a><span class="st">WHERE p2.victories &gt; 0</span></span>
+<span id="cb27-8"><a href></a><span class="st">ORDER BY p1.player_id;</span></span>
+<span id="cb27-9"><a href></a><span class="st">&#39;&#39;&#39;</span>, connection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3628,7 +3640,7 @@ text-align: right;
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-19/10-sql-tables.html">Tables and Dates</a></p>
+<p><a href="https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-19/10-sql-tables.html">SQL Joins</a></p>
 </div>
 </div></div>
 
