@@ -1,7 +1,7 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 18 - SQL and Python
-date: last-modified
+date: 2024-10-06
 date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
@@ -137,7 +137,7 @@ connection = engine.connect()
 
 # SQL commands in Python 🐍 {background-color="#2d4563"}
 
-## Executing SQL commands in Python
+## Executing SQL commands in Python {#sec:tables}
 
 :::{style="margin-top: 50px; font-size: 19px;"}
 :::{.columns}
@@ -164,6 +164,7 @@ connection.commit()
 ```
 
 - The `commit()` method is necessary to save the changes, otherwise they will be lost
+- Problems with the code below? [Try to clean the database first (see how in this appendix)](#sec:appendix05), then create the connection and tables again
 :::
 
 :::{.column width="60%"}
@@ -1026,4 +1027,68 @@ pd.read_sql('SELECT department, AVG(salary) FROM employees GROUP BY department',
 ```
 
 [[Back to exercise]{.button}](#sec:exercise03)
+:::
+
+## Appendix 05 {#sec:appendix05}
+### Cleaning all tables
+
+:::{style="margin-top: 50px; font-size: 22px;"}
+- I have encountered some issues with `psycopg2` when trying to drop tables
+- So I created a function to clean all tables in the database
+- If you have a similar issue, you can use the function below
+- Replace the default values with your database name, user, and password
+
+```{python}
+#| echo: true
+#| eval: false
+from sqlalchemy import create_engine, text, inspect
+import time
+
+engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres', future=True)
+connection = engine.connect()
+
+def clean_database(engine):
+    with engine.connect() as conn:
+        try:
+            # Get inspector to check existing tables
+            inspector = inspect(engine)
+            existing_tables = inspector.get_table_names()
+            
+            if not existing_tables:
+                print("No tables found in database")
+                return
+                
+            print(f"Found {len(existing_tables)} tables: {existing_tables}")
+            
+            # Kill other connections
+            conn.execute(text("""
+                SELECT pg_terminate_backend(pid) 
+                FROM pg_stat_activity 
+                WHERE pid <> pg_backend_pid()
+                AND datname = current_database()
+            """))
+            
+            conn.execute(text("ROLLBACK"))
+            conn.execute(text("SET statement_timeout = '30s'"))
+            
+            # Only drop tables that exist
+            for table in existing_tables:
+                try:
+                    conn.execute(text(f"DROP TABLE IF EXISTS {table} CASCADE"))
+                    print(f"Dropped {table}")
+                    conn.commit()
+                    time.sleep(1)
+                except Exception as e:
+                    print(f"Error with {table}: {str(e)}")
+                    conn.execute(text("ROLLBACK"))
+                    
+        except Exception as e:
+            print(f"Fatal error: {str(e)}")
+            conn.execute(text("ROLLBACK"))
+
+# Execute
+clean_database(engine)
+```
+
+[[Back to the lecture]{.button}](#sec:tables)
 :::

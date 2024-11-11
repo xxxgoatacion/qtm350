@@ -97,7 +97,7 @@ editor:
 :::
 :::
 
-## Load the libraries and connect to the database
+## Load the libraries and connect to the database {#sec:tables}
 
 :::{style="margin-top: 50px; font-size: 20px;"}
 - Let's load the libraries and connect to the database
@@ -145,6 +145,7 @@ connection.commit()
 
 :::{style="margin-top: 50px; font-size: 20px;"}
 - Now let's insert some data into the tables
+- Problems with the code below? [Try to clean the database first (see how in this appendix)](#sec:appendix05), then create the connection and tables again
 
 ```{python}
 #| echo: true
@@ -718,3 +719,68 @@ ORDER BY p1.player_id;
 ```
 [[Back to exercise]{.button}](#sec:exercise02)
 ::: 
+
+
+## Appendix 05 {#sec:appendix05}
+### Cleaning all tables
+
+:::{style="margin-top: 50px; font-size: 22px;"}
+- I have encountered some issues with `psycopg2` when trying to drop tables
+- So I created a function to clean all tables in the database
+- If you have a similar issue, you can use the function below
+- Replace the default values with your database name, user, and password
+
+```{python}
+#| echo: true
+#| eval: false
+from sqlalchemy import create_engine, text, inspect
+import time
+
+engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres', future=True)
+connection = engine.connect()
+
+def clean_database(engine):
+    with engine.connect() as conn:
+        try:
+            # Get inspector to check existing tables
+            inspector = inspect(engine)
+            existing_tables = inspector.get_table_names()
+            
+            if not existing_tables:
+                print("No tables found in database")
+                return
+                
+            print(f"Found {len(existing_tables)} tables: {existing_tables}")
+            
+            # Kill other connections
+            conn.execute(text("""
+                SELECT pg_terminate_backend(pid) 
+                FROM pg_stat_activity 
+                WHERE pid <> pg_backend_pid()
+                AND datname = current_database()
+            """))
+            
+            conn.execute(text("ROLLBACK"))
+            conn.execute(text("SET statement_timeout = '30s'"))
+            
+            # Only drop tables that exist
+            for table in existing_tables:
+                try:
+                    conn.execute(text(f"DROP TABLE IF EXISTS {table} CASCADE"))
+                    print(f"Dropped {table}")
+                    conn.commit()
+                    time.sleep(1)
+                except Exception as e:
+                    print(f"Error with {table}: {str(e)}")
+                    conn.execute(text("ROLLBACK"))
+                    
+        except Exception as e:
+            print(f"Fatal error: {str(e)}")
+            conn.execute(text("ROLLBACK"))
+
+# Execute
+clean_database(engine)
+```
+
+[[Back to the lecture]{.button}](#sec:tables)
+:::

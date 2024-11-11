@@ -1449,7 +1449,7 @@ Danilo Freire
     </div>
 </div>
 
-  <p class="date">05 November, 2024</p>
+  <p class="date">06 October, 2024</p>
 </section>
 <section id="hello-great-to-see-you-again" class="title-slide slide level1 center" data-background-color="#2d4563">
 <h1>Hello! Great to see you again! 😊</h1>
@@ -1532,7 +1532,7 @@ Danilo Freire
 <li><code>sqlalchemy</code> generates SQL statements and <code>psycopg2</code> sends SQL statements to the database</li>
 <li>So let’s load the libraries! 🤓</li>
 </ul>
-<div id="174f732b" class="cell" data-execution_count="1">
+<div id="33bf3b21" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href></a><span class="im">import</span> psycopg2</span>
 <span id="cb2-2"><a href></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine, text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1540,7 +1540,7 @@ Danilo Freire
 <li>Now let’s connect to the database</li>
 <li>We need the database name, user, password, and host</li>
 </ul>
-<div id="0f460e12" class="cell" data-execution_count="2">
+<div id="fdf39133" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href></a><span class="co"># Connection parameters</span></span>
 <span id="cb3-2"><a href></a>engine <span class="op">=</span> create_engine(<span class="st">&#39;postgresql+psycopg2://postgres:postgres@localhost:5432/postgres&#39;</span>)</span>
 <span id="cb3-3"><a href></a>connection <span class="op">=</span> engine.<span class="ex">connect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1560,7 +1560,7 @@ Danilo Freire
 <h1>SQL commands in Python 🐍</h1>
 
 </section>
-<section id="executing-sql-commands-in-python" class="slide level2">
+<section id="sec:tables" class="slide level2">
 <h2>Executing SQL commands in Python</h2>
 <div style="margin-top: 50px; font-size: 19px;">
 <div class="columns">
@@ -1570,7 +1570,7 @@ Danilo Freire
 <li>We can use the <code>execute()</code> method of the connection object</li>
 <li>Let’s see an example</li>
 </ul>
-<div id="90e57253" class="cell" data-execution_count="3">
+<div id="3ee8b0ae" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href></a><span class="co"># Create drivers table</span></span>
 <span id="cb4-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb4-3"><a href></a><span class="st">DROP TABLE IF EXISTS drivers;</span></span>
@@ -1586,6 +1586,7 @@ Danilo Freire
 </div>
 <ul>
 <li>The <code>commit()</code> method is necessary to save the changes, otherwise they will be lost</li>
+<li>Problems with the code below? <a href="#/sec:appendix05">Try to clean the database first (see how in this appendix)</a>, then create the connection and tables again</li>
 </ul>
 </div><div class="column" style="width:60%;">
 <ul>
@@ -1593,7 +1594,7 @@ Danilo Freire
 <li>We can use triple quotes to write multi-line strings</li>
 <li>Let’s add some data to the table</li>
 </ul>
-<div id="112abeea" class="cell" data-execution_count="4">
+<div id="f80e7a64" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a><span class="co"># Add data to the drivers table</span></span>
 <span id="cb5-2"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb5-3"><a href></a><span class="st">INSERT INTO drivers (driver_name, team, nationality, victories)</span></span>
@@ -1609,7 +1610,7 @@ Danilo Freire
 <li>Now let’s check if the data were inserted correctly</li>
 <li>We can use the <code>SELECT</code> command for that, and <code>fetchall()</code> to retrieve the data</li>
 </ul>
-<div id="0b0fc370" class="cell" data-execution_count="5">
+<div id="aadb48fa" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href></a>connection.execute(text(<span class="st">&#39;SELECT * FROM drivers&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>[(1, &#39;Lewis Hamilton&#39;, &#39;Mercedes&#39;, &#39;British&#39;, 103),
@@ -1627,7 +1628,7 @@ Danilo Freire
 <ul>
 <li>We use <code>IN</code> to filter data based on a list of values</li>
 </ul>
-<div id="d0e6b009" class="cell" data-execution_count="6">
+<div id="a754b570" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb8-2"><a href></a><span class="st">SELECT * FROM drivers WHERE team IN (&#39;Ferrari&#39;, &#39;Mercedes&#39;);</span></span>
 <span id="cb8-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1639,7 +1640,7 @@ Danilo Freire
 <ul>
 <li><code>BETWEEN</code> is used to filter data within a range</li>
 </ul>
-<div id="9c21e18c" class="cell" data-execution_count="7">
+<div id="22a2c2dc" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb10-2"><a href></a><span class="st">SELECT * FROM drivers WHERE victories BETWEEN 50 AND 100;</span></span>
 <span id="cb10-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1650,7 +1651,7 @@ Danilo Freire
 <ul>
 <li>We can also use <code>NOT IN</code> and <code>NOT BETWEEN</code> to exclude values</li>
 </ul>
-<div id="32781785" class="cell" data-execution_count="8">
+<div id="2f13cbad" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb12-2"><a href></a><span class="st">SELECT * FROM drivers WHERE team NOT IN (&#39;Ferrari&#39;, &#39;Mercedes&#39;);</span></span>
 <span id="cb12-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1671,7 +1672,7 @@ Danilo Freire
 <li><code>%</code> is a wildcard that matches any sequence of characters</li>
 <li><code>_</code> is a wildcard that matches any single character</li>
 </ul>
-<div id="4214aea8" class="cell" data-execution_count="9">
+<div id="54d5df58" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb14-2"><a href></a><span class="st">SELECT * FROM drivers WHERE driver_name LIKE &#39;L%&#39;;</span></span>
 <span id="cb14-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1679,7 +1680,7 @@ Danilo Freire
 <pre><code>[(1, &#39;Lewis Hamilton&#39;, &#39;Mercedes&#39;, &#39;British&#39;, 103)]</code></pre>
 </div>
 </div>
-<div id="931679f1" class="cell" data-execution_count="10">
+<div id="ab132115" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb16-2"><a href></a><span class="st">SELECT * FROM drivers WHERE team LIKE &#39;M______s&#39;;</span></span>
 <span id="cb16-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1690,7 +1691,7 @@ Danilo Freire
 <ul>
 <li>We can also use <code>NOT LIKE</code> to exclude patterns</li>
 </ul>
-<div id="33914c7c" class="cell" data-execution_count="11">
+<div id="b348326a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb18-2"><a href></a><span class="st">SELECT * FROM drivers WHERE driver_name NOT LIKE &#39;L%&#39;;</span></span>
 <span id="cb18-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1704,7 +1705,7 @@ Danilo Freire
 <ul>
 <li><code>ILIKE</code> is the case-insensitive version of <code>LIKE</code></li>
 </ul>
-<div id="531fcead" class="cell" data-execution_count="12">
+<div id="82ff4e59" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb20-2"><a href></a><span class="st">SELECT * FROM drivers WHERE driver_name ILIKE &#39;l%&#39;;</span></span>
 <span id="cb20-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1715,7 +1716,7 @@ Danilo Freire
 <ul>
 <li><code>SIMILAR TO</code> is another operator that allows for more complex patterns</li>
 </ul>
-<div id="534008b0" class="cell" data-execution_count="13">
+<div id="b1cab34f" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb22-2"><a href></a><span class="st">SELECT * FROM drivers WHERE driver_name SIMILAR TO &#39;L[a-z]%&#39;;</span></span>
 <span id="cb22-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1723,7 +1724,7 @@ Danilo Freire
 <pre><code>[(1, &#39;Lewis Hamilton&#39;, &#39;Mercedes&#39;, &#39;British&#39;, 103)]</code></pre>
 </div>
 </div>
-<div id="842bc9a7" class="cell" data-execution_count="14">
+<div id="acbc07e7" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb24-2"><a href></a><span class="st">SELECT * FROM drivers</span></span>
 <span id="cb24-3"><a href></a><span class="st">WHERE team SIMILAR TO &#39;%(Racing|Martin)&#39;;</span></span>
@@ -1763,7 +1764,7 @@ Danilo Freire
 <ul>
 <li>We can also use <code>IS NULL</code> to check for missing values</li>
 </ul>
-<div id="e4dbb61e" class="cell" data-execution_count="15">
+<div id="065a577c" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb26-2"><a href></a><span class="st">SELECT * FROM drivers WHERE victories IS NULL;</span></span>
 <span id="cb26-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1776,7 +1777,7 @@ Danilo Freire
 <li>It is a simple impuation method that replaces missing values with a constant</li>
 <li>The syntax is <code>COALESCE(column_name, value)</code></li>
 </ul>
-<div id="4a71600b" class="cell" data-execution_count="16">
+<div id="73051001" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb28-2"><a href></a><span class="st">SELECT driver_name, COALESCE(victories, 30) FROM drivers;</span></span>
 <span id="cb28-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1798,7 +1799,7 @@ Danilo Freire
 <li>In this example, we compute the average number of victories and use it to fill missing values (rounding to 2 decimal places)</li>
 <li>Note the use of <code>::int</code> to convert the result to an integer</li>
 </ul>
-<div id="e3ac62fc" class="cell" data-execution_count="17">
+<div id="2cf349c3" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb30-2"><a href></a><span class="st">SELECT </span></span>
 <span id="cb30-3"><a href></a><span class="st">  driver_name,</span></span>
@@ -1831,7 +1832,7 @@ Danilo Freire
 <li>The syntax is <code>function() OVER (PARTITION BY column ORDER BY column)</code></li>
 <li>We can use <code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>DENSE_RANK()</code>, <code>LAG()</code>, <code>LEAD()</code>, and many others</li>
 </ul>
-<div id="c2b263c5" class="cell" data-execution_count="18">
+<div id="6cb41ca5" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb32-2"><a href></a><span class="st">INSERT INTO drivers (driver_name, team, nationality, victories)</span></span>
 <span id="cb32-3"><a href></a><span class="st">VALUES </span></span>
@@ -1873,7 +1874,7 @@ Danilo Freire
 <li>It is used to aggregate data based on a column</li>
 <li>It is useful to compute statistics for groups of data, but it is not as flexible as window functions</li>
 </ul>
-<div id="a2b1fce7" class="cell" data-execution_count="19">
+<div id="8b0f1e77" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb34-2"><a href></a><span class="st">SELECT team, ROUND(AVG(victories), 2) AS avg_victories</span></span>
 <span id="cb34-3"><a href></a><span class="st">FROM drivers</span></span>
@@ -1893,7 +1894,7 @@ Danilo Freire
 <li>Window functions can have <span class="alert">multiple partitions</span> and <span class="alert">orderings</span>, and they are particularly useful for time series data, when we need to compute values based on a time window</li>
 <li>For instance, they can be used to calculate moving averages, cumulative sums, and other statistics</li>
 </ul>
-<div id="ecb69d08" class="cell" data-execution_count="20">
+<div id="c43d3d66" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb36-2"><a href></a><span class="st">SELECT </span></span>
 <span id="cb36-3"><a href></a><span class="st">    driver_name, </span></span>
@@ -1944,7 +1945,7 @@ Danilo Freire
 <li>We can use <code>LEFT()</code>, <code>RIGHT()</code>, <code>LENGTH()</code>, <code>UPPER()</code>, <code>LOWER()</code>, <code>INITCAP()</code>, <code>TRIM()</code>, <code>REPLACE()</code>, and many others</li>
 <li>They are usually very similar to their Python counterparts (and straightforward to use!)</li>
 </ul>
-<div id="d0b5d385" class="cell" data-execution_count="21">
+<div id="4dd5885d" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb38-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb38-3"><a href></a><span class="st">    LEFT(driver_name, 5) AS first_name,</span></span>
@@ -1977,7 +1978,7 @@ Danilo Freire
 <li><code>REPLACE()</code> is used to replace a substring with another substring</li>
 <li><code>CONCAT()</code> concatenates strings</li>
 </ul>
-<div id="7fa11691" class="cell" data-execution_count="22">
+<div id="3a5507e6" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb40-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb40-3"><a href></a><span class="st">    TRIM(driver_name) AS trimmed_name,</span></span>
@@ -2014,7 +2015,7 @@ Danilo Freire
 <li>It works exactly like <code>if</code> statements in other programming languages</li>
 <li>The syntax is <code>CASE WHEN condition THEN value ELSE value END</code></li>
 </ul>
-<div id="f509d9fb" class="cell" data-execution_count="23">
+<div id="6ae8a767" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb42-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb42-3"><a href></a><span class="st">    CASE </span></span>
@@ -2039,7 +2040,7 @@ Danilo Freire
 <li>We can also use <code>CASE</code> with multiple conditions</li>
 <li>The <code>AS</code> keyword is used to rename the column</li>
 </ul>
-<div id="afa8147c" class="cell" data-execution_count="24">
+<div id="86c1ab9b" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb44-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb44-3"><a href></a><span class="st">    CASE </span></span>
@@ -2064,7 +2065,7 @@ Danilo Freire
 <li><code>CASE</code> can be combined with <code>IN</code> and <code>BETWEEN</code> operators</li>
 <li>It is a very versatile statement! 🤓</li>
 </ul>
-<div id="b6b2acbe" class="cell" data-execution_count="25">
+<div id="b2f04a10" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb46-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb46-3"><a href></a><span class="st">    CASE </span></span>
@@ -2095,7 +2096,7 @@ Danilo Freire
 <li><code>CASE</code> can also be useful to fill missing values with conditions</li>
 <li>Let’s add some missing values to the table</li>
 </ul>
-<div id="43422a71" class="cell" data-execution_count="26">
+<div id="6dbee2b6" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb48-2"><a href></a><span class="st">SELECT * FROM drivers WHERE victories IS NULL;</span></span>
 <span id="cb48-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2103,7 +2104,7 @@ Danilo Freire
 <pre><code>[(4, &#39;Fernando Alonso&#39;, &#39;Aston Martin&#39;, None, None)]</code></pre>
 </div>
 </div>
-<div id="ec161630" class="cell" data-execution_count="27">
+<div id="27620928" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb50-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb50-3"><a href></a><span class="st">    CASE </span></span>
@@ -2162,7 +2163,7 @@ Danilo Freire
 <li>And it can be even better when combined with SQL queries</li>
 <li>We can use the <code>read_sql()</code> method to read data from a SQL query</li>
 </ul>
-<div id="2c38f5ef" class="cell" data-execution_count="28">
+<div id="3c0abf9a" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb52-2"><a href></a></span>
 <span id="cb52-3"><a href></a><span class="co"># Read data from SQL query</span></span>
@@ -2268,7 +2269,7 @@ text-align: right;
 <ul>
 <li>You can pass any SQL query to the <code>read_sql()</code> method</li>
 </ul>
-<div id="e9174576" class="cell" data-execution_count="29">
+<div id="7b1d495a" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href></a>pd.read_sql(</span>
 <span id="cb53-2"><a href></a>  <span class="st">&quot;SELECT * FROM drivers WHERE victories &gt; 50 AND nationality = &#39;British&#39;&quot;</span>, </span>
 <span id="cb53-3"><a href></a>  connection</span>
@@ -2332,7 +2333,7 @@ text-align: right;
 <ul>
 <li>We can then use any <code>pandas</code> method to manipulate the data</li>
 </ul>
-<div id="49eb260b" class="cell" data-execution_count="30">
+<div id="afe31fed" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href></a>df.groupby(<span class="st">&#39;team&#39;</span>).agg(avg_victories<span class="op">=</span>(<span class="st">&#39;victories&#39;</span>, <span class="st">&#39;mean&#39;</span>)).dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
@@ -2385,7 +2386,7 @@ text-align: right;
 <ul>
 <li>Using <code>.query()</code> to filter data</li>
 </ul>
-<div id="43cf64b6" class="cell" data-execution_count="31">
+<div id="27d5685e" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href></a>df.query(<span class="st">&#39;victories &gt; 50&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <div>
@@ -2439,7 +2440,7 @@ text-align: right;
 <ul>
 <li>We can also write data to a SQL table with the <code>to_sql()</code> method</li>
 </ul>
-<div id="e010d505" class="cell" data-execution_count="32">
+<div id="e7e20671" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href></a>df.to_sql(<span class="st">&#39;drivers_copy&#39;</span>, connection, if_exists<span class="op">=</span><span class="st">&#39;replace&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb56-2"><a href></a></span>
 <span id="cb56-3"><a href></a><span class="co"># Check if the data were written correctly</span></span>
@@ -2559,7 +2560,7 @@ text-align: right;
 <li>Commit the changes</li>
 <li>Use <code>pandas</code> to compute the average salary by department</li>
 </ul>
-<div id="56f49744" class="cell" data-execution_count="33">
+<div id="cb2a3026" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href></a><span class="co"># Create employees table first, then insert data</span></span>
 <span id="cb57-2"><a href></a><span class="co">&#39;Alice&#39;</span>, <span class="st">&#39;HR&#39;</span>, <span class="dv">5000</span></span>
 <span id="cb57-3"><a href></a><span class="co">&#39;Bob&#39;</span>, <span class="st">&#39;IT&#39;</span>, <span class="dv">6000</span></span>
@@ -2585,7 +2586,7 @@ text-align: right;
 <li>We can use the <code>CASE</code> function to pivot tables, which is similar to the <code>pivot_table()</code> method in <code>pandas</code></li>
 <li>Let’s create another table with student scores</li>
 </ul>
-<div id="5407084a" class="cell" data-execution_count="34">
+<div id="94a60fdd" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb58-2"><a href></a><span class="st">DROP TABLE IF EXISTS student_scores;</span></span>
 <span id="cb58-3"><a href></a><span class="st">CREATE TABLE student_scores (</span></span>
@@ -2639,7 +2640,7 @@ text-align: right;
 <li>We will focus on the students’ scores in Math and Science</li>
 <li>Let’s calculate their average scores for each subject</li>
 </ul>
-<div id="de0b0c4d" class="cell" data-execution_count="35">
+<div id="6a7a8a80" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href></a>df2 <span class="op">=</span> pd.read_sql(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb60-2"><a href></a><span class="st">SELECT </span></span>
 <span id="cb60-3"><a href></a><span class="st">    student_name,</span></span>
@@ -2715,7 +2716,7 @@ text-align: right;
 <li>The syntax is <code>crosstab(text, text)</code> and it requires the <code>tablefunc</code> extension</li>
 <li>We can install the extension with the command below</li>
 </ul>
-<div id="b9586653" class="cell" data-execution_count="36">
+<div id="55b70c80" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href></a><span class="co">#} eval: true</span></span>
 <span id="cb61-2"><a href></a>connection.execute(text(<span class="st">&#39;CREATE EXTENSION IF NOT EXISTS tablefunc;&#39;</span>))</span>
 <span id="cb61-3"><a href></a>connection.commit()</span>
@@ -2866,7 +2867,7 @@ text-align: right;
 <ul>
 <li>Find all drivers whose names start with ‘M’</li>
 </ul>
-<div id="22c533bb" class="cell" data-execution_count="37">
+<div id="93355853" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb62-2"><a href></a><span class="st">SELECT * FROM drivers WHERE driver_name LIKE &#39;M%&#39;;</span></span>
 <span id="cb62-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2877,7 +2878,7 @@ text-align: right;
 <ul>
 <li>Find drivers whose nationality contains exactly 7 characters</li>
 </ul>
-<div id="3df040dc" class="cell" data-execution_count="38">
+<div id="90385314" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb64-2"><a href></a><span class="st">SELECT * FROM drivers WHERE nationality LIKE &#39;_______&#39;;</span></span>
 <span id="cb64-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2891,7 +2892,7 @@ text-align: right;
 <ul>
 <li>Or we can use the <code>LENGTH</code> function</li>
 </ul>
-<div id="64aa06d1" class="cell" data-execution_count="39">
+<div id="0000e5d6" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb66-2"><a href></a><span class="st">SELECT * FROM drivers WHERE LENGTH(nationality) = 7;</span></span>
 <span id="cb66-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2911,7 +2912,7 @@ text-align: right;
 <ul>
 <li>List drivers whose names start with either ‘L’ or ‘M’</li>
 </ul>
-<div id="fdf5e890" class="cell" data-execution_count="40">
+<div id="0b98f49c" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb68-2"><a href></a><span class="st">SELECT * FROM drivers WHERE driver_name LIKE &#39;L%&#39; OR driver_name LIKE &#39;M%&#39;;</span></span>
 <span id="cb68-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2924,7 +2925,7 @@ text-align: right;
 <ul>
 <li>Find drivers who have won between 10 and 50 races</li>
 </ul>
-<div id="bbdf557b" class="cell" data-execution_count="41">
+<div id="c6f2d77a" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb70-2"><a href></a><span class="st">SELECT * FROM drivers WHERE victories BETWEEN 1 AND 10;</span></span>
 <span id="cb70-3"><a href></a><span class="st">&#39;&#39;&#39;</span>)).fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2945,7 +2946,7 @@ text-align: right;
 <ul>
 <li>Create a column called <code>rank_nationality</code> that ranks drivers based on the number of victories and their nationality</li>
 </ul>
-<div id="a816c344" class="cell" data-execution_count="42">
+<div id="cd9b6b22" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb72-2"><a href></a><span class="st">SELECT driver_name, nationality, victories,</span></span>
 <span id="cb72-3"><a href></a><span class="st">    RANK() OVER (PARTITION BY nationality ORDER BY victories DESC) AS rank_nationality</span></span>
@@ -2977,7 +2978,7 @@ text-align: right;
 <li><code>Expert</code> if victories &gt; 50</li>
 </ul></li>
 </ul>
-<div id="c300a27a" class="cell" data-execution_count="43">
+<div id="b9f62d08" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb74-2"><a href></a><span class="st">SELECT driver_name, </span></span>
 <span id="cb74-3"><a href></a><span class="st">    CASE </span></span>
@@ -3016,7 +3017,7 @@ text-align: right;
 <li>Insert some data into the table and read it with <code>pandas</code> (you can see the example below)</li>
 <li>Use <code>pandas</code> to compute the average salary by department</li>
 </ul>
-<div id="12ebe39e" class="cell" data-execution_count="44">
+<div id="8e137be9" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href></a>connection.execute(text(<span class="st">&#39;&#39;&#39;</span></span>
 <span id="cb76-2"><a href></a><span class="st">DROP TABLE IF EXISTS employees;</span></span>
 <span id="cb76-3"><a href></a><span class="st">CREATE TABLE employees (</span></span>
@@ -3083,6 +3084,68 @@ text-align: right;
 </div>
 </div>
 <p><a href="#/sec:exercise03"><span class="button">Back to exercise</span></a></p>
+</div>
+</section>
+<section id="sec:appendix05" class="slide level2">
+<h2>Appendix 05</h2>
+<h3 id="cleaning-all-tables">Cleaning all tables</h3>
+<div style="margin-top: 50px; font-size: 22px;">
+<ul>
+<li>I have encountered some issues with <code>psycopg2</code> when trying to drop tables</li>
+<li>So I created a function to clean all tables in the database</li>
+<li>If you have a similar issue, you can use the function below</li>
+<li>Replace the default values with your database name, user, and password</li>
+</ul>
+<div id="4b599829" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine, text, inspect</span>
+<span id="cb77-2"><a href></a><span class="im">import</span> time</span>
+<span id="cb77-3"><a href></a></span>
+<span id="cb77-4"><a href></a>engine <span class="op">=</span> create_engine(<span class="st">&#39;postgresql+psycopg2://postgres:postgres@localhost:5432/postgres&#39;</span>, future<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb77-5"><a href></a>connection <span class="op">=</span> engine.<span class="ex">connect</span>()</span>
+<span id="cb77-6"><a href></a></span>
+<span id="cb77-7"><a href></a><span class="kw">def</span> clean_database(engine):</span>
+<span id="cb77-8"><a href></a>    <span class="cf">with</span> engine.<span class="ex">connect</span>() <span class="im">as</span> conn:</span>
+<span id="cb77-9"><a href></a>        <span class="cf">try</span>:</span>
+<span id="cb77-10"><a href></a>            <span class="co"># Get inspector to check existing tables</span></span>
+<span id="cb77-11"><a href></a>            inspector <span class="op">=</span> inspect(engine)</span>
+<span id="cb77-12"><a href></a>            existing_tables <span class="op">=</span> inspector.get_table_names()</span>
+<span id="cb77-13"><a href></a>            </span>
+<span id="cb77-14"><a href></a>            <span class="cf">if</span> <span class="kw">not</span> existing_tables:</span>
+<span id="cb77-15"><a href></a>                <span class="bu">print</span>(<span class="st">&quot;No tables found in database&quot;</span>)</span>
+<span id="cb77-16"><a href></a>                <span class="cf">return</span></span>
+<span id="cb77-17"><a href></a>                </span>
+<span id="cb77-18"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;Found </span><span class="sc">{</span><span class="bu">len</span>(existing_tables)<span class="sc">}</span><span class="ss"> tables: </span><span class="sc">{</span>existing_tables<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb77-19"><a href></a>            </span>
+<span id="cb77-20"><a href></a>            <span class="co"># Kill other connections</span></span>
+<span id="cb77-21"><a href></a>            conn.execute(text(<span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb77-22"><a href></a><span class="st">                SELECT pg_terminate_backend(pid) </span></span>
+<span id="cb77-23"><a href></a><span class="st">                FROM pg_stat_activity </span></span>
+<span id="cb77-24"><a href></a><span class="st">                WHERE pid &lt;&gt; pg_backend_pid()</span></span>
+<span id="cb77-25"><a href></a><span class="st">                AND datname = current_database()</span></span>
+<span id="cb77-26"><a href></a><span class="st">            &quot;&quot;&quot;</span>))</span>
+<span id="cb77-27"><a href></a>            </span>
+<span id="cb77-28"><a href></a>            conn.execute(text(<span class="st">&quot;ROLLBACK&quot;</span>))</span>
+<span id="cb77-29"><a href></a>            conn.execute(text(<span class="st">&quot;SET statement_timeout = &#39;30s&#39;&quot;</span>))</span>
+<span id="cb77-30"><a href></a>            </span>
+<span id="cb77-31"><a href></a>            <span class="co"># Only drop tables that exist</span></span>
+<span id="cb77-32"><a href></a>            <span class="cf">for</span> table <span class="kw">in</span> existing_tables:</span>
+<span id="cb77-33"><a href></a>                <span class="cf">try</span>:</span>
+<span id="cb77-34"><a href></a>                    conn.execute(text(<span class="ss">f&quot;DROP TABLE IF EXISTS </span><span class="sc">{</span>table<span class="sc">}</span><span class="ss"> CASCADE&quot;</span>))</span>
+<span id="cb77-35"><a href></a>                    <span class="bu">print</span>(<span class="ss">f&quot;Dropped </span><span class="sc">{</span>table<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb77-36"><a href></a>                    conn.commit()</span>
+<span id="cb77-37"><a href></a>                    time.sleep(<span class="dv">1</span>)</span>
+<span id="cb77-38"><a href></a>                <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb77-39"><a href></a>                    <span class="bu">print</span>(<span class="ss">f&quot;Error with </span><span class="sc">{</span>table<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb77-40"><a href></a>                    conn.execute(text(<span class="st">&quot;ROLLBACK&quot;</span>))</span>
+<span id="cb77-41"><a href></a>                    </span>
+<span id="cb77-42"><a href></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb77-43"><a href></a>            <span class="bu">print</span>(<span class="ss">f&quot;Fatal error: </span><span class="sc">{</span><span class="bu">str</span>(e)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb77-44"><a href></a>            conn.execute(text(<span class="st">&quot;ROLLBACK&quot;</span>))</span>
+<span id="cb77-45"><a href></a></span>
+<span id="cb77-46"><a href></a><span class="co"># Execute</span></span>
+<span id="cb77-47"><a href></a>clean_database(engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="#/sec:tables"><span class="button">Back to the lecture</span></a></p>
 </div>
 
 </section></section>
