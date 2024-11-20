@@ -1,0 +1,182 @@
+---
+title: QTM 350 - Data Science Computing
+subtitle: Lecture 23 - Dependency Management, Virtual Environments, and Containers
+date: 2024-11-20
+date-format: "DD MMMM, YYYY"
+author:
+  - name: Danilo Freire
+    email: danilo.freire@emory.edu
+    affiliations: Emory University
+format:
+  clean-revealjs:
+    self-contained: true
+    code-overflow: wrap
+    footer: "[Containers](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-23/23-containers.html)"
+transition: slide
+transition-speed: default
+scrollable: true
+engine: jupyter
+revealjs-plugins:
+  - fontawesome
+  - multimodal
+editor:
+  render-on-save: true
+---
+
+# Hello again! 😊 <br> How's everything? {background-color="#2d4563"}
+
+# Brief recap of last class 📚 {background-color="#2d4563"}
+
+## Parallel computing with Dask
+
+:::{style="margin-top: 30px; font-size: 24px;"}
+:::{.columns}
+:::{.column width="50%"}
+- We discussed how to parallelise the training of machine learning models
+- How to use automated machine learning (AutoML) tools to speed up the process
+- We also discussed how to implement different methods to search for the best hyperparameters using TPOT, scikit-learn, and Dask
+- Finally, we learnt about [Dask Clusters](https://docs.dask.org/en/latest/setup/clusters.html), which allow us to scale your computations across multiple cores or machines
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center; margin-top: -20px;"}
+![](figures/parallel.png)
+![](figures/parallel02.png){width='80%'}
+:::
+:::
+:::
+:::
+
+# Today's agenda 📅 {background-color="#2d4563"}
+
+## Lecture outline
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+:::{.columns}
+:::{.column width="45%"}
+- Today we will talk about a different topic: how to make sure your results are reproducible?
+- We will discuss the importance of dependency management, virtual environments, and containers
+- Replication has been a recurring theme in this course, and today we will learn how to make it easier
+- That is the main reason why we use the command line, git, Quarto, Jupyter, and other tools
+- So today we will discuss some of the best practices to ensure computational reproducibility
+- We will also discuss how to use containers to make your code portable, reproducible, and scalable
+- Let's get started! 🚀
+:::
+
+:::{.column width="55%"}
+:::{style="text-align: center; margin-top: -20px;"}
+![](figures/meme03.jpg){width='50%'}
+![](figures/meme04.jpg){width='50%'}
+:::
+:::
+:::
+:::
+
+# Dependency management 📦 {background-color="#2d4563"}
+
+## Congratulations! 🎉
+
+:::{style="margin-top: 30px; font-size: 23px;"}
+:::{.columns}
+:::{.column width="50%"}
+- [You now have a project!]{.alert}
+- Your code works great, it runs pretty fast thanks to Dask, your Quarto reports are beautiful, and your analyses (all done in the command line) are stored in a well-documented GitHub repository
+- Are you done? 🤔
+- [Not quite!]{.alert} 😅
+- What if you need to run your code on a different machine? Or share it with a colleague? Or run it again in a few months?
+- You need to make sure your code will run in the future, and that's where dependency management comes in
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center; margin-top: -20px;"}
+![](figures/dependencies.png)
+:::
+:::
+:::
+:::
+
+## Why do we need dependency management? 🤔
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+### The problem
+
+- As we have seen in this course (and in many others), [libraries and packages change constantly]{.alert}
+- New versions are released, old versions are deprecated, and not all operating systems have the required libraries installed to run your code
+- Even extremely simple code can break from one version of a library to the next
+- this code written in Python 2.7:
+
+```{python}
+#| echo: true
+#| eval: false
+print "Hello, world!"
+```
+
+- will not work in Python 3.x
+
+```{python}
+#| echo: true
+#| eval: false
+print "Hello world!"
+```
+
+```{verbatim}
+  File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
+    print "Hello world!"
+                       ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
+```
+
+:::
+
+:::{.column width="50%"}
+### Some definitions
+
+- [Dependency management]{.alert} is the process of ensuring that your code will run in the future
+- [Dependencies]{.alert} are the external components necessary to run your code, such as libraries, packages, and software
+- [Packages]{.alert} have a name, a type, a version, relevant files for the package's functionality, and potentially dependencies on other packages
+- A [package registry]{.alert} is a directory for packages and stores metadata about packages in the registry, such as [CRAN](https://cran.r-project.org/), [PyPI](https://pypi.org/), or [Conda](https://docs.conda.io/en/latest/)
+- [Dependency management tools]{.alert} help you manage your dependencies, such as [pip](https://pip.pypa.io/en/stable/) and [conda](https://docs.conda.io/en/latest/)
+:::
+:::
+:::
+
+## The reproducibility crisis 🚨
+
+:::{style="margin-top: 30px; font-size: 21px;"}
+:::{.columns}
+:::{.column width="50%"}
+- We have already seen how important it is to ensure that your results are reproducible
+- The [reproducibility crisis]{.alert} is a term used to describe the inability of researchers to replicate the results of a study
+- This affects computer science, statistics, and many other fields
+- Apart from statistical issues such as p-hacking, publication bias, and low statistical power, one of the main reasons for the reproducibility crisis is the lack of proper documentation and dependency management
+- While the statistical problems are a bit more complex, the latter can be easily solved with tools that we already have at our disposal
+:::
+
+:::{.column width="50%"}
+- According to a recent [Nature survey](https://www.nature.com/articles/533452a), more than 70% of researchers have tried and failed to reproduce another scientist's experiments, and [more than half have failed to reproduce their own experiments]{.alert} 😳
+- 90% of researchers believe that there is a reproducibility crisis in science
+
+:::{style="text-align: center; margin-top: -20px;"}
+![](figures/reproducibility.webp){width='80%'}
+:::
+:::
+:::
+:::
+
+## The reproducibility trade-off 🔄
+
+:::{style="margin-top: 30px; font-size: 20px;"}
+:::{style="text-align: center;"}
+![](figures/trade-off.png){width='80%'}
+:::
+
+- How far should we go to ensure that our results are reproducible?
+- [Due diligence starts at declaring dependencies]{.alert}
+- You can empower your declared dependencies with a package/environment manager such as `conda` or `pip`
+- Packaging dependencies uses tools like `renv` (for R), or `pipenv` (for Python)
+- Online environments can be created for your work (in a relatively user friendly way), such as [Code Ocean](https://codeocean.com/) ($$$), or [Binder](https://mybinder.org/) (free, but with several limitations as we will see)
+- [Containers are awesome]{.alert}, and container tools like [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/) can be used to package your code and dependencies in a portable way
+- Which one should you use? It depends on your needs, but the more you do, the more reproducible your work should be!
+:::
