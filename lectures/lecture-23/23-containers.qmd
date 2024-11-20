@@ -178,7 +178,7 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello w
 - Packaging dependencies uses tools like `renv` (for R), or `pipenv` (for Python)
 - Online environments can be created for your work (in a relatively user friendly way), such as [Code Ocean](https://codeocean.com/) ($$$), or [Binder](https://mybinder.org/) (free, but with several limitations)
 - [Containers are awesome]{.alert}, and container tools like [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/) can be used to package your code and dependencies in a portable way
-- Which one should you use? It depends on your needs, but the more you do, the more reproducible your work should be!
+- Which one should you use? It depends on your needs, but the more integrated your workflow is, the better!
 :::
 
 ## How to declare dependencies? 📜
