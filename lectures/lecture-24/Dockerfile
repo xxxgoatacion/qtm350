@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     bash=5.2.21-2ubuntu4 \
     git=1:2.43.0-1ubuntu7.1 \
     curl=8.5.0-2ubuntu10.5 \
+    sqlite3=3.45.1-1ubuntu2 \
     wget=1.21.4-1ubuntu4.1 \
     python3=3.12.3-0ubuntu2 \
     python3.12-venv \
