@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Data Science Computing!"
 subtitle: "Lecture 01: Introduction"
-date: "2024-08-26"
+date: "2025-01-14"
 date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
@@ -11,7 +11,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Lecture 01](https://danilofreire.github.io/qtm350/lectures/lecture-01/01-introduction.html)"
+    footer: "[Lecture 01](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-01/01-introduction.html)"
 bibliography: references.bib
 transition: slide
 transition-speed: default
@@ -43,22 +43,22 @@ knit_hooks$set(
       )
 })
 
-packages <- c("tidyverse", "emo", "fontawesome")
+# Set CRAN mirror
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
 
-for (package in packages) {
-  if (!require(package, character.only = TRUE)) {
-    install.packages(package, dependencies = TRUE)
-    library(package, character.only = TRUE)
-  }
+if (!require("fontawesome", character.only = TRUE)) {
+  install.packages("fontawesome", dependencies = TRUE)
+  library(fontawesome, character.only = TRUE)
 }
 ```
 
-# Welcome to QTM350 - Data Science Computing! `r emo::ji('partying_face')` `r emo::ji('tada')` {background-color="#2d4563"}
+# Welcome to QTM350 <br> Data Science Computing! 🎉 {background-color="#2d4563"}
 
 ## Lecture overview
-### Our agenda for today
+### Today's agenda
 
-<br>
+:::{style="margin-top: 60px;"}
+:::
 
 :::{.incremental}
 - Introduction
@@ -70,19 +70,23 @@ for (package in packages) {
 ## Course materials
 ### Important links
 
-::: {style="font-size: 28px;"}
+::: {style="font-size: 24px;"}
 `r fa('github')` Course repository: <https://github.com/danilofreire/qtm350>
 
 `r fa('globe')` Course website: <https://danilofreire.github.io/qtm350>
 
-This course is hosted on GitHub, which serves as our central hub for lecture materials, code examples, discussions, assignments, and final project guidelines. We will use Canvas for course administration, including submitting assignments, accessing grades, and receiving announcements. Please take some time to get to know both platforms, and reach out if you have any questions.
+All course materials, including lectures, code, discussions, assignments, and project guidelines, are available on our [GitHub repository](https://github.com/danilofreire/qtm350)
+
+We will use Canvas for course administration, including submitting assignments, accessing grades, and receiving announcements
+
+Please take some time to get to know both platforms, and reach out if you have any questions.
 
 ::: {.callout-note}
-Please remember to check the course repository regularly for updates and announcements.
+Please remember to check the course repository regularly for updates and announcements!
 :::
 :::
 
-# Nice to meet you! `r emo::ji('waving_hand')` {background-color="#2d4563"}
+# Nice to meet you! 😊 {background-color="#2d4563"}
 
 ## Instructor
 ### A bit about me
@@ -101,12 +105,12 @@ Please remember to check the course repository regularly for updates and announc
 :::
 
 ::: {.column}
-::: {style="font-size: 30px;"}
+::: {style="font-size: 28px;"}
 `r fa('chalkboard-user')` Visiting Assistant Professor in the [QTM](https://qtm.emory.edu)
 
-`r fa('graduation-cap')` MA from the Graduate Institute Geneva, PhD from King's College London, Postdoc at Brown University, Senior Lecturer at the University of Lincoln, UK.
+`r fa('graduation-cap')` MA from the Graduate Institute Geneva, PhD from King's College London, Postdoc at Brown University, Senior Lecturer at the University of Lincoln, UK
 
-`r fa('book-open')` Research interests: computational social science, experimental methods, policy evaluation, political violence, organised crime.
+`r fa('book-open')` Research interests: computational social science, experimental methods, policy evaluation, political violence, organised crime
 :::
 :::
 ::::
@@ -125,17 +129,19 @@ Please remember to check the course repository regularly for updates and announc
 
 ## What about you? (time permitting!)
 
-<br>
+:::{style="margin-top: 60px;"}
+:::
 
-Now it's your turn! `r emo::ji('wave')`
+Now it's your turn! 😉
 
-<br>
+Please introduce yourself! 👋
 
-Please introduce yourself, tell us your name, your major, one thing you really like, and something we don't know about your city or country! `r emo::ji('smiling_face_with_smiling_eyes')`
+Tell us your name, your major, one thing you really like, and something we don't know about your city or country! 🌍
 
 ## My teaching philosophy
 
-<br>
+:::{style="margin-top: 60px;"}
+:::
 
 - I love teaching and aim to make learning fun 
 - Classes where students participate are the best
@@ -145,20 +151,22 @@ Please introduce yourself, tell us your name, your major, one thing you really l
 
 ## Teaching assistants
 
-<br>
+:::{style="margin-top: 60px;"}
+:::
 
-- The teaching assistants for this course will be confirmed soon
+- The teaching assistants for this course are Alix Morales and Harris Wang
 
-- They will be answering questions during our lectures and holding office hours (see Canvas or the course website for office hours information)
+- Alix will be answering questions during our lectures and holding office hours. You can reach out to him via email at <alix.morales@emory.edu>
 
-- They will also be grading your assignments and quizzes (with my oversight)
+- Harris will also be grading your assignments and quizzes (with my oversight). His email address is <harris.wang@emory.edu>
 
-- We are all here to help you! So feel free to ask questions during class, office hours, or via email `r emo::ji('smiling_face_with_smiling_eyes')`
+- We are all here to help you! So feel free to ask questions during class, office hours, or via email 😃
 
 ## Office hours
 ### What for and what not for
 
-<br>
+:::{style="margin-top: 60px;"}
+:::
 
 - What office hours are meant for:
   - Applying tools in practice
@@ -173,6 +181,9 @@ Please introduce yourself, tell us your name, your major, one thing you really l
 
 ## Class etiquette
 
+:::{style="margin-top: 60px; font-size: 26px;"}
+:::
+
 :::: {.columns}
 ::: {.column width=70%}
 - Coding can be tough and push you out of your comfort zone. If the course pace is too fast, let us know. I expect your commitment, but [I do not want anyone to fail]{.alert}
@@ -186,7 +197,7 @@ Please introduce yourself, tell us your name, your major, one thing you really l
 :::
 ::::
 
-# Motivation: What is data science? `r emo::ji('man_technologist')` `r emo::ji('woman_technologist')` {background-color="#2d4563"}
+# Motivation: <br> What is data science? 👨🏻‍💻👩🏼‍💻 {background-color="#2d4563"}
 
 ## An old classic {transition="none"}
 
@@ -329,7 +340,7 @@ And much more...
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {style="font-size: 24px;"}
+::: {style="font-size: 25px;"}
 - Use data science tools for project collaboration and version control
 - Apply advanced techniques for data storage, manipulation, and querying
 - Create clear data visualisations and write well-documented code
@@ -385,17 +396,19 @@ And much more...
 
 ## Key tools
 
-- [Command line interfaces](https://en.wikipedia.org/wiki/Command-line_interface) and [vim](https://www.vim.org/) for precise control
+- [Command-line interfaces](https://en.wikipedia.org/wiki/Command-line_interface) and [bash shell](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) for precise control
 
-::::{.columns}
-::: {.column width="50%"}
+:::{.columns}
+:::{.column width="50%"}
 ![](figures/cli.png)
 :::
 
-::: {.column width="50%"}
-![](figures/vim.png)
+:::{.column width="50%"}
+:::{style="margin-top: 80px;"}
+![](figures/bash.png)
 :::
-::::
+:::
+:::
 
 ## Key tools
 
@@ -403,7 +416,9 @@ And much more...
 
 :::: {.columns}
 ::: {.column width="33%"}
+:::{style="margin-top: 60px;"}
 ![](figures/git.png){width=80%}
+:::
 :::
 
 ::: {.column width="33%"}
@@ -411,42 +426,41 @@ And much more...
 :::
 
 ::: {.column width="33%"}
+:::{style="margin-top: -20px;"}
 ![](figures/github-copilot.png){width=60%}
 :::
+:::
 ::::
 
 ## Key tools
 
-- [SQL](https://www.w3schools.com/sql/) and [Pandas](https://pandas.pydata.org/) for robust data manipulation
+- [Quarto](https://quarto.org/) and [Jupyter Notebooks](https://jupyter.org/) for interactive computing
 
-::::{.columns}
+:::: {.columns}
 ::: {.column width="50%"}
-![](figures/postgresql.webp)
+![](figures/quarto.png)
 :::
 
 ::: {.column width="50%"}
-<br>
+![](figures/jupyter.png){width="50%"}
+:::
+::::
+
+## Key tools
+
+- [SQLite](https://www.sqlite.org/) and [Pandas](https://pandas.pydata.org/) for robust data manipulation
+
+:::{.columns}
+::: {.column width="50%"}
+![](figures/sqlite.jpg)
+:::
+
+::: {.column width="50%"}
+:::{style="margin-top: 60px;"}
 ![](figures/pandas.png)
 :::
-::::
-
-## Key tools
-
-- [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/), and [plotnine](https://plotnine.readthedocs.io/) (if you want to!) for flexible visualisation
-
-::::{.columns}
-::: {.column width="33%"}
-![](figures/matplotlib.png)
 :::
-
-::: {.column width="33%"}
-![](figures/seaborn.png)
 :::
-
-::: {.column width="33%"}
-![](figures/plotnine.png)
-:::
-::::
 
 ## Key tools
 
@@ -459,17 +473,22 @@ And much more...
 :::
 
 ::: {.column width="50%"}
+:::{style="margin-top: 80px;"}
 ![](figures/dask.png)
+:::
 :::
 ::::
 
 ## Logistics
 ### Course information
 
+:::{style="margin-top: 40px;"}
+:::
+
 ::: {style="font-size: 28px;"}
 - **Syllabus**: Available on our [course repository](https://github.com/danilofreire/qtm350/blob/main/syllabus.pdf) and [website](https://danilofreire.github.io/qtm350/syllabus.html). The course is designed to be self-contained. The syllabus includes links to slides and Jupyter Notebooks we will use in class, along with recommended readings, and problem sets. I will upload slides throughout the term as we progress.
 - **Schedule**: Lectures are on Mondays and Wednesdays from 2:30 to 3:45 pm
-- **Office Hours**: I'm available to meet you at any time. [And I mean it.]{.alert} Please reach out a couple of days in advance and we can schedule a meeting
+- **Office Hours**: I'm available to meet you [at any time.]{.alert} Please reach out some time in advance and we can schedule a meeting
 
 - **Materials**:
     - Course repository: <https://github.com/danilofreire/qtm350>
@@ -521,27 +540,30 @@ And much more...
 - **VS Code**: Code editor. Download it [here](https://code.visualstudio.com/)
 - **Anaconda**: Python distribution. Download it [here](https://www.anaconda.com/products/distribution)
 - **Docker**: Containerisation tool. Download it [here](https://www.docker.com/)
-- **PostgreSQL**: Database management system. Download it [here](https://www.postgresql.org/)
+- **SQLite**: You can use the [sqlite3](https://docs.python.org/3.9/library/sqlite3.html) Python package or install the [SQLite](https://www.sqlite.org/download.html) database. The package has everything you need to get started
 
-::: {style="margin-top: 40px;"}
+::: {style="margin-top: 30px;"}
 :::
 
 - Tutorials for these tools are available on our course website: <https://danilofreire.github.io/qtm350/tutorials/tutorials.html>
 
 ## Next class
 
+:::{style="margin-top: 60px;"}
+:::
+
 ::: {style="font-size: 28px;"}
 - We will cover computational literacy, including binary and hexadecimal numbers, and character encoding systems like ASCII and Unicode
 - We will also discuss the early days of computing, focusing on Konrad Zuse's work with digital computers and binary arithmetic
 - We will talk about the evolution of programming languages, from assembly to modern high-level languages like Python, and the differences between compiled and interpreted languages
-- There will be time for questions about installing the terminal. You do not need it for next week, but consider installing it soon, as it will be necessary in two weeks. Please create a [GitHub educational account](https://education.github.com/discount_requests/new) if you do not have one `r emo::ji('winking_face')`
+- There will be time for questions about installing the terminal. You do not need it for next week, but consider installing it soon, as it will be necessary in two weeks. Please create a [GitHub educational account](https://education.github.com/discount_requests/new) if you do not have one 😉
 
 
 :::{.fragment .fade-in}
-... **and that's all for today!** `r emo::ji('smiling_face_with_smiling_eyes')`
+... **and that's all for today!** 🎉
 :::
 :::
 
 # Questions? {background-color="#2d4563"}
 
-# Thank you very much for your attention and have a great day! `r emo::ji('smiling_face_with_smiling_eyes')` {background-color="#2d4563"}
+# Thank you very much for your attention! 🙏🏻 <br><br> Have a great day! 😊 {background-color="#2d4563"}
