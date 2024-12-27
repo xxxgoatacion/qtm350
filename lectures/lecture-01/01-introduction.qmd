@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Data Science Computing!"
 subtitle: "Lecture 01: Introduction"
-date: "2025-01-14"
+date: "2025-01-15"
 date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
@@ -12,7 +12,6 @@ format:
   clean-revealjs:
     self-contained: true
     footer: "[Lecture 01](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-01/01-introduction.html)"
-bibliography: references.bib
 transition: slide
 transition-speed: default
 scrollable: true
