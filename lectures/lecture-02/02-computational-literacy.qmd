@@ -10,7 +10,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Comp. Literacy](https://raw.githack.com/danilofreire/qtm350/lectures/lecture-02/02-computational-literacy.html)"
+    footer: "[Comp. Literacy](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-02/02-computational-literacy.html)"
 transition: slide
 transition-speed: default
 scrollable: true
