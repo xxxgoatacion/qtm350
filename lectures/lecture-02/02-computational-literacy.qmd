@@ -1,7 +1,7 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: "Lecture 02: Computational Literacy"
-date: 2024-09-04
+date: 2025-01-22
 date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
@@ -10,7 +10,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Comp. Literacy](https://danilofreire.github.io/qtm350/lectures/lecture-02/02-computational-literacy.html)"
+    footer: "[Comp. Literacy](https://raw.githack.com/danilofreire/qtm350/lectures/lecture-02/02-computational-literacy.html)"
 transition: slide
 transition-speed: default
 scrollable: true
