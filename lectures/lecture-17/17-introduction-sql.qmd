@@ -32,13 +32,12 @@ editor:
 :::{style="margin-top: 50px; font-size: 24px;"}
 :::{.columns}
 ::::{.column width="50%"}
-- [Introduction to SQL]{.alert}: We will start by learning the fundamentals of SQL, focusing on PostgreSQL
+- [Introduction to SQL]{.alert}: We will start by learning the fundamentals of SQL, focusing on SQLite
 - [Setup]{.alert}: You will learn how to:
-  - Install [PostgreSQL](https://www.postgresql.org/)
-  - Set up [pgAdmin](https://www.pgadmin.org/)
+  - Load SQLite in Python with the [`sqlite3` library](https://docs.python.org/3/library/sqlite3.html)
   - Create a database
 - [Querying]{.alert}: We will cover basic queries to interact with your database
-- [Connecting with VSCode]{.alert}: You will also learn how to connect to your database using VS Code
+- [Connecting with VSCode]{.alert}: You will also learn how to connect to your database using VS Code and the [SQLite Editor 3](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) extension
 :::
 
 ::::{.column width="50%"}
@@ -63,16 +62,16 @@ editor:
   - A database that stores data in tables and allows you to define relationships between tables
   - The most common type of database
   - Examples: PostgreSQL, MySQL, SQLite, Oracle, SQL Server
-- Here we will focus on [PostgreSQL](https://www.postgresql.org/)
-- Why? It's open-source, powerful, and widely used
-- According to the 2024 [Stack Overflow survey](https://survey.stackoverflow.co/2024/technology/#1-databasess), PostgreSQL is the world's most popular database amongst developers
-- It has several advanced features too, such as JSON support, various backup options, and robust security
+- Here we will focus on [SQLite](https://www.sqlite.org/index.html){data-modal-type="iframe"} 
+- Why? It is open-source, powerful, and widely used in the industry
+- According to the 2024 [Stack Overflow survey](https://survey.stackoverflow.co/2024/technology/#1-databases), SQLite is one of the world's most popular databases
+- It has several advanced features too, such as [full-text search](https://www.sqlite.org/fts5.html){data-modal-type="iframe"} and [window functions](https://www.sqlite.org/windowfunctions.html){data-modal-type="iframe"}
 :::
 
 :::{.column width="50%"}
 :::{style="text-align: center;"}
-[![](figures/postgresql.png)](https://www.postgresql.org/){data-modal-type="iframe"}
-[![](figures/pgadmin.png)](https://www.pgadmin.org/){data-modal-type="iframe"}
+[![](figures/sqlite.jpg)](https://www.sqlite.org/index.html)
+[![](figures/stack-overflow-survey.png)](https://survey.stackoverflow.co/2024/technology/#1-databases)
 :::
 :::
 :::
@@ -80,57 +79,95 @@ editor:
 
 # Let's get started! 🤓 {background-color="#2d4563"}
 
-## Installing PostgreSQL
+## What is SQLite?
 
 :::{style="margin-top: 50px; font-size: 20px;"}
 :::{.columns}
 :::{.column width="50%"}
-- Go to the [PostgreSQL website](https://www.postgresql.org/)
-- Download the installer for your operating system
-  - A good choice is the [Interactive installer by EDB](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
-- Run the installer
-- Follow the installation instructions and accept the default settings
-- Make sure to remember the password you set for the `postgres` user (you can use `postgres` as the password)
-- No need to install the Stack Builder, pgAdmin will be enough for our purposes
-- pgAdmin is a graphical tool to manage your PostgreSQL databases and it comes installed with the interactive installer
-- If not, you can download it from the [pgAdmin website](https://www.pgadmin.org/)
+- SQLite is a serverless database, which means it does not require a server to run
+- It is [a single file]{.alert} that you can use to store your data
+- This has several advantages, such as:
+  - Easy to install and use
+  - Lightweight and fast
+  - Perfect for small projects
+- SQLite has some cons too, such as: 
+  - Not being easy to scale 
+  - Not allowing multiple users to write the database at the same time (although [some workarounds exist](https://fly.io/docs/litefs){data-modal-type="iframe"})
+  - Poor handling of time-series data. So far, [TimescaleDB for Postgres](https://www.timescale.com/) is the best option for this
+  - But SQLite also has [lots of extensions](https://github.com/nalgeon/sqlean) to help you with many tasks (more on that later)
 :::
 
 :::{.column width="50%"}
-:::{style="text-align: center;"}
-[![](figures/postgresql-download.png)](https://www.postgresql.org/download)
-[![Click on the image to go to the website](figures/installer.png)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
-- There's also a tutorial [on our website](https://danilofreire.github.io/qtm151/tutorials/04-postgresql-tutorial.html)
-:::
+- Some people argue that SQLite is not a real database because it does not have a server, or that storing the database in a single file is not suitable for large projects
+- [Both arguments are false]{.alert}: 
+  - You can use [LiteFS](https://fly.io/docs/litefs) to scale SQLite and allow multiple users to write the database at the same time
+  - SQLite is capable of handling [databases that are an Exabyte in size](https://sqlite.org/hctree/doc/hctree/doc/hctree/index.html) (that's one million Terabytes, or one billion Gigabytes 🤯)
+  - I'm sure that this is more than enough for pretty much any project you will ever work on 😅
+- And to be honest, the difference between different SQL databases is not that big
+- [If you learn one of them, you can easily learn the others](https://www.postgresql.org/docs/current/sql-commands.html)
 :::
 :::
 :::
 
-## Default settings
+## Installing SQLite
 
-:::{style="margin-top: 50px; font-size: 21px;"}
+:::{style="margin-top: 50px; font-size: 20px;"}
 :::{.columns}
 :::{.column width="50%"}
-- The default settings for the PostgreSQL installation are:
-  - Server: `localhost`
-  - Port: `5432`
-  - User: `postgres`
-  - Password: the one you set during the installation
-  - Database: `postgres`
+- If you use MacOS or Linux, you probably already have SQLite installed
+- To check, open a terminal and type `sqlite3` 
+  - Then type `.quit` to exit the SQLite prompt!
+- If you see the SQLite prompt, you are good to go! 😊
+- In case you don't have SQLite installed, you can download it from the [SQLite website](https://www.sqlite.org/download.html) or using [Homebrew](https://brew.sh/) (recommended)
+- To install [Homebrew](https://brew.sh/), paste the following command in your terminal
 
-- Why do we need to install PostgreSQL [and]{.alert} pgAdmin?
-  - PostgreSQL is the database management system
-  - pgAdmin is a graphical tool to manage your databases
-  - We will also see how to use the command line to interact with the database
-  - But pgAdmin is more user-friendly
+```{verbatim}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+- Then install SQLite and verify the installation with the following commands
+
+```{verbatim}
+brew install sqlite3
+sqlite3 --version
+```
 :::
 
 :::{.column width="50%"}
-:::{style="text-align: center;"}
-![](figures/pgadmin-server.png){width="100%"}
+- Windows users can download the SQLite precompiled binaries from the [SQLite website](https://www.sqlite.org/download.html). Download the files that have the `sqlite3` DLL and the command-line shell (`sqlite-dll...` and `sqlite-tools...`)
+- Then follow these steps:
+  - Create a folder `C:\>sqlite` and unzip the files in this folder, which will give you `sqlite3.def`, `sqlite3.dll` and `sqlite3.exe` files 
+  - Add `C:\>sqlite` in your `PATH` environment variable and finally go to the command prompt and issue `sqlite3` command, which should display the following result
 
-- After the installation, you can just click on the pgAdmin icon on your desktop and you are good to go! 🚀
-- If you have any issues with this version of pgAdmin for MacOS, you can install it again directly from [the official website](https://www.postgresql.org/ftp/pgadmin/pgadmin4/v8.12/macos/)
+```{verbatim}
+C:\>sqlite3
+SQLite version 3.7.15.2 2013-01-09 11:53:05
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite>
+```
+:::
+:::
+:::
+
+## Installing SQLite3 Editor in VSCode
+
+:::{style="margin-top: 50px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="40%"}
+- To use SQLite in VSCode, you need to install the [SQLite3 Editor](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) extension (click on the link to go to the extension page)
+- Or you can search for `SQLite3 Editor` in the extensions tab in VSCode
+- Click on `Install` to install the extension
+- As we will see later, this extension allows you to connect to your SQLite database and run SQL commands directly in VSCode, and even edit files without having to write any SQL queries (!)
+- You can use it to create tables, export data to CSV and JSON formats, run queries in the command line, and compare versions using `git diff`
+- It is a very useful extension and I highly recommend it! 😊
+- We will use this extensions today to interact with our SQLite database
+:::
+
+:::{.column width="60%"}
+:::{style="text-align: center;"}
+![](figures/vscode-sqlite.png){width="100%"}
+[Download it here](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) or search for it in the extensions tab in VSCode
 :::
 :::
 :::
@@ -140,138 +177,221 @@ editor:
 
 # Let's create our first SQL table! 🚀 {background-color="#2d4563"}
 
-## Creating a table with pgAdmin
+## Creating a database with SQLite3 Editor
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-- Open pgAdmin and click on `postgres` with the right mouse button, then click on `Connect Server`
-- You will be prompted to enter the password you set during the installation
-
-:::{style="text-align: center;"}
-![](figures/pgadmin01.png){width="60%"}
-:::
-:::
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- You will see a few icons below the `postgres` database
-- We're on the right track! 😉
-
-:::{style="text-align: center;"}
-![](figures/pgadmin02.png){width="60%"}
-:::
-:::
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- Now click on `Databases`, then `postgres` below it. After this, click with the right mouse button and go to `Query Tool`
-
-:::{style="text-align: center;"}
-![](figures/pgadmin03.png){width="60%"}
-:::
-:::
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- You will see a new tab with a SQL editor
-- This is where we will write our SQL commands for now
-- Soon we will learn how to write SQL commands in VSCode and in Python!
-
-:::{style="text-align: center;"}
-![](figures/pgadmin04.png){width="60%"}
-:::
-:::
-
-## Creating a database
-
-:::{style="margin-top: 50px; font-size: 20px;"}
+:::{style="margin-top: 50px; font-size: 23px;"}
 :::{.columns}
 :::{.column width="50%"}
-- We usually do not create databases using SQL queries
+- It is very easy to create a [SQLite database file](https://www.sqlite.org/onefile.html) using the extension
+- Simply create a file ending in `.sqlite` or `.db` and open it with the SQLite3 Editor
+- Here I will create a file called `example.db` and open it with the extension
+
+```{verbatin}
+touch example.db
+```
+
+- Then just click on the file (or right-click and select `Open to the Side` -- same thing)
+- You will see a new tab with the SQLite3 Editor
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center;"}
+![](figures/sqlite-editor.png){width="90%"}
+:::
+:::
+:::
+:::
+
+## Creating a table with SQLite3 Editor
+
+:::{style="margin-top: 50px; font-size: 22px;"}
+:::{.columns}
+:::{.column width="50%"}
+- Now that you have opened the file with the extension, you will see the following screen (right)
+- You will see that there is no table in the database yet
 - Most of the time, the data come from other sources, such as APIs, JSON or CSV files
 - But in small projects, it is common to create a database to store the data
 - So let's create one right now! 😉
 - We will create a table with some information about [Formula 1](https://en.wikipedia.org/wiki/Formula_One){data-modal-type="iframe"} drivers
 - [System commands are in upper case]{.alert} and [user-defined names are in lower case]{.alert}
-
-```{sql}
-DROP TABLE IF EXISTS drivers;
-
-CREATE TABLE drivers(
-    driver_id int,
-    driver_name varchar(30),
-    nationality varchar(15),
-    victories int
-);
-```
 :::
 
 :::{.column width="50%"}
-- What are we doing here?
-- Create empty `TABLE` called `drivers`
-- This example has [five arguments]{.alert} separated by a comma (`,`) that contain the `column_name` and `column_type`, respectively
-- The `driver_id` is an `int`, the `driver_name` is a `varchar` with a maximum of 30 characters, the `nationality` is a `varchar` with a maximum of 15 characters, and the `victories` is an `int`
-- The `driver_id` is the primary key, which means it is unique for each driver
-- Paste that into the SQL editor and click on the `Execute` (▶️) button to run the code
-
-```{sql}
-NOTICE:  table "drivers" does not exist, skipping
-CREATE TABLE
-
-Query returned successfully in 88 msec.
-```
-:::
-:::
-:::
-
-## Add rows to table
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- Now that we have created the table, let's add some rows to it!
-- We can do this by using the `INSERT INTO` command
-- This command adds rows with `VALUES` to the bottom of the table
-- In SQL, different lines need to be separated by a semicolon (`;`)
-- As mentioned above, you write system commands in capital letters to easily distinguish column names from system commands
-- Let's add some information about the drivers
-
-```{sql}
-INSERT INTO drivers VALUES (1, 'Lewis Hamilton','British', 103);
-
-INSERT INTO drivers VALUES (4, 'Fernando Alonso', 'Spanish', 32);
-
-INSERT INTO drivers VALUES (3, 'Sebastian Vettel', 'German', 91);
-
-INSERT INTO drivers VALUES (2, 'Michael Schumacher', 'German', 53);
-```
-
-- Now click on the `Execute` (▶️) button to run the code
-:::
-
-## Add rows to table
-
-:::{style="margin-top: 50px; font-size: 22px;"}
 :::{style="text-align: center;"}
-![](figures/add-values.png){width="68%"}
+![](figures/create-table.png){width="90%"}
+:::
+:::
+:::
 :::
 
-- Click on the `Data Output` tab (bottom left) to see the results... but it's empty! 🧐
+## Creating a table with SQLite3 Editor
+
+:::{style="margin-top: 50px; font-size: 22px;"}
+:::{.columns}
+:::{.column width="40%"}
+- Now let's create our table
+- We won't write any code yet, just add the values to the editor
+- We will create four columns in the table: `driver_id`, `driver_name`, `nationality`, and `victories`:
+  - `driver_id` is an `integer`, `not null`, and `primary key` (select these options in the editor)
+  - `driver_name` is a `text` variable
+  - `nationality` is a `text` variable too
+  - `victories` is an `integer`
+- Then click on `commit` to save the changes
 :::
+
+:::{.column width="60%"}
+:::{style="text-align: center;"}
+![](figures/add-columns.png){width="100%"}
+:::
+
+- This is equivalent of the following SQL code (as you can see in the editor):
+ 
+```{sql}
+CREATE TABLE drivers (
+    driver_id INTEGER NOT NULL PRIMARY KEY,
+    driver_name TEXT,
+    nationality TEXT,
+    victories INTEGER
+);
+```
+:::
+:::
+:::
+
+## Creating a table with SQLite3 Editor
+
+:::{style="margin-top: 50px; font-size: 22px; text-align=center;"}
+![](figures/view-table.png)
+:::
+
+## Database structure and data types in SQLite
+
+:::{style="margin-top: 50px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+### Database structure
+
+- SQL works best with tabular data, so the main object in SQL is the [table]{.alert} (rows and columns)
+- SQLite (and most SQL databases) are [strongly typed]{.alert}, that is, each column has a specific data type
+- The five core data types in SQLite: 
+  - `TEXT`: Stores string values of any length using UTF-8 encoding
+  - `INTEGER`: Holds whole numbers (positive or negative)
+  - `NUMERIC`: Stores decimal numbers as 8-byte IEEE floating-point values
+  - `BLOB`: Contains binary data preserved as input
+  - `NULL`: Represents missing or undefined data
+- SQLite also has [other data types]{.alert}, such as `REAL`, `BOOLEAN`, `DATE`, `TIME`, and `DATETIME`
+:::
+
+:::{.column width="50%"}
+### Primary and foreign keys
+
+- The `PRIMARY KEY` constraint is used to uniquely identify each row in a table
+- It cannot contain `NULL` values and are usually integers
+- If you don't want to enter the numbers manually, you can use the `AUTOINCREMENT` keyword
+  - Example: `driver_id INTEGER PRIMARY KEY AUTOINCREMENT`
+- The `FOREIGN KEY` constraint is used to link two tables together
+  - It is a field in one table that refers to the `PRIMARY KEY` in another table
+- We can also use `ROWID` to uniquely identify each row in a table, [but it is not recommended]{.alert}
+  - It is a hidden column that is automatically created, but deleting and reinserting a row can change the ROWID, and it is not compatible with other SQL databases
+:::
+:::
+:::
+
+## Example of tables with primary and foreign keys
+
+:::{style="margin-top: 50px; font-size: 22px;"}
+:::{.columns}
+:::{.column width="50%"}
+- Imagine that we have three tables, `customers`, `products`, and `orders`
+- The `customers` table will have a primary key `customer_id`
+- The `products` table will have a primary key `product_id`
+- And the `orders` table will have a primary key `order_id`
+- The `orders` table will also have two foreign keys: `customer_id` and `product_id`
+- We will see more about this in the next classes
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center;"}
+Table: customers
+
+| customer_id (PK) | first_name | last_name | email                |
+|------------------|------------|-----------|----------------------|
+| 1                | John       | Doe       | john.doe@email.com   |
+| 2                | Jane       | Smith     | jane.smith@email.com |
+| 3                | Bob        | Johnson   | bob.j@email.com      |
+
+Table: products
+
+| product_id (PK) | product_name    | price |
+|-----------------|-----------------|-------|
+| 101             | Laptop          | 999.99|
+| 102             | Smartphone      | 599.99|
+| 103             | Wireless Mouse  | 29.99 |
+
+Table: orders
+
+| order_id (PK) | customer_id (FK) | product_id (FK) | quantity | total_price |
+|---------------|------------------|-----------------|----------|-------------|
+| 1             | 1                | 101             | 1        | 999.99      |
+| 2             | 2                | 102             | 2        | 1199.98     |
+| 3             | 3                | 103             | 3        | 89.97       |
+:::
+:::
+:::
+:::
+
+## Add rows to table using the editor
+
+:::{style="margin-top: 50px; text-align: center; font-size: 22px;"}
+![](figures/add-rows.png){width="90%"}
+:::
+
+## Adding rows to the table using SQL commands
+
+:::{style="margin-top: 50px; font-size: 21px;"}
+- We can add rows to a table by using the `INSERT INTO` command
+- This command adds rows with `VALUES` to the bottom of the table
+- In SQL, different commands need to be separated by a semicolon (`;`)
+- You write [system commands in capital letters]{.alert} to easily distinguish column names from variables and values
+- Let's add some information about the drivers
+- Click on `Query Editor` and paste the following code:
+
+```{sql}
+INSERT INTO drivers VALUES (2, 'Michael Schumacher', 'German', 53);
+INSERT INTO drivers VALUES (3, 'Sebastian Vettel', 'German', 91);
+INSERT INTO drivers VALUES (4, 'Fernando Alonso', 'Spanish', 32);
+```
+
+Or more efficiently:
+
+```{sql}
+INSERT INTO drivers (driver_id, driver_name, nationality, victories) VALUES
+(2, 'Michael Schumacher', 'German', 53),
+(3, 'Sebastian Vettel', 'German', 91),
+(4, 'Fernando Alonso', 'Spanish', 32);
+```
+
+- Now click on ` ▶️️ Execute` ️to run the code
+:::
+
+## Adding rows to the table
+
+:::{style="margin-top: 50px; font-size: 22px; text-align=center;"}
+![](figures/added-values.png)
 :::
 
 ## Querying the table
 
 :::{style="margin-top: 50px; font-size: 22px;"}
-- To see the data we just added, we need to query the table
+- The editor already shows all the rows in the table, but we can also query the table using the `SELECT` command
 
 ```{sql}
 SELECT * FROM drivers;
 ```
 
 - This command selects all columns (`*`) from the `drivers` table
-- Click on the `Execute` (▶️) button to run the code (you can also press `F5`)
-- Now you should see the data you just added to the table
+- `SELECT` is probably the most used command in SQL and is used to extract data from a database
+- If you are running SQL in the command line, you need to type `SELECT` to see the results
 
 :::{style="text-align: center;"}
 ![](figures/select-all.png){width="68%"}
@@ -281,11 +401,11 @@ SELECT * FROM drivers;
 ## Exercise 01 {#sec:exercise01}
 
 :::{style="margin-top: 50px; font-size: 22px;"}
-- Create a table called `students` with the following columns:
-  - `student_id` (int)
-  - `student_name` (varchar, 30 characters)
-  - `major` (varchar, 30 characters)
-  - `gpa` (float)
+- Click on `Query Editor` and create a table called `students` with the following columns:
+- - `student_id` (integer not null primary key)
+  - `student_name` (text)
+  - `major` (text)
+  - `gpa` (numeric)
 
 - Add the following rows to the table:
 - `student_id`: 1, `student_name`: 'John Doe', `major`: 'Computer Science', `gpa`: 3.5
@@ -293,89 +413,99 @@ SELECT * FROM drivers;
 
 - Query the table to see the results
 
+- If the table already exists on your database, you can drop it with the following command:
+
+```{sql}
+DROP TABLE students;
+```
+
 - [[Appendix 01]{.button}](#sec:appendix01)
 :::
 
-# Connecting to the database in VSCode {background-color="#2d4563"}
+# Table Schemas 📄 {background-color="#2d4563"}
 
-## SQL Notebook extension
+## What is a table schema?
 
 :::{style="margin-top: 50px; font-size: 22px;"}
-- We can also connect to the database using VSCode
-- There are many good extensions for SQL in VSCode, but we will use the [SQL Notebook](https://marketplace.visualstudio.com/items?itemName=cmoog.sqlnotebook){data-modal-type="iframe"} extension
-- Why this one? Because it not only works with PostgreSQL but also with other SQL databases
-- And it has the same look and feel as Jupyter Notebooks, which we are already familiar with 😊
-  
-:::{style="text-align: center;"}
-![](figures/vscode01.png){width="90%"}
-:::
-:::
-
-## SQL Notebook extension
-### Connecting to the database
-
-:::{style="margin-top: 50px; font-size: 20px;"}
 :::{.columns}
 :::{.column width="50%"}
-- Keep your pgAdmin open and let's connected to the database
-- Click on the `SQL Notebook` icon on the left side of the screen
-- Then on `New SQL Connection`
-- Display name: `localhost` (or any name you want)
-- Database Driver: `postgres`
-- Database Host: `localhost`
-- Database Port: `5432`
-- Database User: `postgres`
-- Database Password: the password you set during the installation
-- Database Name: `postgres`
-- Then click on `Create`
+- The [table schema](https://en.wikipedia.org/wiki/Database_schema){data-modal-type="iframe"} is the structure of a table in a database
+- It defines the columns, data types, constraints, and relationships between tables
+- It is defined when the table is created but can be modified later
+- The schema is important because it ensures that the data is stored correctly and efficiently
+- Usually, there is no need to change the schema frequently, but it is possible to do so if needed
+- You can view it with the `PRAGMA table_info()` command
 :::
 
 :::{.column width="50%"}
-:::{style="text-align: center; top-margin: -50px;"}
-![](figures/vscode02.png){width="90%"}
+- The `PRAGMA table_info()` command returns one row for each column in the table
+- The columns are:
+  - `cid`: Column ID
+  - `name`: Column name
+  - `type`: Data type
+  - `notnull`: 1 if the column cannot contain `NULL` values, 0 otherwise
+  - `dflt_value`: Default value for the column
+  - `pk`: 1 if the column is part of the primary key, 0 otherwise
 :::
 :::
 :::
-:::
-
-## SQL Notebook extension
-### Connecting to the database
-
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-- Now we only need to two two things: 
-  - Click on the icon to establish the connection
-  - Open a `.sql` with SQL Notebook
-
-![](figures/vscode03.png){width="90%"}
-:::
-
-:::{.column width="50%"}
-- Download the `example.sql` file from [our website](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-17/example.sql)
-- Find the file in VSCode's explorer and open it with the `Open With` menu option (right button)
-- Then, select the SQL Notebook format
 
 :::{style="text-align: center;"}
-![](figures/vscode04.png){width="90%"}
+![](figures/table-info.png){width="70%"}
 :::
+
+## Creating and modifying table schemas
+
+:::{style="margin-top: 50px; font-size: 21px;"}
+:::{.columns}
+:::{.column width="50%"}
+- To create a table, use the `CREATE TABLE` command, as we saw before
+- It is a good idea to use the `IF NOT EXISTS` clause to avoid errors if the table already exists
+  - Example: `CREATE TABLE IF NOT EXISTS table_name (column1_name data_type, ...);`
+- Add a column: `ALTER TABLE table_name ADD column_name data_type;`
+- Drop a column: `ALTER TABLE table_name DROP COLUMN column_name;`
+- Rename a column: `ALTER TABLE table_name RENAME COLUMN old_name TO new_name;`
+:::
+
+:::{.column width="50%"}
+- To delete a table, use the `DROP TABLE` command
+  - Example: `DROP TABLE table_name;`
+  - Be careful with this command, as it will delete all the data in the table!
+- To delete a row, use the `DELETE FROM` command
+  - Example: `DELETE FROM table_name WHERE condition;`
+  - This command deletes all rows that satisfy the condition
+- If you don't specify a condition, it will delete all rows in the table
 :::
 :::
 :::
 
-## SQL Notebook extension
+## Some examples with the `students` table
 
-:::{style="margin-top: 50px; font-size: 20px; text-align=center;"}
-![](figures/vscode05.png){width="90%"}
+:::{style="margin-top: 50px; font-size: 22px;"}
+:::{.columns}
+:::{.column width="50%"}
+- Add a column: `ALTER TABLE students ADD COLUMN age INTEGER;`
+
+![](figures/add-column.png)
+
+- Drop a column: `ALTER TABLE students DROP COLUMN major;`
+
+![](figures/drop-column.png)
 :::
 
-## SQL Notebook extension
+:::{.column width="50%"}
+- Rename a column: `ALTER TABLE students RENAME COLUMN gpa TO grade;`
 
-:::{style="margin-top: 50px; font-size: 20px; text-align=center;"}
-![](figures/vscode06.png){width="90%"}
+![](figures/rename-column.png){width="90%}
+
+- Delete a row with `student_id = 2`: `DELETE FROM students WHERE student_id = 2;`
+
+![](figures/delete-row.png)
+:::
+:::
 :::
 
-# Dataset Operations in SQL 📊 {background-color="#2d4563"}
+# Table Operations 📊 {background-color="#2d4563"}
 
 ## Extracting columns from table
 
@@ -389,7 +519,7 @@ SELECT * FROM drivers;
 SELECT driver_id, nationality FROM drivers;
 ```
 
-![](figures/select-columns.png){width="80%"}
+![](figures/select-columns.png)
 :::
 
 :::{.column width="50%"}
@@ -402,7 +532,7 @@ SELECT * FROM drivers
 WHERE nationality = 'German';
 ```
 
-![](figures/where-german.png){width="90%"}
+![](figures/where-german.png)
 :::
 :::
 :::
@@ -417,10 +547,10 @@ WHERE nationality = 'German';
 
 ```{sql}
 SELECT * FROM drivers
-WHERE (nationality = 'Brazilian') OR (nationality = 'German');
+WHERE (nationality = 'Spanish') OR (nationality = 'German');
 ```
 
-![](figures/or-conditions.png){width="90%"}
+![](figures/or-conditions.png)
 :::
 
 :::{.column width="46%"}
@@ -432,7 +562,7 @@ SELECT * FROM drivers
 WHERE (nationality = 'German') AND (driver_id = 3);
 ```
 
-![](figures/and-conditions.png){width="90%"}
+![](figures/and-conditions.png)
 :::
 :::
 :::
@@ -456,7 +586,7 @@ SELECT SUM(victories) AS sum_victories,
 FROM drivers;
 ```
 
-![](figures/aggregate.png){width="90%"}
+![](figures/aggregate.png)
 :::
 
 :::{.column width="50%"}
@@ -470,7 +600,7 @@ SELECT driver_name, victories FROM drivers
 ORDER BY victories ASC;
 ```
 
-![](figures/order-asc.png){width="70%"}
+![](figures/order-asc.png)
 :::
 :::
 :::
@@ -505,7 +635,7 @@ FROM drivers
 GROUP BY nationality;
 ```
 
-![](figures/groupby.png){width="90%"}
+![](figures/groupby.png)
 :::
 
 :::{.column width="50%"}
@@ -513,6 +643,7 @@ GROUP BY nationality;
 
 - Use `ROUND()` to round the values
 - The first argument is the value to be rounded and the second is the number of decimal places
+- In this example, the results will be the same as the previous one
 
 ```{sql}
 SELECT nationality,
@@ -524,7 +655,7 @@ FROM drivers
 GROUP BY nationality;
 ```
 
-![](figures/round.png){width="70%"}
+![](figures/round.png)
 :::
 :::
 :::
@@ -532,8 +663,6 @@ GROUP BY nationality;
 ## Filtering after aggregating with HAVING
 
 :::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
 - Use `HAVING` to filter variables [after aggregating]{.alert}
 - This differs from `WHERE`, which is used to filter variables [before aggregating]{.alert}
 
@@ -547,20 +676,17 @@ FROM drivers
 GROUP BY nationality
 HAVING SUM(victories) > 50;
 ```
-:::
 
-:::{.column width="50%"}
-- The command above computes the same table as the previous one
-- Then filters with `HAVING`
+- `HAVING` must be used after `GROUP BY` and before `ORDER BY`
+- Why? Because `HAVING` is used to filter the results of the `GROUP BY` clause
+- [So please remember]{.alert}: `WHERE` is used before aggregating and `HAVING` is used after aggregating!
 
 ![](figures/having.png){width="90%"}
-:::
-:::
 :::
 
 ## Python vs. SQL
 
-:::{style="margin-top: 50px; font-size: 20px;"}
+:::{style="margin-top: 50px; font-size: 19px;"}
 - Here are some equivalences between Python and SQL commands
 
 | SQL Command        | Pandas Equivalent                                                                                      |
@@ -610,6 +736,28 @@ result = result[result['sum_victories'] > 10]
 :::
 :::
 
+## Importing and exporting data 
+
+:::{style="margin-top: 50px; font-size: 20px;"}
+:::{.columns}
+:::{.column width="50%"}
+- The SQLite3 Editor allows you to easily import and export data to many formats, including CSV and JSON
+- Just click on `Other Tools` and then `Export / Import`
+- If you want to export an XLXS file, you can choose between exporting one or all tables
+- Importing is just as easy: select the file and the table you want to import the data from
+- You can also do this with SQLite commands:
+  - Export to CSV: `sqlite3 example.db .mode csv .output example.csv SELECT * FROM drivers;`
+  - [More about exporting data here](https://www.sqlitetutorial.net/sqlite-export-csv/){data-modal-type="iframe"}
+  - Import from CSV: `sqlite3 example.db .mode csv .import example.csv drivers;`
+  - [More about importing data here](https://www.sqlitetutorial.net/sqlite-import-csv/){data-modal-type="iframe"}
+:::
+
+:::{.column width="50%"}
+![](figures/export-import.png)
+:::
+:::
+:::
+
 ## Do you want to learn more? 🤓 
 
 :::{style="margin-top: 50px; font-size: 22px;"}
@@ -622,7 +770,6 @@ result = result[result['sum_victories'] > 10]
   - [PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
   - [SQL for Data Science](https://www.datacamp.com/courses/sql-for-data-science): DataCamp course
   - [SQL for Data Science](https://www.coursera.org/learn/sql-for-data-science): Coursera course
-  - [List of all PostgreSQL commands](https://www.postgresql.org/docs/current/sql-commands.html): There are many of them! 😅
 
 - Or just come to our next class! 😊
 :::
@@ -635,21 +782,21 @@ result = result[result['sum_victories'] > 10]
 
 :::{style="margin-top: 50px; font-size: 22px;"}
 - Here is the code to create the `students` table and add the rows
-- You can paste this code into the SQL editor and click on the `Execute` (▶️) button to run the code
+- You can paste this code into the SQL editor and execute the commands
 
 ```{sql}
-DROP TABLE IF EXISTS students;
+DROP TABLE students;
 
 CREATE TABLE students(
-    student_id int,
-    student_name varchar(30),
-    major varchar(30),
-    gpa float
+    student_id INTEGER NOT NULL PRIMARY KEY, 
+    student_name TEXT,
+    major TEXT,
+    gpa NUMERIC
 );
 
-INSERT INTO students VALUES (1, 'John Doe', 'Computer Science', 3.5);
-
-INSERT INTO students VALUES (2, 'Jane Doe', 'Mathematics', 3.8);
+INSERT INTO students VALUES 
+(1, 'John Doe', 'Computer Science', 3.5),
+(2, 'Jane Doe', 'Mathematics', 3.8);
 
 SELECT * FROM students;
 ```
@@ -671,6 +818,16 @@ SELECT driver_name, victories
 FROM drivers
 WHERE victories > (SELECT AVG(victories) FROM drivers);
 ```
+
+:::{.columns}
+:::{.column width="50%"}
+![](figures/app02-01.png)
+:::
+
+:::{.column width="50%"}
+![](figures/app02-02.png)
+:::
+:::
 
 - [[Back to exercise 02]{.button}](#sec:exercise02)
 :::
