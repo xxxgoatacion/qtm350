@@ -764,12 +764,13 @@ result = result[result['sum_victories'] > 10]
 
 :::{style="margin-top: 50px; font-size: 22px;"}
 - Here is a list of resources to help you learn more about SQL:
+  - [Overview of the SQLite3 Extension](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor): Worth reading to understand all the features of the extension
+  - [SQLean](https://github.com/nalgeon/sqlean): SQLite extensions. MacOS users should install the [sqlean.py](https://antonz.org/sqlean-py/) Python package, as sqlite3 is compiled without extension support
   - [SQLBolt](https://sqlbolt.com/): Interactive SQL tutorials
   - [W3Schools](https://www.w3schools.com/sql/): SQL tutorials
   - [Kaggle](https://www.kaggle.com/learn/intro-to-sql): SQL course
   - [Mode Analytics](https://mode.com/sql-tutorial/): SQL tutorial
-  - [SQLZoo](https://sqlzoo.net/){data-modal-type="iframe"}: Interactive SQL tutorials
-  - [PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
+  - [SQLZoo](https://sqlzoo.net/): Interactive SQL tutorials
   - [SQL for Data Science](https://www.datacamp.com/courses/sql-for-data-science): DataCamp course
   - [SQL for Data Science](https://www.coursera.org/learn/sql-for-data-science): Coursera course
 
