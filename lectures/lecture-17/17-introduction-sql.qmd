@@ -27,17 +27,19 @@ editor:
 # Today's lecture 📚 {background-color="#2d4563"}
 
 ## Today's agenda
-### SQL essentials with PostgreSQL
+### SQL essentials
 
 :::{style="margin-top: 50px; font-size: 24px;"}
 :::{.columns}
 ::::{.column width="50%"}
-- [Introduction to SQL]{.alert}: We will start by learning the fundamentals of SQL, focusing on SQLite
+- [Introduction to SQL]{.alert}: We will start by learning the fundamentals of SQL, focusing on [SQLite](https://www.sqlite.org/index.html){data-modal-type="iframe"}
 - [Setup]{.alert}: You will learn how to:
-  - Load SQLite in Python with the [`sqlite3` library](https://docs.python.org/3/library/sqlite3.html)
+  - Install and load the SQLite3 Editor in VSCode
   - Create a database
-- [Querying]{.alert}: We will cover basic queries to interact with your database
-- [Connecting with VSCode]{.alert}: You will also learn how to connect to your database using VS Code and the [SQLite Editor 3](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) extension
+  - Create a table
+  - Add and query rows
+  - View and modify the table schema
+  - Import and export data
 :::
 
 ::::{.column width="50%"}
