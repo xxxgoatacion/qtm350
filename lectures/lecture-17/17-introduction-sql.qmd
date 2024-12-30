@@ -65,8 +65,7 @@ editor:
   - The most common type of database
   - Examples: PostgreSQL, MySQL, SQLite, Oracle, SQL Server
 - Here we will focus on [SQLite](https://www.sqlite.org/index.html){data-modal-type="iframe"} 
-- Why? It is open-source, powerful, and widely used in the industry
-- According to the 2024 [Stack Overflow survey](https://survey.stackoverflow.co/2024/technology/#1-databases), SQLite is one of the world's most popular databases
+- Why? It is open-source, powerful, and widely used in industry: phones, browsers, TVs, operating systems, and even cars use it!
 - It has several advanced features too, such as [full-text search](https://www.sqlite.org/fts5.html){data-modal-type="iframe"} and [window functions](https://www.sqlite.org/windowfunctions.html){data-modal-type="iframe"}
 :::
 
