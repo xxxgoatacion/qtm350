@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 22 - Parallelising Data Analysis with Dask and AutoML
-date: 2024-10-18
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu

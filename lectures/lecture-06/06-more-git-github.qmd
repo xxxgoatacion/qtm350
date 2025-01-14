@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 06 - More Git and GitHub
-date: 2024-09-18
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     orcid: 0000-0002-4712-6810

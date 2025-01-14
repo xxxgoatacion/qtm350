@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 23 - Dependency Management, Virtual Environments, and Containers
-date: 2024-11-20
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -18,7 +16,6 @@ scrollable: true
 engine: jupyter
 revealjs-plugins:
   - fontawesome
-  - multimodal
 editor:
   render-on-save: true
 ---

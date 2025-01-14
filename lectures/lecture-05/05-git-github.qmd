@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 05 - Git and GitHub
-date: 2024-09-16
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu

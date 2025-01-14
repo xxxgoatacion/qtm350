@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 24 - Docker for Data Science
-date: 2024-11-25
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -18,7 +16,6 @@ scrollable: true
 engine: jupyter
 revealjs-plugins:
   - fontawesome
-  - multimodal
 editor:
   render-on-save: true
 ---

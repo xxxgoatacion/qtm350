@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 15 - Data Wrangling and Aggregating
-date: 2024-10-23
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -12,23 +10,12 @@ format:
     self-contained: true
     code-overflow: wrap
     footer: "[Wrangling](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-15/15-wrangling-aggregating.html)"
-    drop:
-      button: true
-      engine: pyodide
-      pyodide:
-        packages:
-          - matplotlib
-          - micropip
-          - numpy
-          - pandas
-          - seaborn
 transition: slide
 transition-speed: default
 scrollable: true
 engine: jupyter
 revealjs-plugins:
   - appearance
-  - drop
   - fontawesome
   - multimodal
 editor:

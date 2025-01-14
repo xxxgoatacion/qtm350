@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 17 - Introduction to SQL
-date: 2024-10-30
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -833,4 +831,3 @@ WHERE victories > (SELECT AVG(victories) FROM drivers);
 
 - [[Back to exercise 02]{.button}](#sec:exercise02)
 :::
-

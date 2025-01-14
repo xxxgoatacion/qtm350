@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: "Lecture 11 - Introduction to AI-Assisted Programming"
-date: 2024-10-07
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -11,59 +9,17 @@ format:
   clean-revealjs:
     self-contained: true
     footer: "[AI Programming](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-11/11-ai-programming.html)"
-    drop:
-      shortcut: "`"
-      button: true
-      engine: pyodide
-      pyodide:
-        packages:
-          - matplotlib
-          - numpy
-          - pandas
 transition: slide
 transition-speed: default
 scrollable: true
 engine: jupyter
 revealjs-plugins:
-  - drop
   - fontawesome
-filters:
-  - pyodide
 editor:
   render-on-save: true
 ---
 
 # I hope you're having a lovely day! 😊 {background-color="#2d4563"}
-
-# Some comments on Quiz 2 📚 {background-color="#2d4563"}
-
-## A few notes on Quiz 2 
-
-:::{style="margin-top: 30px; font-size: 24px;"}
-:::{.columns}
-:::{.column width="50%"}
-:::{.incremental}
-- I haven't graded Quiz 2 yet, but I have seen most of your projects...
-- ... and I'm happy with them! 😊
-- Many of you wrote and published the website successfully, which is great!
-- You indeed used different themes and styles, and the analyses were correct
-- However, I noticed a few common mistakes that I'd like to address 😉
-:::
-:::
-
-:::{.column width="50%"}
-:::{.incremental}
-- Most of the mistakes were actually [not related to this course's content at all!]{.alert}
-- They were mainly about something that is very important in computing in general...
-  - [Folder structure!]{.alert}
-- Other common mistakes were:
-  - Small typos in the code (e.g., missing a comma, forgetting to close the code chunk with ` ``` `, etc.)
-  - Issues with pushing the changes to GitHub
-- Feedback will soon be available on Canvas 😉
-:::
-:::
-:::
-:::
 
 ## Some tips on folder and project management
 
@@ -553,8 +509,8 @@ Source: <https://help.openai.com/en/articles/6654000-best-practices-for-prompt-e
 :::{.columns}
 :::{.column width="50%"}
 - There are two main components to GitHub Copilot:
-  - GitHub Copilot: This provides code suggestions and completions in the editor window
-  - GitHub Copilot Chat: This provides a chat interface to Copilot, allowing you to ask questions and get code suggestions. It can also interact with code in the editor window. [This is by far the most powerful feature of Copilot]{.alert}
+  - [GitHub Copilot]{.alert}: This provides code suggestions and completions in the editor window
+  - [GitHub Copilot Chat]{.alert}: This provides a chat interface to Copilot, allowing you to ask questions and get code suggestions. It can also interact with code in the editor window. [This is by far the most powerful feature of Copilot]{.alert}
 - Copilot not only offers code suggestions, but it can also help you with writing documentation, providing explantions for code you don't know, and, more recently, retrieving code snippets and information from your whole workspace
 - In my view, it is the most convenient AI-assistant for programming available today
 - It is also [very easy to use](https://docs.github.com/en/copilot/getting-started-with-github-copilot)

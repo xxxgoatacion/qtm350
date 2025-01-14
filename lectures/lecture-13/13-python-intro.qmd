@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
 subtitle: Lecture 13 - Python Data Types, Boolean Logic, and Control Structures
-date: 2024-10-16
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     orcid: 0000-0002-4712-6810
@@ -11,29 +9,17 @@ format:
   clean-revealjs:
     self-contained: true
     footer: "[Python Intro](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-13/13-python-intro.html)"
-    drop:
-      shortcut: "`"
-      button: true
-      engine: pyodide
-      pyodide:
-        packages:
-          - matplotlib
-          - numpy
-          - pandas
 transition: slide
 transition-speed: default
 scrollable: true
 engine: jupyter
 revealjs-plugins:
-  - drop
   - fontawesome
-filters:
-  - pyodide
 editor:
   render-on-save: true
 ---
 
-# Nice to see you all again! <br> How was the break? 🍂 {background-color="#2d4563"}
+# Nice to see you all again! <br> How are you all doing? 😊 {background-color="#2d4563"}
 
 # Brief recap of last class 📚 {background-color="#2d4563"}
 

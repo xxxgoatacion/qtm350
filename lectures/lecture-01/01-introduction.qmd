@@ -1,8 +1,6 @@
 ---
 title: "Welcome to Data Science Computing!"
 subtitle: "Lecture 01: Introduction"
-date: "2025-01-15"
-date-format: "DD MMMM, YYYY"
 author:
   - name: Danilo Freire
     orcid: 0000-0002-4712-6810

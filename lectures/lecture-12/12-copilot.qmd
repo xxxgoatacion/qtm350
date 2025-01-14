@@ -1,8 +1,6 @@
 ---
 title: QTM 350 - Data Science Computing
-subtitle: "Lecture 12 - AI-Assisted Programming with GitHub Copilot"
-date: 2024-10-09
-date-format: "DD MMMM, YYYY"
+subtitle: "Lecture 12 - AI-Assisted Programming with GitHub Copilot (and More)"
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -10,38 +8,18 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[GitHub Copilot](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-12/12-copilot.html)"
-    drop:
-      shortcut: "`"
-      button: true
-      engine: pyodide
-      pyodide:
-        packages:
-          - matplotlib
-          - numpy
-          - pandas
+    footer: "[Copilot and More](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-12/12-copilot.html)"
 transition: slide
 transition-speed: default
 scrollable: true
 engine: jupyter
 revealjs-plugins:
-  - drop
   - fontawesome
-filters:
-  - pyodide
 editor:
   render-on-save: true
 ---
 
 # Hello, everyone! <br> Hope all is well! 😊 {background-color="#2d4563"}
-
-## A Nobel Prize for machine learning!
-
-:::{style="margin-top: 40px; font-size: 24px; text-align: center;"}
-![](figures/nobel.jpg){width="40%"}
-
-[Geoffrey Hinton's phone interview with the Nobel Prize Committee](https://www.youtube.com/live/QAlaKfuS8Nw?si=KTSngf8uMTaAr922&t=1425)
-:::
 
 # Brief recap 📚 {background-color="#2d4563"}
 
@@ -81,6 +59,8 @@ editor:
 ![](figures/copilot.avif)
 
 [Apply for your Student Developer Pack here](https://education.github.com/discount_requests/application?type=student)
+
+[GitHub Copilot is now free (although limited to 2000 completions per month)](https://copilot.github.com/)
 :::
 :::
 :::
@@ -94,7 +74,7 @@ editor:
 :::{.columns}
 :::{.column width="50%"}
 - Discuss the pros and cons of AI-assisted programming with GitHub Copilot
-- Briefly compare it with other tools, such as TabNine, Kite, and IntelliCode
+- Briefly compare it with other tools, such as Claude, DeepSeek, Cursor, Cline
 - Learn how to install Copilot in the command line
 - Show some useful features of Copilot, including:
   - Code generation
@@ -115,58 +95,6 @@ editor:
 # Copilot or not Copilot? 🤔 {background-color="#2d4563"}
 
 ## A short overview of existing AI coding tools
-### TabNine
-
-:::{style="margin-top: 40px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
-- [TabNine](https://www.tabnine.com/): a code completion tool that uses a deep learning model to suggest code completions
-- It is a popular tool and one of the "oldest" in this category
-- Uses a [proprietary model]{.alert}, fine-tuned on a large dataset of code, and can be used in many editors
-- [It is not free]{.alert}, but it offers a free trial and it is [cheaper]{.alert} than Copilot
-- In my view, it is only good for [short completions]{.alert} and not as powerful as Copilot.
-- TabNine is [surely more private and secure]{.alert} than Copilot: it does not send your code to the cloud
-- Unit tests are pretty good too!
-- [TabNine vs. Copilot](https://swimm.io/learn/ai-tools-for-developers/copilot-vs-tabnine-go-head-to-head-6-key-differences)
-:::
-
-:::{.column width="50%"}
-:::{style="text-align: center;"}
-![](figures/tabnine.png)
-
-<https://www.tabnine.com/>
-:::
-:::
-:::
-:::
-
-## A short overview of existing AI coding tools
-### Codeium
-
-:::{style="margin-top: 40px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
-- [Codeium](https://codeium.com/) is another good tool for code completion
-- It is a [free and open-source]{.alert} tool, and it is [more private]{.alert} than Copilot
-  - Yes, individual plans are free! 🎉
-  - Pro plans start at $10/month and include GPT-4 and Claude Sonnet models
-- Codeium claims not to store or use your code for training purposes, which is also [good for privacy]{.alert}
-- Also has a chatbot 
-- In my experience, it works well and is on par with Copilot, if not a little better
-- [VS Code extension here](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium). Worth trying out 👍
-:::
-
-:::{.column width="50%"}
-:::{style="text-align: center;"}
-![](figures/codeium.png)
-
-<https://codeium.com/>
-:::
-:::
-:::
-:::
-
-## A short overview of existing AI coding tools
 ### Claude 
 
 :::{style="margin-top: 40px; font-size: 22px;"}
@@ -176,8 +104,8 @@ editor:
 - It is a [paid service]{.alert}, free plan offers little
 - Cons: does not have access to the internet and it is not integrated into an IDE
 - Pros: it is [very powerful]{.alert} and can generate code, text, and more. It also has a very cool feature called [Artifacts](https://support.anthropic.com/en/articles/9945615-intro-to-artifacts) that allows you to write and edit code together with the AI
-- It is my favourite tool for generating text
-  - I use it via [Perplexity](https://perplexity.ai/)
+- It one of the best tools for generating code, especially for more complex tasks
+- [Try it out](https://claude.ai/)
 :::
 
 :::{.column width="50%"}
@@ -213,7 +141,7 @@ editor:
 - [Cursor](https://cursor.com/) is the new kid on the block
 - It is not only an LLM, but a whole editor (in fact, it's a fork of VS Code)
   - So your extensions should work with it
-- It has [the best]{.alert} code completion I've seen so far, and it includes a chatbot too
+- It has [one of the best]{.alert} code completion I've seen so far, and it includes a chatbot too
 - Cursor, like Codeium and Copilot, can scan your whole codebase and suggest improvements
 - It also has a "Privacy Mode" that does not send your code to the cloud
 - It's paid, but it offers a (limited) free plan
@@ -233,34 +161,55 @@ editor:
 :::
 
 ## A short overview of existing AI coding tools
-### ChatGPT
+### DeepSeek
 
 :::{style="margin-top: 40px; font-size: 22px;"}
 :::{.columns}
 :::{.column width="50%"}
-- This one needs no introduction 🤖
-- Works quite well for generating code, mainly in Python, JavaScript, and other popular languages (like Copilot)
-- Free tier and paid tiers available
-- They recently copied Claude's Artifacts feature and called it [Canvas](https://openai.com/index/introducing-canvas/)
-- This is a [huge improvement]{.alert}, as it allows you to write and edit code together with the AI
-- [Try it out if you are a subscriber](https://chatgpt.com/?model=gpt-4o-canmore)
+- I have been impressed with [DeepSeek](https://deepseek.com/), a new LLM that is open source, very powerful and [super cheap]{.alert}
+- [Their chatbot is completely free](https://chat.deepseek.com/), and you can use it to generate code, text, and more
+- In my experience, it is almost as good as [Claude 3.5 Sonnet]{.alert} (but it costs about 50x less!)
+- But what makes it really shine is its [API](https://platform.deepseek.com)
+- You can put just a few dollars in your account and get an API key to use it in your projects
+- [I strongly recommend]{.alert} you to try it out
+- [Read the technical report here](https://github.com/deepseek-ai/DeepSeek-V3/blob/main/DeepSeek_V3.pdf). GitHub repository: <https://github.com/deepseek-ai>
+- (Did I say it is cheap?)
 :::
 
 :::{.column width="50%"}
 :::{style="text-align: center;"}
-![](figures/chatgpt-coding.jpg)
+![](figures/deepseek.jpg)
 
-<https://chatgpt.com/>
+<https://deepseek.com/>
 :::
 :::
 :::
 :::
 
 ## A short overview of existing AI coding tools
-### ChatGPT
+### Cline (+ LLMs)
 
-:::{style="margin-top: 40px; font-size: 22px; text-align: center;"}
-![](figures/chatgpt.png){width="80%"}
+:::{style="margin-top: 40px; font-size: 21px;"}
+:::{.columns}
+:::{.column width="50%"}
+- [Cline](https://github.com/cline/cline) is a new tool that uses any LLM, including DeepSeek, to generate code
+- It is free, open source, and has more than 20k stars on GitHub!
+- It is [really, really good]{.alert}: it goes beyond Copilot and implements [AI Agents](https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf) to help you with any project you have
+- Cline works well with [VS Code](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev), and it can be expanded with [Model Context Protocols](https://github.com/modelcontextprotocol)
+- You need an API key from any LLM to use it, and I recommend DeepSeek as it costs almost _nada_ 😂
+  - [Mistral's Codestral](https://console.mistral.ai/codestral) is actually free to use with AI Agents
+- Learning about Cline would take much more than a few minutes in class, but I recommend you to check it out
+- For those who are willing to [really]{.alert} integrate AI in your code, this is a great tool to start with
+:::
+
+:::{.column width="50%"}
+:::{style="text-align: center;"}
+![](figures/cline.gif)
+
+<https://github.com/cline/cline>
+:::
+:::
+:::
 :::
 
 # Installing GitHub Copilot in the command line 🖥️ {background-color="#2d4563"}
@@ -647,6 +596,8 @@ def is_even(number):
 :::{.column width="50%"}
 - GitHub Copilot can save you a lot of time and make you more productive (and it's fun!)
 - It is not perfect, but it is a good tool as it is 🤓
+- You should also have a look at other AI coding tools, and I recommend you to try [Cline](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev) and [DeepSeek](https://deepseek.com), as they work really well and can do much more than just code generation
+- Also, please read more about [AI agents](https://www.ibm.com/think/topics/ai-agents) and how [they can be used in your projects](https://blog.langchain.dev/what-is-an-agent/)
 - I hope you will make good use of AI coding tools from now on 🤖
 - Find out other uses for it, test the other tools available, and let me know what you think!
 :::
@@ -661,9 +612,4 @@ def is_even(number):
 
 # And that's it for today! 🎉 {background-color="#2d4563"}
 
-# Thank you for your attention and enjoy the Fall break! 🍂 {background-color="#2d4563"}
-
-
-
-
-
+# Thank you for your attention and see you all soon! {background-color="#2d4563"}
