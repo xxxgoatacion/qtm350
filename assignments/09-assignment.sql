@@ -1,5 +1,6 @@
 -- QTM 350: Data Science Computing
 -- Assignment 09: SQL Practice
+-- Due 31 March 2025
 -- Name:
 -- Instructions:
 -- You may use pgAdmin or any SQL editor of your choice to complete this assignment.
