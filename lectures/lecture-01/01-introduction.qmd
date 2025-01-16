@@ -484,7 +484,7 @@ And much more...
 
 ::: {style="font-size: 28px;"}
 - **Syllabus**: Available on our [course repository](https://github.com/danilofreire/qtm350/blob/main/syllabus.pdf) and [website](https://danilofreire.github.io/qtm350/syllabus.html). The course is designed to be self-contained. The syllabus includes links to slides and Jupyter Notebooks we will use in class, along with recommended readings, and problem sets. I will upload slides throughout the term as we progress.
-- **Schedule**: Lectures are on Mondays and Wednesdays from 2:30 to 3:45 pm
+- **Schedule**: Lectures are on Mondays and Wednesdays from 4:00 to 5:15 pm.
 - **Office Hours**: I'm available to meet you [at any time.]{.alert} Please reach out some time in advance and we can schedule a meeting
 
 - **Materials**:
