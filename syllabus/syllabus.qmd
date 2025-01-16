@@ -177,7 +177,7 @@ Suggested references:
 ### Wednesday, January 22:
 
 - Lecture 02: [Computational Literacy](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-02/02-computational-literacy.html).
-- **Assignment 01:** [Problem Set 01](https://github.com/danilofreire/qtm350/blob/main/assignments/01-assignment.ipynb)
+- **Assignment 01:** [Problem Set 01](https://github.com/danilofreire/qtm350/blob/main/assignments/01-assignment.ipynb).
 
 Suggested references:
 
@@ -274,8 +274,8 @@ Suggested references:
 ### Wednesday, February 19:
 
 - Lecture 10: **Quiz 02: Literate Programming (6%)**.
-- **Assignment 05:** Problem Set 05.
 - **Assignment 04 due (5%).**
+- **Assignment 05:** [Problem Set 05](https://github.com/danilofreire/qtm350/blob/main/assignments/05-assignment.ipynb).
 
 ## Module 04: AI-Assisted Programming
 
@@ -285,7 +285,7 @@ Suggested references:
 
 Suggested references:
 
-- Matarazzo, A & Torlone, R. (2025). [A Survey on Large Language Models with some Insights on their Capabilities and Limitations](https://arxiv.org/abs/2501.04040). arXiv preprint arXiv:2501.04040.
+- Matarazzo, A & Torlone, R. (2025). [A Survey on Large Language Models with some Insights on their Capabilities and Limitations](https://arxiv.org/abs/2501.04040). arXiv preprint arXiv:2501.04040."
 - Cihon, P. & Demirer, M. (2023). [How AI-powered software development may affect labor markets](https://www.brookings.edu/articles/how-ai-powered-software-development-may-affect-labor-markets/). Brookings Institution
 - Poldrack, R. A., Lu, T., & Beguš, G. (2023). [AI-assisted Coding: Experiments with GPT-4](https://arxiv.org/abs/2304.13187). arXiv preprint arXiv:2304.13187.
 - Lau, S & Guo, P. (2023). [From "Ban It Till We Understand It" to "Resistance is Futile": How University Programming Instructors Plan to Adapt as More Students Use AI Code Generation and Explanation Tools such as ChatGPT and GitHub Copilot](https://dl.acm.org/doi/fullHtml/10.1145/3568813.3600138). In Proceedings of the 2023 ACM Conference on International Computing Education Research V.1 (ICER '23 V1), August 07--11, 2023, Chicago, IL, USA. ACM, New York, NY, USA 16 Pages.
@@ -295,7 +295,7 @@ Suggested references:
 
 - Lecture 12: [AI-Assisted Programming with GitHub Copilot](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-12/12-copilot.html).
 - **Assignment 05 due (5%).**
-- **Assignment 06:** Problem Set 06.
+- **Assignment 06:** [Problem Set 06](https://github.com/danilofreire/qtm350/blob/main/assignments/06-assignment.ipynb).
  
 Suggested references:
 
@@ -313,8 +313,6 @@ Suggested references:
 
 - Lecture 13: [Python Data Types, Boolean Logic, and Control Structures](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-13/13-python-intro.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=668187b3-ea1e-43d4-89f2-bd0f06aeb4a0&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
-- **Assignment 06 due (5%).**
-- **Assignment 07:** Problem Set 07.
 
 Suggested references:
 
@@ -330,6 +328,8 @@ Suggested references:
 
 - Lecture 14: [Introduction to Pandas](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-14/14-pandas.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=1e70681f-4a2f-4a98-b2b8-e02006f05a65&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
+- **Assignment 06 due (5%).**
+- **Assignment 07:** [Problem Set 07](https://github.com/danilofreire/qtm350/blob/main/assignments/07-assignment.ipynb).
 
 ### Monday, March 10: Spring Break (no class)
 
@@ -339,9 +339,7 @@ Suggested references:
 
 - Lecture 15: [Pandas for Data Analysis: Data Wrangling and Aggregating](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-15/15-wrangling-aggregating.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=50a9780c-8eff-4487-8a13-ae7e2ea6a87c&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
-- **Assignment 07 due (5%).**
-- **Assignment 08:** Problem Set 08.
-
+ 
 Suggested references:
 
 - McKinney, W. (2022). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython (3rd ed.). O'Reilly Media. [Chapter 05: Getting Started with Pandas](https://wesmckinney.com/book/pandas-basics).
@@ -353,14 +351,14 @@ Suggested references:
 ### Wednesday, March 19:
 
 - Lecture 16: **Quiz 03: Python for Data Analysis (6%)**.
+- **Assignment 07 due (5%).**
+- **Assignment 08:** [Problem Set 08](https://github.com/danilofreire/qtm350/blob/main/assignments/08-assignment.zip).
 
 ## Module 06: Introduction to SQL Databases 
 
 ### Monday, March 24:
 
 - Lecture 17: [Introduction to PostgreSQL: Data Types, Tables, and Queries](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-17/17-introduction-sql.html).
-- **Assignment 08 due (5%).**
-- **Assignment 09:** Problem Set 09.
 - **Instructions for the Final Project**.
 
 Suggested references:
@@ -376,13 +374,13 @@ Suggested references:
 
 - Lecture 18: [SQL in Python: Connecting to Databases with Pandas](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-18/18-sql-python.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=96842352-f74d-4a4b-8833-2c134d27502c&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
+- **Assignment 08 due (5%).**
+- **Assignment 09:** [Problem Set 09](https://github.com/danilofreire/qtm350/blob/main/assignments/09-assignment.sql).
 
 ### Monday, March 31:
 
 - Lecture 19: [Merging Tables in SQL](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-19/19-sql-tables.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=8743a497-266f-4422-9a71-16b062cfe705&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
-- **Assignment 09 due (5%).**
-- **Assignment 10:** Problem Set 10.
 
 Suggested references:
 
@@ -394,13 +392,14 @@ Suggested references:
 ### Wednesday, April 02:
 
 - Lecture 20: **Quiz 04: SQL Databases (6%)**.
+- **Assignment 09 due (5%).**
+- **Assignment 10:** [Problem Set 10](https://github.com/danilofreire/qtm350/blob/main/assignments/10-assignment.ipynb).
 
 ## Module 07: Parallel Computing
 
 ### Monday, April 07:
 
 - Lecture 21: [Parallel Computing with Dask](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-21/21-parallel-computing.html).
-- **Assignment 10 due (5%).**
 
 Suggested references:
 
@@ -413,6 +412,7 @@ Suggested references:
 
 - Lecture 22: [Application: Parallelising Data Analysis with Dask and AutoML](https://raw.githack.com/danilofreire/qtm350/main/lectures/lecture-22/22-parallel-automl.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=a2403e39-2c84-473b-8e78-ea0889581b0c&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
+- **Assignment 10 due (5%).**
 
 Suggested references:
 
