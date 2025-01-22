@@ -68,7 +68,7 @@ for (package in packages) {
 
 ::: {.column}
 - [Instructor]{.alert}: Danilo Freire
-- [Lectures]{.alert}: Mondays and Wednesdays, 2:30-3:45pm
+- [Lectures]{.alert}: Mondays and Wednesdays, 4:00-5:15pm
 - [Office hours]{.alert}: At any time, just send me an email in advance
 - Please remember to [check the course repository regularly](https://github.com/danilofreire/qtm350) for updates and announcements `r emo::ji('winking_face')`
 :::
@@ -84,7 +84,7 @@ for (package in packages) {
 ::: {.column width="50%"}
 ::: {style="font-size: 24px;"}
 - The course focuses on three key areas of data science: [reliability]{.alert}, [reproducibility]{.alert}, and [robustness]{.alert}
-- Main topics: [command line and shell scripting (terminal),]{.fragment .fade-in} [version control (git and GitHub),]{.fragment .fade-in} [reproducible reports (Quarto and Jupyter Notebooks),]{.fragment .fade-in} [data wrangling and storage (Python and SQL),]{.fragment .fade-in} [data visualisation (Python),]{.fragment .fade-in} [AI-paired programming (Copilot),]{.fragment .fade-in} [introduction to containers (Docker),]{.fragment .fade-in} [and parallel computing (Python)]{.fragment .fade-in}
+- Main topics: [command line and shell scripting (terminal),]{.fragment .fade-in} [version control (git and GitHub),]{.fragment .fade-in} [reproducible reports (Quarto),]{.fragment .fade-in} [data wrangling and storage (Python and SQL),]{.fragment .fade-in} [data visualisation (Python),]{.fragment .fade-in} [AI-paired programming (Copilot),]{.fragment .fade-in} [introduction to containers (Docker),]{.fragment .fade-in} [and parallel computing (Python)]{.fragment .fade-in}
 :::
 :::
 
@@ -114,7 +114,7 @@ for (package in packages) {
 :::{style="margin-top:40px;"}
 :::
 
-:::::{style="font-size: 24px;"}
+:::::{style="font-size: 22px;"}
 :::: {.columns}
 ::: {.column}
 - As we discussed in the first lecture, you will need to install the following software:
@@ -130,7 +130,7 @@ for (package in packages) {
 - [GitHub](https://github.com)
 - [Anaconda](https://www.anaconda.com/products/individual) (or regular Python)
 - [Quarto](https://quarto.org/docs/get-started/index.html)
-- [PostgreSQL](https://www.postgresql.org/download)
+- [SQLite](https://www.sqlite.org/)
 - [Docker](https://docs.docker.com/get-docker)
 - [VS Code](https://code.visualstudio.com/) (optional, but strongly recommended)
 :::
@@ -290,14 +290,13 @@ The 1970s marked the transition from mechanical to electronic:
 - How can we represent text, images, and videos using only 0s and 1s?
 - This leads us to [abstraction]{.alert}: representing ideas at different
   levels of detail by identifying what is essential
-- We will use abstraction to translate 0s and 1s to decimal numbers, then
-  translate those numbers to other types
+- We will use abstraction to translate anything into 0s and 1s, and also translate those numbers to other types
 :::
 :::
 :::
 
 ::: {.column width="50%"}
-![](figures/binary-rain.gif)
+![](figures/picasso.jpg)
 :::
 ::::
 
@@ -571,20 +570,25 @@ represented by a 1.
 
 ## Binary to hex conversion
 
-:::{style="margin-top:40px;"}
-:::
+:::{style="margin-top:40px; font-size: 25px;"}
 
 - Convert binary to hex by grouping into blocks of four bits.
 - Example: Binary `1001 1110 0000 1010` converts to Hex `9E0A`.
 
 <br>
 
-:::{.fragment .fade-in}
 [Practice Exercise 02]{.alert}:
 
 1. Convert the decimal number 13 to binary.
 
 2. Convert the decimal number 13 to hexadecimal. 
+
+:::{.incremental}
+- Solutions:
+  - To binary: 13 = 1101
+  - To hexadecimal: 13 = D
+  - [Number converter](https://www.rapidtables.com/convert/number/index.html)
+:::
 :::
 
 ## Hexadecimal and HTML
@@ -754,7 +758,7 @@ Check it out here: [ASCII Table](https://www.asciitable.com/)
 
 # Questions? `r emo::ji('thinking_face')` {background-color="#2d4563"}
 
-# Programming languages and the genesis of programming `r emo::ji('glowing_star')` `r emo::ji('input_latin_lowercase')` `r emo::ji('snake')` {background-color="#2d4563"}
+# The genesis of programming languages `r emo::ji('glowing_star')` `r emo::ji('input_latin_lowercase')` `r emo::ji('snake')` {background-color="#2d4563"}
 
 ## The genesis of programming
 ### Zuse's computers
@@ -952,7 +956,7 @@ print("Hello, World!")
 :::{style="margin-top:30px;"}
 :::
 
-- [Assignment 01](https://github.com/danilofreire/qtm350/blob/main/assignments/01-assignment.ipynb) is already online. Please check it out! Due date: 11 September 2024.
+- [Assignment 01](https://github.com/danilofreire/qtm350/blob/main/assignments/01-assignment.ipynb) is already online. Please check it out! It is due next Wednesday 😉
 :::  
 ::::
 
