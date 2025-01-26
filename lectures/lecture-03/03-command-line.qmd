@@ -140,7 +140,7 @@ for (package in packages) {
 ## A computer in a nutshell
 ### Operating system
 
-:::{style="font-size: 22px;"}
+:::{style="font-size: 20px;"}
 :::{.columns}
 
 ::: {.column width="50%"}
@@ -152,6 +152,7 @@ Credit [Dave Kerr](https://effective-shell.com/part-2-core-skills/what-is-a-shel
 - The [operating system (OS)]{.alert} is system software that interfaces with (and manages access to) a computer's hardware. It also provides software resources
 - The OS is divided into the [kernel and user space]{.alert}
 - The [kernel]{.alert} is the core of the OS. It's responsible for interfacing with hardware (drivers), managing resources etc. Running software in the kernel is *extremely* sensitive! That's why users are kept away from it!
+- Curiosity: You can see the Linux kernel source code [on GitHub](https://github.com/torvalds/linux)
 - The [user space]{.alert} provides an interface for users, who can run
   programs/applications on the machine. Hardware access of programmes (e.g., memory usage) is managed by the kernel. Programmes in user space are essentially in sandboxes, which sets a limit to how much damage they can do.
 :::
@@ -193,7 +194,7 @@ Credit [Dave Kerr](https://effective-shell.com/part-2-core-skills/what-is-a-shel
 - We're not directly interacting with the "shell" but using a [terminal]{.alert}
 - A terminal is just a program that [reads input]{.alert} from the keyboard, [passes that input]{.alert} to another programme, and [displays the results]{.alert} on the screen
 - A shell program on its own does not do this - it requires a terminal as an interface
-- [Why "terminal"?]{.alert} Back in the old days (before computer screen existed), terminal machines (hardware!) were used to let humans interface with large machines ("mainframes"). Often many terminals were connected to a single machine
+- [Why "terminal"?]{.alert} Back in the old days (before computer screen existed), [terminal machines (hardware!)](https://www.friendlywire.com/articles/vintage-computers/) were used to let humans interface with [large machines ("mainframes")](https://en.wikipedia.org/wiki/Mainframe_computer). Often many terminals were connected to a single machine
 - When you want to work with a computer in a data center (or remotely in cloud computing), you'll still do pretty much the same
 :::
 :::
@@ -437,7 +438,7 @@ All bash commands have the same basic syntax:
 #| echo: true
 #| eval: false
 # list files in the Documents directory 
-# with human-readable sizes
+# in long format and human-readable sizes
 
 ls -lh ~/Documents 
 ```
@@ -447,14 +448,14 @@ ls -lh ~/Documents
 ```{bash}
 #| echo: true
 #| eval: false
-# sort the file and remove duplicates
+# sort the file and display only unique lines
 
 sort -u file.txt 
 ```
 :::
 
 :::{.column width="50%"}
-**Commands**
+[Commands]{.alert}
 
 - You don't always need options or arguments
 
@@ -481,7 +482,7 @@ command [option(s)]{.alert} argument(s)
 #| echo: true
 #| eval: false
 # list files in the Documents directory 
-# with human-readable sizes
+# in long format and human-readable sizes
 
 ls -lh ~/Documents 
 ```
@@ -491,14 +492,14 @@ ls -lh ~/Documents
 ```{bash}
 #| echo: true
 #| eval: false
-# sort the file and remove duplicates
+# sort the file and display only unique lines
 
 sort -u file.txt 
 ```
 :::
 
-:::{.column style="width: 40%; font-size: 18px;"}
-**Options** (also called **Flags**)
+:::{.column style="width: 40%; font-size: 19px;"}
+[Options]{.alert} (also called [Flags]{.alert})
 
 -   Start with a dash. Usually one letter.
 
@@ -560,7 +561,7 @@ $ sort -u file.txt
 :::
 
 ::: {.column width="50%"}
-**Arguments**
+[Arguments]{.alert}
 
 -   Tell the command *what* to operate on.
 
@@ -590,12 +591,15 @@ mv figs/cat.png best-figs/cat02.png
 
 -   The `man` pages are grouped into sections, we can see them with `man man`.
 
--   The [`cht.sh`](https://cht.sh/) website can be used directly from the shell to get help on tools. Run it like this: `curl cht.sh/command`
+-   The [`cht.sh`](https://cht.sh/) website can be used directly from the shell to get help on tools. Run it like this: `curl cht.sh/command` ([how to install `curl`](https://curl.se/download.html)).
 ![](figures/chtsh.png)
 :::
 
 ::: {.column width="50%"}
 ![](figures/beatles-help.jpeg)
+
+- Or you can use an LLM (or Google) to search for help on a command. 
+- There's a great chance that someone else has already asked the same question you have 😉
 :::
 :::
 :::
@@ -667,7 +671,7 @@ Partner up and choose a command from the list below. Use `man` to complete these
 ```{bash}
 #| echo: true
 #| eval: false
-# Choose one:
+# Choose one (or all) of the following commands:
 ls, cd, cp, mv, rm, mkdir, rmdir, touch, cat, find
 ```
 
@@ -732,7 +736,7 @@ Accessing the `figures/` directory:
 
 ```{bash}
 #| echo: true
-cd ./figures # Change to the figures directory
+cd figures # Change to the figures directory
 pwd
 ```
 
@@ -876,17 +880,16 @@ Bonus: Try using the `man` command to learn more about any of the commands you'v
 
 :::{style="margin-top:40px; font-size: 24px;"}
 :::{.columns}
-:::{.column width="50%"}
-- We will learn a bit more about the command line, especially about text processing and scripting
-- We will also learn about how to use [vim](https://www.vim.org/) or [neovim](https://neovim.io/) as a text editors
-  - Vim is a powerful text editor that is highly configurable and can be used
-    for many different programming languages. _And it is my editor of choice!_ 🤓
-- After that, we will introduce [Git](https://git-scm.com/) and [GitHub](https://github.com) for version control and collaboration
+:::{.column width="40%"}
+- We will learn a bit more about the command line 🤓
+- More specifically, we will learn about [shell scripting](https://en.wikipedia.org/wiki/Shell_script) to automate tasks and how to deal with text files
+- And after that, we will see how to use [Git](https://git-scm.com/) and [GitHub](https://github.com) for version control and collaboration
 :::
 
-:::{.column width="50%"}
-![](figures/vim.png){width="70%"}
-![](figures/vim-keyboard.png){width="70%"}
+:::{.column width="60%"}
+:::{style="text-align: center; margin-top: -30px;"}
+![](figures/lecture.png)
+:::
 :::
 :::
 :::
